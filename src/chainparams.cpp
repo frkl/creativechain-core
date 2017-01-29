@@ -76,7 +76,7 @@ public:
         consensus.nMajorityWindow = 1000;
         consensus.BIP34Height = 710000;
         consensus.BIP34Hash = uint256S("fa09d204a83a768ed5a7c8d441fa62f2043abf420cff1226c7b4329aeb9d51cf");
-        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
+//        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
         consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
         consensus.nPowTargetSpacing = 2 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -98,7 +98,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1517356801; // January 31st, 2018
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000005c13f99f6d0b1a908");
+//        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000005c13f99f6d0b1a908");
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -114,9 +114,9 @@ public:
 
         genesis = CreateGenesisBlock(1317972665, 2084827550, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        printf("%s\n", genesis.GetHash().ToString().c_str());
-        printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
-        printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+//        printf("%s\n", genesis.GetHash().ToString().c_str());
+ //       printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
+  //      printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
 
 
         assert(consensus.hashGenesisBlock == uint256S("0x989ab6dbb366fb68e64a345665e0ca8cfa3b1d4dbfe9c24602b97737d0251fa2"));
@@ -195,9 +195,9 @@ public:
 
         genesis = CreateGenesisBlock(1317798646, 385270584, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-         printf("%s\n", genesis.GetHash().ToString().c_str());
-        printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
-        printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+   //      printf("%s\n", genesis.GetHash().ToString().c_str());
+    //    printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
+     //   printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
         assert(consensus.hashGenesisBlock == uint256S("0x50ce18e6a73f82a50047a478a7d33b909640da4096b1238138076c6619109cb6"));
         assert(genesis.hashMerkleRoot == uint256S("0x6040cdb3355f9dda462664b452554561df1ecce6f2f7d447098040398195c2fc"));
 
@@ -276,9 +276,9 @@ public:
 
         genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        printf("%s\n", genesis.GetHash().ToString().c_str());
-        printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
-        printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+      //  printf("%s\n", genesis.GetHash().ToString().c_str());
+      //  printf("%s\n", consensus.hashGenesisBlock.ToString().c_str());
+      //  printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
         assert(consensus.hashGenesisBlock == uint256S("0x4ff5d83ec50ec3284a566ce800f25cd0d98a54b5768216dbb6688b2a276c5031"));
         assert(genesis.hashMerkleRoot == uint256S("0x6040cdb3355f9dda462664b452554561df1ecce6f2f7d447098040398195c2fc"));
 
