@@ -26,7 +26,7 @@ Check out the source code in the following directory hierarchy.
     git clone https://github.com/devrandom/gitian-builder.git
     git clone https://github.com/litecoin-project/litecoin.git
 
-### Litecoin maintainers/release engineers, update version in sources
+### Creativecoin maintainers/release engineers, update version in sources
 
 Update the following:
 
@@ -110,7 +110,7 @@ NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from 
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Litecoin Core for Linux, Windows, and OS X:
+### Build and sign Creativecoin Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
     ./bin/gbuild --memory 3000 --commit litecoin=v${VERSION} ../litecoin/contrib/gitian-descriptors/gitian-linux.yml
@@ -239,7 +239,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - litecoin-dev mailing list
 
-  - Litecoin Core announcements list https://groups.google.com/forum/#!forum/litecoin-dev
+  - Creativecoin Core announcements list https://groups.google.com/forum/#!forum/litecoin-dev
 
   - blog.litecoin.org blog post
 
@@ -247,7 +247,7 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
   - Update title of #litecoin on Freenode IRC
 
-  - Optionally twitter, reddit /r/Litecoin, ... but this will usually sort out itself
+  - Optionally twitter, reddit /r/Creativecoin, ... but this will usually sort out itself
 
   - Add release notes for the new version to the directory `doc/release-notes` in git master
 

@@ -20,7 +20,7 @@ Dependencies
 
 NOTE: Building with Qt4 is still supported, however, could result in a broken UI. Building with Qt5 is recommended.
 
-Build Litecoin Core
+Build Creativecoin Core
 ------------------------
 
 1. Clone the litecoin source code and cd into `litecoin`
@@ -49,19 +49,19 @@ Build Litecoin Core
 Running
 -------
 
-Litecoin Core is now available at `./src/litecoind`
+Creativecoin Core is now available at `./src/litecoind`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=litecoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Litecoin/litecoin.conf"
+    echo -e "rpcuser=litecoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Creativecoin/litecoin.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/Litecoin/litecoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Creativecoin/litecoin.conf"
 
 The first time you run litecoind, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/Litecoin/debug.log
+    tail -f $HOME/Library/Application\ Support/Creativecoin/debug.log
 
 Other commands:
 -------
