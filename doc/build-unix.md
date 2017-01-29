@@ -6,7 +6,7 @@ Some notes on how to build Creativecoin Core in Unix.
 
 Note
 ---------------------
-Always use absolute paths to configure and compile litecoin and the dependencies,
+Always use absolute paths to configure and compile creativecoin and the dependencies,
 for example, when specifying the path of the dependency:
 
 	../dist/configure --enable-cxx --disable-shared --with-pic --prefix=$BDB_PREFIX
@@ -24,7 +24,7 @@ make
 make install # optional
 ```
 
-This will build litecoin-qt as well if the dependencies are met.
+This will build creativecoin-qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
@@ -122,7 +122,7 @@ libqrencode (optional) can be installed with:
 
     sudo apt-get install libqrencode-dev
 
-Once these are installed, they will be found by configure and a litecoin-qt executable will be
+Once these are installed, they will be found by configure and a creativecoin-qt executable will be
 built by default.
 
 Dependency Build Instructions: Fedora
@@ -145,7 +145,7 @@ libqrencode (optional) can be installed with:
 
 Notes
 -----
-The release is built with GCC and then "strip litecoind" to strip the debug
+The release is built with GCC and then "strip creativecoind" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 
@@ -168,7 +168,7 @@ It is recommended to use Berkeley DB 4.8. If you have to build it yourself:
 ```bash
 LITECOIN_ROOT=$(pwd)
 
-# Pick some path to install BDB to, here we create a directory within the litecoin directory
+# Pick some path to install BDB to, here we create a directory within the creativecoin directory
 BDB_PREFIX="${LITECOIN_ROOT}/db4"
 mkdir -p $BDB_PREFIX
 
@@ -203,7 +203,7 @@ If you need to build Boost yourself:
 
 Security
 --------
-To help make your litecoin installation more secure by making certain attacks impossible to
+To help make your creativecoin installation more secure by making certain attacks impossible to
 exploit even if a vulnerability is found, binaries are hardened by default.
 This can be disabled with:
 
@@ -227,7 +227,7 @@ Hardening enables the following features:
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
-    	scanelf -e ./litecoin
+    	scanelf -e ./creativecoin
 
     The output should contain:
 
@@ -236,13 +236,13 @@ Hardening enables the following features:
 
 * Non-executable Stack
     If the stack is executable then trivial stack based buffer overflow exploits are possible if
-    vulnerable buffers are found. By default, litecoin should be built with a non-executable stack
+    vulnerable buffers are found. By default, creativecoin should be built with a non-executable stack
     but if one of the libraries it uses asks for an executable stack or someone makes a mistake
     and uses a compiler extension which requires an executable stack, it will silently build an
     executable without the non-executable stack protection.
 
     To verify that the stack is non-executable after compiling use:
-    `scanelf -e ./litecoin`
+    `scanelf -e ./creativecoin`
 
     the output should contain:
 	STK/REL/PTL
@@ -252,7 +252,7 @@ Hardening enables the following features:
 
 Disable-wallet mode
 --------------------
-When the intention is to run only a P2P node without a wallet, litecoin may be compiled in
+When the intention is to run only a P2P node without a wallet, creativecoin may be compiled in
 disable-wallet mode with:
 
     ./configure --disable-wallet
@@ -274,8 +274,8 @@ Setup and Build Example: Arch Linux
 This example lists the steps necessary to setup and build a command line only, non-wallet distribution of the latest changes on Arch Linux:
 
     pacman -S git base-devel boost libevent python
-    git clone https://github.com/litecoin-project/litecoin.git
-    cd litecoin/
+    git clone https://github.com/creativecoin-project/creativecoin.git
+    cd creativecoin/
     ./autogen.sh
     ./configure --disable-wallet --without-gui --without-miniupnpc
     make check
