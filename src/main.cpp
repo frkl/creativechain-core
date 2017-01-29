@@ -51,7 +51,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "Litecoin cannot be compiled without assertions."
+# error "creativechain cannot be compiled without assertions."
 #endif
 
 /**
@@ -116,7 +116,7 @@ static void CheckBlockIndex(const Consensus::Params& consensusParams);
 /** Constant stuff for coinbase transactions we create: */
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Litecoin Signed Message:\n";
+const string strMessageMagic = "creativechain Signed Message:\n";
 
 // Internal stuff
 namespace {
@@ -1721,6 +1721,46 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
+
+
+   CAmount nSubsidy = 55 * COIN;
+
+    //Creativechain reward design with fibonachi progress the firt year
+    if(nHeight < 2) // The first block pre-mine, for the manteniance of the plattform and incentive the content publication
+     nSubsidy = 18600000 * COIN;
+    if(nHeight < 28800 && nHeight > 1) 
+     nSubsidy = 1 * COIN;;
+    if(nHeight <= 86400 && nHeight > 57500) 
+     nSubsidy = 2 * COIN;
+    if(nHeight <= 115200 && nHeight > 86400) 
+     nSubsidy = 3 * COIN;
+     if(nHeight <= 144000 && nHeight > 115200) 
+     nSubsidy = 5 * COIN;
+     if(nHeight <= 172800 && nHeight > 144000) 
+     nSubsidy = 8 * COIN;
+     if(nHeight <= 201600 && nHeight > 172800) 
+     nSubsidy = 13 * COIN;
+     if(nHeight <= 230400 && nHeight > 201600) 
+     nSubsidy = 21 * COIN;
+     if(nHeight <= 259200 && nHeight > 230400) 
+     nSubsidy = 34 * COIN;
+     if(nHeight <= 288000 && nHeight > 259200) 
+     nSubsidy = 55 * COIN;
+
+    if(nHeight > 1116900 && nHeight <= 2233800) 
+        nSubsidy = 27.5 * COIN;
+    if(nHeight > 2233800 && nHeight <= 3350700 ) 
+        nSubsidy = 13.75 * COIN;
+    if(nHeight > 3350700 && nHeight <= 4467600) 
+        nSubsidy = 6.875 * COIN;
+    if(nHeight > 4467600 && nHeight <=   5584500) 
+    nSubsidy = 3.4 * COIN;
+    if(nHeight > 5584500) 
+    nSubsidy = 1 * COIN;
+
+    return nSubsidy;
+
+    /*
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
     // Force block reward to zero when right shift is undefined.
     if (halvings >= 64)
@@ -1729,6 +1769,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     CAmount nSubsidy = 50 * COIN;
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
     nSubsidy >>= halvings;
+    */
     return nSubsidy;
 }
 
@@ -2268,7 +2309,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("litecoin-scriptch");
+    RenameThread("creativechain-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -3541,7 +3582,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if (block.GetBlockTime() > nAdjustedTime + 2 * 60 * 60)
         return state.Invalid(false, REJECT_INVALID, "time-too-new", "block timestamp too far in the future");
 
-    // Litecoin: Reject block.nVersion=1 blocks (mainnet >= 710000, testnet >= 400000, regtest uses supermajority)
+    // creativechain: Reject block.nVersion=1 blocks (mainnet >= 710000, testnet >= 400000, regtest uses supermajority)
     const int nHeight = pindexPrev->nHeight+1;    
     bool enforceV2 = false;
     if (block.nVersion < 2) {
@@ -3598,7 +3639,7 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
         }
     }
 
-    // Litecoin: (mainnet >= 710000, testnet >= 400000, regtest uses supermajority)
+    // creativechain: (mainnet >= 710000, testnet >= 400000, regtest uses supermajority)
     // Enforce block.nVersion=2 rule that the coinbase starts with serialized block height
     // if 750 of the last 1,000 blocks are version 2 or greater (51/100 if testnet):
     bool checkHeightMismatch = false;
