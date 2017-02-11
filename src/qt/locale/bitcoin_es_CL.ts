@@ -143,7 +143,7 @@
     </message>
     <message>
         <source>Send coins to a Litecoin address</source>
-        <translation>Enviar monedas a una dirección litecoin</translation>
+        <translation>Enviar monedas a una dirección creativecoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -206,8 +206,8 @@
         <translation>Barra de pestañas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and litecoin: URIs)</source>
-        <translation>Pide pagos (genera codigos QR and litecoin: URls)</translation>
+        <source>Request payments (generates QR codes and creativecoin: URIs)</source>
+        <translation>Pide pagos (genera codigos QR and creativecoin: URls)</translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -775,7 +775,7 @@
     </message>
     <message>
         <source>Litecoin Core</source>
-        <translation>litecoin core</translation>
+        <translation>creativecoin core</translation>
     </message>
     <message>
         <source>Connect only to the specified node(s)</source>
