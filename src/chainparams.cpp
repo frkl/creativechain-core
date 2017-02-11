@@ -50,10 +50,11 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
-    const CScript genesisOutputScript = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+    const char* pszTimestamp = "Art Coin , Comando Suricato & Entropy Factory";
+    const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
+
 
 /**
  * Main network
@@ -74,7 +75,7 @@ public:
         consensus.nMajorityEnforceBlockUpgrade = 750;
         consensus.nMajorityRejectBlockOutdated = 950;
         consensus.nMajorityWindow = 1000;
-        consensus.BIP34Height = 710000;
+        consensus.BIP34Height = 0;
         consensus.BIP34Hash = uint256S("fa09d204a83a768ed5a7c8d441fa62f2043abf420cff1226c7b4329aeb9d51cf");
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); 
         consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
@@ -112,10 +113,12 @@ public:
         nDefaultPort = 19038;
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1317972665, 2084524493, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1480827456, 2085041941, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+         printf("%s\n", genesis.GetHash().ToString().c_str());
+          printf("%s\n", genesis.hashMerkleRoot.ToString().c_str());
+        assert(consensus.hashGenesisBlock == uint256S("0x0ee910f9da8da640ec3bcff588419c9c731a57059c3e661e64abf1111fdaeb4c"));
+        assert(genesis.hashMerkleRoot == uint256S("0x5a005a4e17bc30c21494b765d56a59a16ff8f3e5710bf09dbbb1b07da7485012"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
 
@@ -186,8 +189,9 @@ public:
 
         genesis = CreateGenesisBlock(1317798646, 385270584, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0xf5ae71e26c74beacc88382716aced69cddf3dffff24f384e1808905e0188f68f"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+         printf("%s\n", genesis.GetHash().ToString().c_str());
+        assert(consensus.hashGenesisBlock == uint256S("0x17ead481dd2d9bd38868f29c97353d7329708aada398dbc8da1e77aa5f624511"));
+        assert(genesis.hashMerkleRoot == uint256S("0x5a005a4e17bc30c21494b765d56a59a16ff8f3e5710bf09dbbb1b07da7485012"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -265,8 +269,9 @@ public:
 
         genesis = CreateGenesisBlock(1296688602, 0, 0x207fffff, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9"));
-        assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
+         printf("%s\n", genesis.GetHash().ToString().c_str());
+        assert(consensus.hashGenesisBlock == uint256S("0x71d5fdc0135f6f60c2d1afceabb787229a03c1390dbe732fca0ba457bc4eab1c"));
+        assert(genesis.hashMerkleRoot == uint256S("0x5a005a4e17bc30c21494b765d56a59a16ff8f3e5710bf09dbbb1b07da7485012"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
