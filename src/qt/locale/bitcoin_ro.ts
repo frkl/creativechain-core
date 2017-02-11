@@ -142,8 +142,8 @@
         <translation>Deschide &amp;URI...</translation>
     </message>
     <message>
-        <source>Send coins to a Litecoin address</source>
-        <translation>Trimite monedele către o adresă Litecoin</translation>
+        <source>Send coins to a Creativecoin address</source>
+        <translation>Trimite monedele către o adresă Creativecoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +166,8 @@
         <translation>&amp;Verifică mesajul...</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>Creativecoin</source>
+        <translation>Creativecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +194,12 @@
         <translation>Criptează cheile private care aparțin portofelului tău.</translation>
     </message>
     <message>
-        <source>Sign messages with your Litecoin addresses to prove you own them</source>
-        <translation>Semnează mesajele cu adresa ta de Litecoin pentru a face dovada că îți aparțin.</translation>
+        <source>Sign messages with your Creativecoin addresses to prove you own them</source>
+        <translation>Semnează mesajele cu adresa ta de Creativecoin pentru a face dovada că îți aparțin.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
-        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Litecoin specificată.</translation>
+        <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
+        <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Creativecoin specificată.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -746,8 +746,8 @@
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>Creativecoin Core</source>
+        <translation>Creativecoin Core</translation>
     </message>
     <message>
         <source>Information</source>

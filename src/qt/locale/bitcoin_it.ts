@@ -166,8 +166,8 @@
         <translation>Re-indicizzazione blocchi su disco...</translation>
     </message>
     <message>
-        <source>Send coins to a Litecoin address</source>
-        <translation>Invia fondi ad un indirizzo Litecoin</translation>
+        <source>Send coins to a Creativecoin address</source>
+        <translation>Invia fondi ad un indirizzo Creativecoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -190,8 +190,8 @@
         <translation>&amp;Verifica messaggio...</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>Creativecoin</source>
+        <translation>Creativecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -218,12 +218,12 @@
         <translation>Cifra le chiavi private che appartengono al tuo portamonete</translation>
     </message>
     <message>
-        <source>Sign messages with your Litecoin addresses to prove you own them</source>
-        <translation>Firma messaggi con i tuoi indirizzi Litecoin per dimostrarne il possesso</translation>
+        <source>Sign messages with your Creativecoin addresses to prove you own them</source>
+        <translation>Firma messaggi con i tuoi indirizzi Creativecoin per dimostrarne il possesso</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
-        <translation>Verifica che i messaggi siano stati firmati con gli indirizzi Litecoin specificati</translation>
+        <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
+        <translation>Verifica che i messaggi siano stati firmati con gli indirizzi Creativecoin specificati</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -262,8 +262,8 @@
         <translation>Opzioni della riga di &amp;comando</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Litecoin network</source>
-        <translation><numerusform>%n connessione attiva alla rete Litecoin</numerusform><numerusform>%n connessioni alla rete Litecoin attive</numerusform></translation>
+        <source>%n active connection(s) to Creativecoin network</source>
+        <translation><numerusform>%n connessione attiva alla rete Creativecoin</numerusform><numerusform>%n connessioni alla rete Creativecoin attive</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -330,8 +330,8 @@
         <translation>Aggiornato</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Litecoin command-line options</source>
-        <translation>Mostra il messaggio di aiuto di %1 per ottenere una lista di opzioni di comando per Litecoin </translation>
+        <source>Show the %1 help message to get a list with possible Creativecoin command-line options</source>
+        <translation>Mostra il messaggio di aiuto di %1 per ottenere una lista di opzioni di comando per Creativecoin </translation>
     </message>
     <message>
         <source>%1 client</source>
@@ -583,8 +583,8 @@
         <translation>Dato che questa è la prima volta che il programma viene lanciato, puoi scegliere dove %1 salverà i suoi dati.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Litecoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>%1 scaricherà e salverà una copia della Blockchain di Litecoin. Saranno salvati almeno %2GB di dati in questo percorso e continueranno ad aumentare col tempo. Anche il portafoglio verrà salvato in questo percorso.</translation>
+        <source>%1 will download and store a copy of the Creativecoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>%1 scaricherà e salverà una copia della Blockchain di Creativecoin. Saranno salvati almeno %2GB di dati in questo percorso e continueranno ad aumentare col tempo. Anche il portafoglio verrà salvato in questo percorso.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -726,16 +726,16 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>&amp;Spendi resti non confermati</translation>
     </message>
     <message>
-        <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Apri automaticamente la porta del client Litecoin sul router. Il protocollo UPnP deve essere supportato da parte del router ed attivo.</translation>
+        <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Apri automaticamente la porta del client Creativecoin sul router. Il protocollo UPnP deve essere supportato da parte del router ed attivo.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Mappa le porte tramite &amp;UPnP</translation>
     </message>
     <message>
-        <source>Connect to the Litecoin network through a SOCKS5 proxy.</source>
-        <translation>Connessione alla rete Litecoin attraverso un proxy SOCKS5.</translation>
+        <source>Connect to the Creativecoin network through a SOCKS5 proxy.</source>
+        <translation>Connessione alla rete Creativecoin attraverso un proxy SOCKS5.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -774,8 +774,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Litecoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Connette alla rete Litecoin attraverso un proxy SOCKS5 separato per Tor.</translation>
+        <source>Connect to the Creativecoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Connette alla rete Creativecoin attraverso un proxy SOCKS5 separato per Tor.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -869,8 +869,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Modulo</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Le informazioni visualizzate potrebbero non essere aggiornate. Il portamonete si sincronizza automaticamente con la rete Litecoin una volta stabilita una connessione, ma questo processo non è ancora stato completato.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Le informazioni visualizzate potrebbero non essere aggiornate. Il portamonete si sincronizza automaticamente con la rete Creativecoin una volta stabilita una connessione, ma questo processo non è ancora stato completato.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -962,8 +962,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Importo</translation>
     </message>
     <message>
-        <source>Enter a Litecoin address (e.g. %1)</source>
-        <translation>Inserisci un indirizzo Litecoin (ad es. %1)</translation>
+        <source>Enter a Creativecoin address (e.g. %1)</source>
+        <translation>Inserisci un indirizzo Creativecoin (ad es. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1311,8 +1311,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>R&amp;iusa un indirizzo di ricezione (non raccomandato)</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Litecoin network.</source>
-        <translation>Un messaggio opzionale da allegare e mostrare all'apertura della richiesta di pagamento. Nota: Il messaggio non sarà inviato con il pagamento sulla rete Litecoin.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Creativecoin network.</source>
+        <translation>Un messaggio opzionale da allegare e mostrare all'apertura della richiesta di pagamento. Nota: Il messaggio non sarà inviato con il pagamento sulla rete Creativecoin.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1385,7 +1385,7 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Invia Litecoin</translation>
+        <translation>Invia Creativecoin</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1555,8 +1555,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Questo è un normale pagamento.</translation>
     </message>
     <message>
-        <source>The Litecoin address to send the payment to</source>
-        <translation>L'indirizzo Litecoin a cui vuoi inviare il pagamento</translation>
+        <source>The Creativecoin address to send the payment to</source>
+        <translation>L'indirizzo Creativecoin a cui vuoi inviare il pagamento</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1599,8 +1599,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Inserisci un'etichetta per questo indirizzo per aggiungerlo alla lista degli indirizzi utilizzati</translation>
     </message>
     <message>
-        <source>A message that was attached to the creativecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Litecoin network.</source>
-        <translation>Messaggio incluso nel creativecoin URI e che sarà memorizzato con la transazione per vostro riferimento. Nota: Questo messaggio non sarà inviato attraverso la rete Litecoin.</translation>
+        <source>A message that was attached to the creativecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Creativecoin network.</source>
+        <translation>Messaggio incluso nel creativecoin URI e che sarà memorizzato con la transazione per vostro riferimento. Nota: Questo messaggio non sarà inviato attraverso la rete Creativecoin.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1640,8 +1640,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>È possibile firmare messaggi/accordi con i propri indirizzi in modo da dimostrare di poter ricevere creativecoin attraverso di essi. Si consiglia di prestare attenzione a non firmare dichiarazioni vaghe o casuali, attacchi di phishing potrebbero cercare di indurre ad apporre la firma su di esse. Si raccomanda di firmare esclusivamente dichiarazioni completamente dettagliate e delle quali si condivide in pieno il contenuto.</translation>
     </message>
     <message>
-        <source>The Litecoin address to sign the message with</source>
-        <translation>L'indirizzo Litecoin da utilizzare per firmare il messaggio</translation>
+        <source>The Creativecoin address to sign the message with</source>
+        <translation>L'indirizzo Creativecoin da utilizzare per firmare il messaggio</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1672,8 +1672,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Copia la firma corrente nella clipboard</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Litecoin address</source>
-        <translation>Firma un messaggio per dimostrare di possedere questo indirizzo Litecoin</translation>
+        <source>Sign the message to prove you own this Creativecoin address</source>
+        <translation>Firma un messaggio per dimostrare di possedere questo indirizzo Creativecoin</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1696,11 +1696,11 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Per verificare il messaggio inserire l'indirizzo del firmatario, il messaggio e la firma nei campi sottostanti, assicurandosi di copiare esattamente anche ritorni a capo, spazi, tabulazioni, etc.. Si raccomanda di non lasciarsi fuorviare dalla firma a leggere più di quanto non sia riportato nel testo del messaggio stesso, in modo da evitare di cadere vittima di attacchi di tipo man-in-the-middle. Si ricorda che la verifica della firma dimostra soltanto che il firmatario può ricevere pagamenti con l'indirizzo corrispondente, non prova l'invio di alcuna transazione.</translation>
     </message>
     <message>
-        <source>The Litecoin address the message was signed with</source>
-        <translation>L'indirizzo Litecoin con cui è stato contrassegnato il messaggio</translation>
+        <source>The Creativecoin address the message was signed with</source>
+        <translation>L'indirizzo Creativecoin con cui è stato contrassegnato il messaggio</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Litecoin address</source>
+        <source>Verify the message to ensure it was signed with the specified Creativecoin address</source>
         <translation>Verifica il messaggio per accertare che sia stato firmato con l'indirizzo specificato</translation>
     </message>
     <message>
@@ -1825,8 +1825,8 @@ Per specificare più URL separarli con una barra verticale "|".</translation>
         <translation>Accetta connessioni dall'esterno (predefinito: 1 se -proxy o -connect non sono utilizzati)</translation>
     </message>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>Creativecoin Core</source>
+        <translation>Creativecoin Core</translation>
     </message>
     <message>
         <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>

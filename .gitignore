@@ -75,7 +75,7 @@ src/qt/test/moc*.cpp
 *.qm
 Makefile
 creativecoin-qt
-Litecoin-Qt.app
+Creativecoin-Qt.app
 
 # Unit-tests
 Makefile.test

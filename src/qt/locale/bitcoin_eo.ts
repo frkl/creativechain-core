@@ -146,8 +146,8 @@
         <translation>Reindeksado de blokoj sur disko...</translation>
     </message>
     <message>
-        <source>Send coins to a Litecoin address</source>
-        <translation>Sendi monon al Litecoin-adreso</translation>
+        <source>Send coins to a Creativecoin address</source>
+        <translation>Sendi monon al Creativecoin-adreso</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -170,8 +170,8 @@
         <translation>&amp;Kontroli mesaĝon...</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>Creativecoin</source>
+        <translation>Creativecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -198,12 +198,12 @@
         <translation>Ĉifri la privatajn ŝlosilojn de via monujo</translation>
     </message>
     <message>
-        <source>Sign messages with your Litecoin addresses to prove you own them</source>
-        <translation>Subskribi mesaĝojn per via Litecoin-adresoj por pravigi, ke vi estas la posedanto</translation>
+        <source>Sign messages with your Creativecoin addresses to prove you own them</source>
+        <translation>Subskribi mesaĝojn per via Creativecoin-adresoj por pravigi, ke vi estas la posedanto</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
-        <translation>Kontroli mesaĝojn por kontroli ĉu ili estas subskribitaj per specifaj Litecoin-adresoj</translation>
+        <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
+        <translation>Kontroli mesaĝojn por kontroli ĉu ili estas subskribitaj per specifaj Creativecoin-adresoj</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -577,8 +577,8 @@
         <translation>Fakulo</translation>
     </message>
     <message>
-        <source>Automatically open the Litecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Aŭtomate malfermi la kursilan pordon por Litecoin. Tio funkcias nur se via kursilo havas la UPnP-funkcion, kaj se tiu ĉi estas ŝaltita.</translation>
+        <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Aŭtomate malfermi la kursilan pordon por Creativecoin. Tio funkcias nur se via kursilo havas la UPnP-funkcion, kaj se tiu ĉi estas ŝaltita.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -672,7 +672,7 @@
         <translation>Formularo</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Litecoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Eblas, ke la informoj videblaj ĉi tie estas eksdataj. Via monujo aŭtomate sinkoniĝas kun la creativecoin reto kiam ili konektiĝas, sed tiu procezo ankoraŭ ne finfariĝis.</translation>
     </message>
     <message>
@@ -956,7 +956,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Sendi Litecoin</translation>
+        <translation>Sendi Creativecoin</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1139,8 +1139,8 @@
         <translation>Kopii la aktualan subskribon al la tondejo</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Litecoin address</source>
-        <translation>Subskribi la mesaĝon por pravigi, ke vi estas la posedanto de tiu Litecoin-adreso</translation>
+        <source>Sign the message to prove you own this Creativecoin address</source>
+        <translation>Subskribi la mesaĝon por pravigi, ke vi estas la posedanto de tiu Creativecoin-adreso</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1159,8 +1159,8 @@
         <translation>&amp;Kontroli Mesaĝon</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Litecoin address</source>
-        <translation>Kontroli la mesaĝon por pravigi, ke ĝi ja estas subskribita per la specifa Litecoin-adreso</translation>
+        <source>Verify the message to ensure it was signed with the specified Creativecoin address</source>
+        <translation>Kontroli la mesaĝon por pravigi, ke ĝi ja estas subskribita per la specifa Creativecoin-adreso</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1244,8 +1244,8 @@
         <translation>Akcepti konektojn el ekstere (defaŭlte: 1 se ne estas -proxy nek -connect)</translation>
     </message>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Kerno de Litecoin</translation>
+        <source>Creativecoin Core</source>
+        <translation>Kerno de Creativecoin</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>

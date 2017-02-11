@@ -114,7 +114,7 @@
         <translation>Промени &amp;лозинку...</translation>
     </message>
     <message>
-        <source>Send coins to a Litecoin address</source>
+        <source>Send coins to a Creativecoin address</source>
         <translation>Пошаљите новац на creativecoin адресу</translation>
     </message>
     <message>

@@ -166,8 +166,8 @@
         <translation>Đánh chỉ số (indexing) lại các khối (blocks) trên ổ đĩa ...</translation>
     </message>
     <message>
-        <source>Send coins to a Litecoin address</source>
-        <translation>Gửi coins đến tài khoản Litecoin</translation>
+        <source>Send coins to a Creativecoin address</source>
+        <translation>Gửi coins đến tài khoản Creativecoin</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -186,8 +186,8 @@
         <translation>&amp;Tin nhắn xác thực</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>Creativecoin</source>
+        <translation>Creativecoin</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -214,12 +214,12 @@
         <translation>Mã hoá các khoá bí mật trong Ví của bạn.</translation>
     </message>
     <message>
-        <source>Sign messages with your Litecoin addresses to prove you own them</source>
-        <translation>Dùng địa chỉ Litecoin của bạn ký các tin nhắn để xác minh những nội dung tin nhắn đó là của bạn.</translation>
+        <source>Sign messages with your Creativecoin addresses to prove you own them</source>
+        <translation>Dùng địa chỉ Creativecoin của bạn ký các tin nhắn để xác minh những nội dung tin nhắn đó là của bạn.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Litecoin addresses</source>
-        <translation>Kiểm tra các tin nhắn để chắc chắn rằng chúng được ký bằng các địa chỉ Litecoin xác định.</translation>
+        <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
+        <translation>Kiểm tra các tin nhắn để chắc chắn rằng chúng được ký bằng các địa chỉ Creativecoin xác định.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -239,7 +239,7 @@
     </message>
     <message>
         <source>Request payments (generates QR codes and creativecoin: URIs)</source>
-        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ Litecoin: URLs)</translation>
+        <translation>Yêu cầu thanh toán(tạo mã QR và địa chỉ Creativecoin: URLs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -533,8 +533,8 @@
         <translation>Ví</translation>
     </message>
     <message>
-        <source>Connect to the Litecoin network through a SOCKS5 proxy.</source>
-        <translation>Kết nối đến máy chủ Litecoin thông qua SOCKS5 proxy.</translation>
+        <source>Connect to the Creativecoin network through a SOCKS5 proxy.</source>
+        <translation>Kết nối đến máy chủ Creativecoin thông qua SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1008,8 +1008,8 @@
         <translation>Lựa chọn:</translation>
     </message>
     <message>
-        <source>Litecoin Core</source>
-        <translation>Litecoin Core</translation>
+        <source>Creativecoin Core</source>
+        <translation>Creativecoin Core</translation>
     </message>
     <message>
         <source>(default: %u)</source>
