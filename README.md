@@ -32,7 +32,11 @@
  </p>
  
   
-<h2 align="center">http://creativechain.org/ico/</h2>
+<h3 align="center">http://creativechain.org/ico/</h3>
+
+<h3 align="center">http://creativechain.org/whitepaper/</h3>
+
+
 
 
 
