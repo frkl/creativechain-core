@@ -1,6 +1,6 @@
 <p align="center">
   <br>
-  <a href=""><img src="http://creativechain.org/img/crea1.jpg" alt="WebTorrent" width="100%"></a>
+  <a ><img src="http://creativechain.org/img/crea1.jpg" alt="" width="100%"></a>
   <br>
 <p align="center">
   <a href="http://creativechain.org/"><img src="http://creativechain.org/img/b-creativechain.jpg" alt="Gitter"></a>
