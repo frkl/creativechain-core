@@ -32,7 +32,7 @@ class CBaseMainParams : public CBaseChainParams
 public:
     CBaseMainParams()
     {
-        nRPCPort = 19037;
+        nRPCPort = 17711;
     }
 };
 static CBaseMainParams mainParams;
