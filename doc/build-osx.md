@@ -37,9 +37,10 @@ Build Creativecoin Core
     Configure and build the headless creativecoin binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
+    To compile for systems without the c++ boost libraries installed use `--with-boost-system=boost_system-mt --with-boost-filesystem=boost_filesystem-mt` options.
 
         ./autogen.sh
-        ./configure
+        ./configure --with-boost-system=boost_system-mt --with-boost-filesystem=boost_filesystem-mt
         make
 
 3.  It is recommended to build and run the unit tests:
