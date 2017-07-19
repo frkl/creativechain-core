@@ -137,8 +137,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-
-	( 30000, uint256S("0x70fd7c86f1fc1d63148eb459c97d4d1515b1ad98c0142f24146dc3c05c7d60b4"))
+            ( 30000, uint256S("0x70fd7c86f1fc1d63148eb459c97d4d1515b1ad98c0142f24146dc3c05c7d60b4"))
             
         };
 
@@ -160,12 +159,12 @@ public:
         consensus.BIP34Height = 400000;
         consensus.BIP34Hash = uint256S("0x860157ab24717e9694216938a9ae08cf4d58a15ca59a861e2d8469af0e6a1d50");
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
-        consensus.nPowTargetSpacing = 2.5 * 60;
+        consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; // 1 day
+        consensus.nPowTargetSpacing = 2 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
-        consensus.nMinerConfirmationWindow = 2016; // nPowTargetTimespan / nPowTargetSpacing
+        consensus.nMinerConfirmationWindow = 720; // nPowTargetTimespan / nPowTargetSpacing
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
@@ -183,26 +182,26 @@ public:
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000006fce5d67766e");
 
-        pchMessageStart[0] = 0xfc;
-        pchMessageStart[1] = 0xc1;
-        pchMessageStart[2] = 0xb7;
-        pchMessageStart[3] = 0xdc;
-        nDefaultPort = 19333;
+        pchMessageStart[0] = 0xca;
+        pchMessageStart[1] = 0xca;
+        pchMessageStart[2] = 0xca;
+        pchMessageStart[3] = 0xca;
+        nDefaultPort = 11946;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1317798646, 1328910, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1493596800, 560278, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         printf("%s\n", genesis.GetHash().ToString().c_str());
-        assert(consensus.hashGenesisBlock == uint256S("0xbf9becbfd3bdf48b023eff63b5d4a5eb6ff65b2815dca244d849c938cb4b5a65"));
+        assert(consensus.hashGenesisBlock == uint256S("0xae48f41a796dfffad00bfdb10c6597cb380f5a49681ced87777084cd75076c6f"));
         assert(genesis.hashMerkleRoot == uint256S("0x21f22d67cd6e1ab2c122f16e50dd885450ff06f86885d2770dbc2447916cec11"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("creativecointools.com", "testnet-seed.creativecointools.com"));
-        vSeeds.push_back(CDNSSeedData("loshan.co.uk", "seed-b.creativecoin.loshan.co.uk", true));
+        //vSeeds.push_back(CDNSSeedData("creativecointools.com", "testnet-seed.creativecointools.com"));
+        //vSeeds.push_back(CDNSSeedData("loshan.co.uk", "seed-b.creativecoin.loshan.co.uk", true));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,87);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
 
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
@@ -220,10 +219,7 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            ( 546, uint256S("0xa0fea99a6897f531600c8ae53367b126824fd6a847b2b2b73817a95b8e27e602")),
-            1365458829,
-            547,
-            576
+            ( 0, uint256S("0xae48f41a796dfffad00bfdb10c6597cb380f5a49681ced87777084cd75076c6f"))
         };
 
     }
