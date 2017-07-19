@@ -259,6 +259,7 @@ libbitcoin_consensus_a_SOURCES = \
   consensus/params.h \
   consensus/validation.h \
   hash.cpp \
+  keccak.cpp \
   hash.h \
   prevector.h \
   primitives/block.cpp \
@@ -275,6 +276,8 @@ libbitcoin_consensus_a_SOURCES = \
   script/script_error.cpp \
   script/script_error.h \
   serialize.h \
+  sph_types.h \
+  sph_keccak.h \
   tinyformat.h \
   uint256.cpp \
   uint256.h \
