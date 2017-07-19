@@ -190,10 +190,10 @@ public:
         nDefaultPort = 19333;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1317798646, 385270584, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1317798646, 1328910, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-         printf("%s\n", genesis.GetHash().ToString().c_str());
-        assert(consensus.hashGenesisBlock == uint256S("0x23e5dc55e36aa479367908517cc660c8089247348e2c178f6e575a1786cbb9dd"));
+        printf("%s\n", genesis.GetHash().ToString().c_str());
+        assert(consensus.hashGenesisBlock == uint256S("0xbf9becbfd3bdf48b023eff63b5d4a5eb6ff65b2815dca244d849c938cb4b5a65"));
         assert(genesis.hashMerkleRoot == uint256S("0x21f22d67cd6e1ab2c122f16e50dd885450ff06f86885d2770dbc2447916cec11"));
 
         vFixedSeeds.clear();
