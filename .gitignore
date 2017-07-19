@@ -115,3 +115,8 @@ share/BitcoindComparisonTool.jar
 
 libbitcoinconsensus.pc
 contrib/devtools/split-debug.sh
+
+# For CLion IDE
+.idea
+cmake-build-debug
+CMakeLists.txt
