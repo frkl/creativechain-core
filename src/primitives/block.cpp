@@ -43,7 +43,7 @@ uint256 CBlockHeader::GetPoWHash() const
     if (nTime < KECCAK_TIME) {
         scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
     } else {
-        thash = SerializeKeccakHash(this);
+        thash = SerializeKeccakHash(*this);
     }
     return thash;
 }
