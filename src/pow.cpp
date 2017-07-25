@@ -100,8 +100,9 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Co
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
 
-    if (nTime >= KECCAK_TIME)
-        bnTarget >>= 0x100;
+    if (nTime >= KECCAK_TIME) {
+        //bnTarget >>= 0x100;
+    }
 
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
