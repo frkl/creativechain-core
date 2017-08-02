@@ -8,8 +8,8 @@
 
 #include <stdint.h>
 
-// 2017 Aug 03 00:20:00 UTC
-static const uint32_t KECCAK_TIME = 0x59826C30;
+// 2017 Aug 03 02:00:00 UTC
+static const uint32_t KECCAK_TIME = 0x59826780;
 
 static const uint32_t CONSENSUS_HARD_FORK_TIME = 0x00;
 /** The maximum allowed size for a serialized block, in bytes (only for buffer size limits) */
