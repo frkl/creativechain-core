@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2016 The Bitcoin Core developers
+// Copyright (c) 2009-2015 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,11 +10,31 @@
 #include "tinyformat.h"
 #include "utilstrencodings.h"
 #include "crypto/common.h"
-#include "crypto/scrypt.h"
+#include "sph_keccak.h"
+#include "streams.h"
+
+#include "consensus/consensus.h"
+
+uint256 SerializeKeccakHash(const CBlockHeader& obj)
+{
+    CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
+    ss << obj;
+
+    sph_keccak256_context ctx_keccak;
+    uint256 hash;
+
+    sph_keccak256_init(&ctx_keccak);
+    sph_keccak256(&ctx_keccak, (void*)&*ss.begin(), ss.size());
+    sph_keccak256_close(&ctx_keccak, static_cast<void*>(&hash));
+
+    return hash;
+}
 
 uint256 CBlockHeader::GetHash() const
 {
-    return SerializeHash(*this);
+    if (nTime < KECCAK_TIME)
+        return SerializeHash(*this);
+    return SerializeKeccakHash(*this);
 }
 
 uint256 CBlockHeader::GetPoWHash() const
@@ -36,7 +56,7 @@ std::string CBlock::ToString() const
         vtx.size());
     for (unsigned int i = 0; i < vtx.size(); i++)
     {
-        s << "  " << vtx[i]->ToString() << "\n";
+        s << "  " << vtx[i].ToString() << "\n";
     }
     return s.str();
 }
