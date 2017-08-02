@@ -1174,11 +1174,10 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
 
-
    CAmount nSubsidy = 0 * COIN;
 
-    //Creativechain reward design with fibonachi progress the firt year
-    if(nHeight < 2) // The first block pre-mine, for the manteniance of the plattform and incentive the content publication
+    //Creativecoin reward design with fibonacci progress the first year
+    if(nHeight < 2) // The first block pre-mine, for the maintenance of the platform and incentive the content publication
      nSubsidy = 12226641 * COIN;
     if(nHeight <= 6765 && nHeight > 1) 
      nSubsidy = 1 * COIN;
@@ -1216,8 +1215,6 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
      nSubsidy = 2 * COIN;
     if(nHeight <= 24157817 && nHeight > 14930352) 
      nSubsidy = 1 * COIN;
-
-
 
     return nSubsidy;
 

@@ -103,7 +103,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Co
 
     if (nTime >= KECCAK_TIME) {
         // Adjusting the difficulty is not necessary with Keccak
-        //bnTarget >>= 0x100;
+        bnTarget >>= 0x100;
     }
 
     // Check range
