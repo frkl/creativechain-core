@@ -5,18 +5,28 @@ Before every release candidate:
 
 * Update translations (ping wumpus on IRC) see [translation_process.md](https://github.com/bitcoin/bitcoin/blob/master/doc/translation_process.md#synchronising-translations).
 
+* Update manpages, see [gen-manpages.sh](https://github.com/creativecoin-project/creativecoin/blob/master/contrib/devtools/README.md#gen-manpagessh).
+
 Before every minor and major release:
 
 * Update [bips.md](bips.md) to account for changes since the last release.
 * Update version in sources (see below)
 * Write release notes (see below)
 * Update `src/chainparams.cpp` nMinimumChainWork with information from the getblockchaininfo rpc.
+* Update `src/chainparams.cpp` defaultAssumeValid  with information from the getblockhash rpc.
+  - The selected value must not be orphaned so it may be useful to set the value two blocks back from the tip.
+  - Testnet should be set some tens of thousands back from the tip due to reorgs there.
+  - This update should be reviewed with a reindex-chainstate with assumevalid=0 to catch any defect
+     that causes rejection of blocks in the past history.
 
 Before every major release:
 
 * Update hardcoded [seeds](/contrib/seeds/README.md), see [this pull request](https://github.com/bitcoin/bitcoin/pull/7415) for an example.
+* Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
 
 ### First time / New builders
+
+If you're using the automated script (found in [contrib/gitian-build.sh](/contrib/gitian-build.sh)), then at this point you should run it with the "--setup" command. Otherwise ignore this.
 
 Check out the source code in the following directory hierarchy.
 
@@ -60,6 +70,8 @@ Tag version (or release candidate) in git
     git tag -s v(new version, e.g. 0.8.0)
 
 ### Setup and perform Gitian builds
+
+If you're using the automated script (found in [contrib/gitian-build.sh](/contrib/gitian-build.sh)), then at this point you should run it with the "--build" command. Otherwise ignore this.
 
 Setup Gitian descriptors:
 
@@ -113,16 +125,16 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 ### Build and sign Creativecoin Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit creativecoin=v${VERSION} ../creativecoin/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gbuild --num-make `nproc` --memory 3000 --commit creativecoin=v${VERSION} ../creativecoin/contrib/gitian-descriptors/gitian-linux.yml
     ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs.ltc/ ../creativecoin/contrib/gitian-descriptors/gitian-linux.yml
     mv build/out/creativecoin-*.tar.gz build/out/src/creativecoin-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit creativecoin=v${VERSION} ../creativecoin/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gbuild --num-make `nproc` --memory 3000 --commit creativecoin=v${VERSION} ../creativecoin/contrib/gitian-descriptors/gitian-win.yml
     ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs.ltc/ ../creativecoin/contrib/gitian-descriptors/gitian-win.yml
     mv build/out/creativecoin-*-win-unsigned.tar.gz inputs/creativecoin-win-unsigned.tar.gz
     mv build/out/creativecoin-*.zip build/out/creativecoin-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit creativecoin=v${VERSION} ../creativecoin/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gbuild --num-make `nproc` --memory 3000 --commit creativecoin=v${VERSION} ../creativecoin/contrib/gitian-descriptors/gitian-osx.yml
     ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs.ltc/ ../creativecoin/contrib/gitian-descriptors/gitian-osx.yml
     mv build/out/creativecoin-*-osx-unsigned.tar.gz inputs/creativecoin-osx-unsigned.tar.gz
     mv build/out/creativecoin-*.tar.gz build/out/creativecoin-*.dmg ../
@@ -138,9 +150,10 @@ Build output expected:
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
-Add other gitian builders keys to your gpg keyring
+Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
     gpg --import creativecoin/contrib/gitian-keys/*.pgp
+    gpg --refresh-keys
 
 Verify the signatures
 
@@ -165,7 +178,9 @@ Commit your signature to gitian.sigs.ltc:
 Wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
+
 - Detached signatures will then be committed to the [creativecoin-detached-sigs](https://github.com/creativecoin-project/creativecoin-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+
 
 Create (and optionally verify) the signed OS X binary:
 
@@ -233,22 +248,22 @@ Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spur
 
 - Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the creativecoin.org server.
 
+```
+
 - Update creativecoin.org version
 
 - Announce the release:
 
-  - creativecoin-dev mailing list
-
-  - Creativecoin Core announcements list https://groups.google.com/forum/#!forum/creativecoin-dev
+  - creativecoin-dev and creativecoin-dev mailing list
 
   - blog.creativecoin.org blog post
 
-  - creativecointalk.io forum announcement
-
-  - Update title of #creativecoin on Freenode IRC
+  - Update title of #creativecoin and #creativecoin-dev on Freenode IRC
 
   - Optionally twitter, reddit /r/Creativecoin, ... but this will usually sort out itself
 
-  - Add release notes for the new version to the directory `doc/release-notes` in git master
+  - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
+
+  - Create a [new GitHub release](https://github.com/creativecoin-project/creativecoin/releases/new) with a link to the archived release notes.
 
   - Celebrate

@@ -134,8 +134,10 @@
         <translation>رمز مربوط به رمزگذاریِ wallet را تغییر دهید</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -193,7 +195,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>wallet رمزگذاری شد و در حال حاضر قفل است</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -250,6 +252,13 @@
     </message>
     </context>
 <context>
+    <name>ModalOverlay</name>
+    <message>
+        <source>Form</source>
+        <translation>فرم</translation>
+    </message>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -286,8 +295,10 @@
         <translation>فرم</translation>
     </message>
     <message>
+
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>اطلاعات نمایش داده شده ممکن است روزآمد نباشد. wallet شما به صورت خودکار بعد از برقراری اتصال با شبکه creativecoin به روز می شود اما این فرایند هنوز تکمیل نشده است.</translation>
+
     </message>
     </context>
 <context>
@@ -304,6 +315,11 @@
     </message>
     </context>
 <context>
+
+    <name>QObject::QObject</name>
+    </context>
+<context>
+
     <name>QRImageWidget</name>
     </context>
 <context>

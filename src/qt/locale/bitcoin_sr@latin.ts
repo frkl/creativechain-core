@@ -100,8 +100,10 @@
         <translation>Potvrdite šifrovanje novčanika</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR CREATIVECOINS&lt;/b&gt;!</source>
-        <translation>Upozorenje: Ako šifrujete svoj novčanik, i potom izgubite svoju pristupnu frazu &lt;b&gt;IZGUBIĆETE SVE SVOJE BITKOINE&lt;/b&gt;!</translation>
+
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LITECOINS&lt;/b&gt;!</source>
+        <translation>Upozorenje: Ako šifrujete svoj novčanik, i potom izgubite svoju pristupnu frazu &lt;b&gt;IZGUBIĆETE SVE SVOJE LITECOINE&lt;/b&gt;!</translation>
+
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -158,16 +160,20 @@
         <translation>Otvori &amp;URI...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Pošalji novčiće na Creativecoin adresu</translation>
+
     </message>
     <message>
         <source>&amp;Verify message...</source>
         <translation>&amp;Proveri poruku...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -255,10 +261,8 @@
         <translation>Iznos:</translation>
     </message>
     <message>
-        <source>Priority:</source>
-        <translation>Prioritet:</translation>
-    </message>
-    <message>
+
+
         <source>Fee:</source>
         <translation>Naknada:</translation>
     </message>
@@ -308,6 +312,9 @@
     </message>
     </context>
 <context>
+    <name>ModalOverlay</name>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -330,6 +337,11 @@
     </message>
     </context>
 <context>
+
+    <name>QObject::QObject</name>
+    </context>
+<context>
+
     <name>QRImageWidget</name>
     </context>
 <context>
@@ -355,10 +367,8 @@
         <translation>Iznos:</translation>
     </message>
     <message>
-        <source>Priority:</source>
-        <translation>Prioritet:</translation>
-    </message>
-    <message>
+
+
         <source>Fee:</source>
         <translation>Naknada:</translation>
     </message>
@@ -412,8 +422,10 @@
 <context>
     <name>bitcoin-core</name>
     <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoin Core</translation>
+
     </message>
     <message>
         <source>Information</source>

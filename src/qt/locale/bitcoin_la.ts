@@ -114,8 +114,10 @@
         <translation>Recreans indicem frustorum in disco...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Mitte nummos ad inscriptionem Creativecoin</translation>
+
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -138,8 +140,10 @@
         <translation>&amp;Verifica nuntium...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -166,12 +170,14 @@
         <translation>Cifra claves privatas quae cassidili tui sunt</translation>
     </message>
     <message>
+
         <source>Sign messages with your Creativecoin addresses to prove you own them</source>
         <translation>Signa nuntios cum tuis inscriptionibus Creativecoin ut demonstres te eas possidere</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
         <translation>Verifica nuntios ut certus sis eos signatos esse cum specificatis inscriptionibus Creativecoin</translation>
+
     </message>
     <message>
         <source>&amp;File</source>
@@ -192,10 +198,6 @@
     <message>
         <source>&amp;Command-line options</source>
         <translation>Optiones mandati initiantis</translation>
-    </message>
-    <message>
-        <source>No block source available...</source>
-        <translation>Nulla fons frustorum absens...</translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -245,7 +247,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Cassidile &lt;b&gt;cifratum&lt;/b&gt; est et iam nunc &lt;b&gt;seratum&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -310,6 +312,17 @@
     </message>
     </context>
 <context>
+    <name>ModalOverlay</name>
+    <message>
+        <source>Form</source>
+        <translation>Schema</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Hora postremi frusti</translation>
+    </message>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -339,8 +352,10 @@
         <translation>Cassidile</translation>
     </message>
     <message>
+
         <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Aperi per se portam clientis Creativecoin in itineratore.  Hoc tantum effectivum est si itineratrum tuum supportat UPnP et id activum est.</translation>
+
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -418,8 +433,10 @@
         <translation>Schema</translation>
     </message>
     <message>
+
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Monstrata informatio fortasse non recentissima est.  Tuum cassidile per se synchronizat cum rete Creativecoin postquam conexio constabilita est, sed hoc actio nondum perfecta est.</translation>
+
     </message>
     <message>
         <source>Immature:</source>
@@ -448,6 +465,11 @@
     </message>
     </context>
 <context>
+
+    <name>QObject::QObject</name>
+    </context>
+<context>
+
     <name>QRImageWidget</name>
     </context>
 <context>
@@ -661,8 +683,10 @@
         <translation>Copia signationem in latibulum systematis</translation>
     </message>
     <message>
+
         <source>Sign the message to prove you own this Creativecoin address</source>
         <translation>Signa nuntium ut demonstres hanc inscriptionem Creativecoin a te possessa esse</translation>
+
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -681,8 +705,10 @@
         <translation>&amp;Verifica Nuntium</translation>
     </message>
     <message>
+
         <source>Verify the message to ensure it was signed with the specified Creativecoin address</source>
         <translation>Verifica nuntium ut cures signatum esse cum specifica inscriptione Creativecoin</translation>
+
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -758,12 +784,10 @@
         <translation>Operare infere sicut daemon et mandata accipe</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Accipe conexiones externas (praedefinitum: 1 nisi -proxy neque -connect)</translation>
-    </message>
-    <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoin Nucleus</translation>
+
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
@@ -774,16 +798,8 @@
         <translation>Facere mandatum quotiescumque cassidilis transactio mutet (%s in mandato sbstituitur ab TxID)</translation>
     </message>
     <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Hoc est prae-dimittum experimentala aedes - utere eo periculo tuo proprio - nolite utere fodendo vel applicationibus mercatoriis</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>Optiones creandi frustorum:</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Conecte sole ad nodos specificatos (vel nodum specificatum)</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -848,10 +864,6 @@
     <message>
         <source>Transaction amount too small</source>
         <translation>Magnitudo transactionis nimis parva</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation>Necesse est magnitudines transactionum positivas esse.</translation>
     </message>
     <message>
         <source>Transaction too large</source>

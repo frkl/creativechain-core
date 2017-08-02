@@ -142,8 +142,10 @@
         <translation>Deschide &amp;URI...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Trimite monedele către o adresă Creativecoin</translation>
+
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +168,10 @@
         <translation>&amp;Verifică mesajul...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +198,14 @@
         <translation>Criptează cheile private care aparțin portofelului tău.</translation>
     </message>
     <message>
+
         <source>Sign messages with your Creativecoin addresses to prove you own them</source>
         <translation>Semnează mesajele cu adresa ta de Creativecoin pentru a face dovada că îți aparțin.</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
         <translation>Verifică mesajele cu scopul de a asigura faptul că au fost semnate cu adresa de Creativecoin specificată.</translation>
+
     </message>
     <message>
         <source>&amp;File</source>
@@ -214,16 +220,14 @@
         <translation>&amp;Ajutor</translation>
     </message>
     <message>
+
         <source>Request payments (generates QR codes and creativecoin: URIs)</source>
         <translation>Cerere plată (generează coduri QR și creativecoin: URIs)</translation>
     </message>
     <message>
         <source>Open a creativecoin: URI or payment request</source>
         <translation>Deschide un creativecoin: URI sau cerere de plată</translation>
-    </message>
-    <message>
-        <source>%1 and %2</source>
-        <translation>%1 și %2</translation>
+
     </message>
     <message>
         <source>%1 behind</source>
@@ -289,7 +293,9 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Portofelul este &lt;b&gt;criptat&lt;/b&gt; și în prezent &lt;b&gt;blocat&lt;/b&gt;</translation>
     </message>
-</context>
+
+    </context>
+
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -309,10 +315,8 @@
         <translation>Cantitate:</translation>
     </message>
     <message>
-        <source>Priority:</source>
-        <translation>Prioritate:</translation>
-    </message>
-    <message>
+
+
         <source>Fee:</source>
         <translation>Taxa:</translation>
     </message>
@@ -352,10 +356,8 @@
         <source>Confirmed</source>
         <translation>Confirmat</translation>
     </message>
-    <message>
-        <source>Priority</source>
-        <translation>Prioritate</translation>
-    </message>
+
+
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -412,6 +414,11 @@
         <source>%n GB of free space available</source>
         <translation><numerusform>%n GB de spațiu liber disponibil</numerusform><numerusform>%n GB de spațiu liber disponibil</numerusform><numerusform>%n GB de spațiu liber disponibil</numerusform></translation>
     </message>
+
+    </context>
+<context>
+    <name>ModalOverlay</name>
+
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -483,6 +490,12 @@
         <translation>Tor</translation>
     </message>
     <message>
+
+        <source>&amp;Window</source>
+        <translation>&amp;Fereastra</translation>
+    </message>
+    <message>
+
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
@@ -542,11 +555,20 @@
         <source>Amount</source>
         <translation>Cantitate</translation>
     </message>
+
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 și %2</translation>
+    </message>
+    </context>
+<context>
+    <name>QObject::QObject</name>
     </context>
 <context>
     <name>QRImageWidget</name>
     </context>
 <context>
+
     <name>RPCConsole</name>
     <message>
         <source>Client version</source>
@@ -652,6 +674,12 @@
 <context>
     <name>ReceiveCoinsDialog</name>
     <message>
+
+        <source>&amp;Message:</source>
+        <translation>&amp;Mesaj:</translation>
+    </message>
+    <message>
+
         <source>Show</source>
         <translation>Arată</translation>
     </message>
@@ -685,10 +713,8 @@
         <translation>Cantitate:</translation>
     </message>
     <message>
-        <source>Priority:</source>
-        <translation>Prioritate:</translation>
-    </message>
-    <message>
+
+
         <source>Fee:</source>
         <translation>Taxa:</translation>
     </message>
@@ -746,8 +772,10 @@
 <context>
     <name>bitcoin-core</name>
     <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoin Core</translation>
+
     </message>
     <message>
         <source>Information</source>

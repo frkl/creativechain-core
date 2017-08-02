@@ -3,7 +3,7 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-        <translation>Кликните правой кнопкой мыши для редоктирования адреса или ярлыка</translation>
+        <translation>Кликните правой кнопкой мыши для редактирования адреса или метки</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-        <translation>Copy the currently selected address to the system clipboardый адрес в буфер</translation>
+        <translation>Скопировать текущий выбранный адрес в буфер обмена системы</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -41,6 +41,16 @@
         <source>&amp;Delete</source>
         <translation>Удалить</translation>
     </message>
+
+    <message>
+        <source>Choose the address to send coins to</source>
+        <translation>Выбрать адрес для отправки монет</translation>
+    </message>
+    <message>
+        <source>Choose the address to receive coins with</source>
+        <translation>Выбрать адрес для получения монет</translation>
+    </message>
+
     </context>
 <context>
     <name>AddressTableModel</name>
@@ -58,8 +68,10 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin Core</translation>
+
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -126,6 +138,9 @@
     </message>
     </context>
 <context>
+    <name>ModalOverlay</name>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>
@@ -152,6 +167,11 @@
     <name>QObject</name>
     </context>
 <context>
+
+    <name>QObject::QObject</name>
+    </context>
+<context>
+
     <name>QRImageWidget</name>
     </context>
 <context>
@@ -214,12 +234,20 @@
     </context>
 <context>
     <name>WalletView</name>
+
+    <message>
+        <source>&amp;Export</source>
+        <translation>Экспортировать</translation>
+    </message>
+
     </context>
 <context>
     <name>bitcoin-core</name>
     <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoin Core</translation>
+
     </message>
     <message>
         <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>

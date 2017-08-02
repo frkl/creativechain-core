@@ -166,8 +166,10 @@
         <translation>Ladataan lohkoindeksiä...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Lähetä kolikoita Creativecoin-osoitteeseen</translation>
+
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -190,8 +192,10 @@
         <translation>Varmista &amp;viesti...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -211,19 +215,23 @@
     </message>
     <message>
         <source>Show or hide the main Window</source>
+
         <translation>Näytä tai piilota Creativecoin-ikkuna</translation>
+
     </message>
     <message>
         <source>Encrypt the private keys that belong to your wallet</source>
         <translation>Suojaa yksityiset avaimet, jotka kuuluvat lompakkoosi</translation>
     </message>
     <message>
+
         <source>Sign messages with your Creativecoin addresses to prove you own them</source>
         <translation>Allekirjoita viestisi omalla Creativecoin -osoitteellasi todistaaksesi, että omistat ne</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
         <translation>Varmista, että viestisi on allekirjoitettu määritetyllä Creativecoin -osoitteella</translation>
+
     </message>
     <message>
         <source>&amp;File</source>
@@ -242,8 +250,10 @@
         <translation>Välilehtipalkki</translation>
     </message>
     <message>
+
         <source>Request payments (generates QR codes and creativecoin: URIs)</source>
         <translation>Pyydä maksuja (Luo QR koodit ja creativecoin: URIt)</translation>
+
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -254,16 +264,20 @@
         <translation>Näytä vastaanottamiseen käytettyjen osoitteiden ja nimien lista</translation>
     </message>
     <message>
+
         <source>Open a creativecoin: URI or payment request</source>
         <translation>Avaa creativecoin: URI tai maksupyyntö</translation>
+
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Komentorivin valinnat</translation>
     </message>
     <message numerus="yes">
+
         <source>%n active connection(s) to Creativecoin network</source>
         <translation><numerusform>%n aktiivinen yhteys Creativecoin-verkkoon</numerusform><numerusform>%n aktiivista yhteyttä Creativecoin-verkkoon</numerusform></translation>
+
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -273,33 +287,9 @@
         <source>Processing blocks on disk...</source>
         <translation>Käsitellään lohkoja levyllä...</translation>
     </message>
-    <message>
-        <source>No block source available...</source>
-        <translation>Lohkojen lähdettä ei saatavilla...</translation>
-    </message>
     <message numerus="yes">
         <source>Processed %n block(s) of transaction history.</source>
         <translation><numerusform>Prosessoitu %n lohko rahansiirtohistoriasta.</numerusform><numerusform>Prosessoitu %n lohkoa rahansiirtohistoriasta.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n tunti</numerusform><numerusform>%n tuntia</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n päivä</numerusform><numerusform>%n päivää</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n viikko</numerusform><numerusform>%n viikkoa</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 and %2</source>
-        <translation>%1 ja %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n vuosi</numerusform><numerusform>%n vuotta</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -330,8 +320,10 @@
         <translation>Rahansiirtohistoria on ajan tasalla</translation>
     </message>
     <message>
+
         <source>Show the %1 help message to get a list with possible Creativecoin command-line options</source>
         <translation>Näytä %1 ohjeet saadaksesi listan mahdollisista Creativecoinin komentorivivalinnoista</translation>
+
     </message>
     <message>
         <source>%1 client</source>
@@ -387,7 +379,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Lompakko on &lt;b&gt;salattu&lt;/b&gt; ja tällä hetkellä &lt;b&gt;lukittuna&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -405,10 +397,6 @@
     <message>
         <source>Amount:</source>
         <translation>Määrä:</translation>
-    </message>
-    <message>
-        <source>Priority:</source>
-        <translation>Prioriteetti:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -462,10 +450,8 @@
         <source>Confirmed</source>
         <translation>Vahvistettu</translation>
     </message>
-    <message>
-        <source>Priority</source>
-        <translation>Prioriteetti</translation>
-    </message>
+
+
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -583,8 +569,10 @@
         <translation>Tämä on ensimmäinen kerta, kun %1 on käynnistetty, joten voit valita data-hakemiston paikan.</translation>
     </message>
     <message>
+
         <source>%1 will download and store a copy of the Creativecoin block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>%1 lataa ja tallentaa kopion Creativecoinin lohkoketjusta. Vähintään %2Gt dataa tullaan tallentamaan tähän hakemistoon, ja tarve kasvaa ajan myötä. Lompakko tullaan myös tallentamaan tähän hakemistoon.</translation>
+
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -611,6 +599,21 @@
         <translation><numerusform>(%n Gt tarvittavasta tilasta)</numerusform><numerusform>(%n Gt tarvittavasta tilasta)</numerusform></translation>
     </message>
 </context>
+<context>
+    <name>ModalOverlay</name>
+    <message>
+        <source>Form</source>
+        <translation>Lomake</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Viimeisimmän lohkon aika</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Piilota</translation>
+    </message>
+    </context>
 <context>
     <name>OpenURIDialog</name>
     <message>
@@ -725,16 +728,20 @@
         <translation>&amp;Käytä varmistamattomia vaihtorahoja</translation>
     </message>
     <message>
+
         <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Avaa Creativecoin-asiakasohjelman portti reitittimellä automaattisesti. Tämä toimii vain, jos reitittimesi tukee UPnP:tä ja se on käytössä.</translation>
+
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Portin uudelleenohjaus &amp;UPnP:llä</translation>
     </message>
     <message>
+
         <source>Connect to the Creativecoin network through a SOCKS5 proxy.</source>
         <translation>Yhdistä Creativecoin-verkkoon SOCKS5-välityspalvelimen kautta.</translation>
+
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -773,8 +780,10 @@
         <translation>Tor</translation>
     </message>
     <message>
+
         <source>Connect to the Creativecoin network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>Yhdistä Creativecoin-verkkoon erillisen SOCKS5-välityspalvelimen kautta piilotettuja Tor-palveluja varten.</translation>
+
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services:</source>
@@ -810,11 +819,13 @@
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
+
         <translation>Yksikkö jona creativecoin-määrät näytetään</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
         <translation>Valitse mitä yksikköä käytetään ensisijaisesti creativecoin-määrien näyttämiseen.</translation>
+
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -864,8 +875,10 @@
         <translation>Lomake</translation>
     </message>
     <message>
+
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Näytetyt tiedot eivät välttämättä ole ajantasalla. Lompakkosi synkronoituu Creativecoin-verkon kanssa automaattisesti yhteyden muodostamisen jälkeen, mutta synkronointi on vielä meneillään.</translation>
+
     </message>
     <message>
         <source>Watch-only:</source>
@@ -905,7 +918,9 @@
     </message>
     <message>
         <source>Your current total balance</source>
+
         <translation>Tililläsi tällä hetkellä olevien Creativecoinien määrä</translation>
+
     </message>
     <message>
         <source>Your current balance in watch-only addresses</source>
@@ -945,11 +960,7 @@
         <source>Node/Service</source>
         <translation>Noodi/Palvelu</translation>
     </message>
-    <message>
-        <source>Ping Time</source>
-        <translation>Vasteaika</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>QObject</name>
     <message>
@@ -957,8 +968,10 @@
         <translation>Määrä</translation>
     </message>
     <message>
+
         <source>Enter a Creativecoin address (e.g. %1)</source>
         <translation>Syötä Creativecoin-osoite (esim. %1)</translation>
+
     </message>
     <message>
         <source>%1 d</source>
@@ -988,7 +1001,17 @@
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 ja %2</translation>
+    </message>
+    </context>
+<context>
+    <name>QObject::QObject</name>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    </context>
 <context>
     <name>QRImageWidget</name>
     </context>
@@ -1195,14 +1218,6 @@
         <translation>Tyhjennä konsoli</translation>
     </message>
     <message>
-        <source>&amp;Disconnect Node</source>
-        <translation>&amp;Katkaise yhteys solmukohtaan</translation>
-    </message>
-    <message>
-        <source>Ban Node for</source>
-        <translation>Estä solmukohta</translation>
-    </message>
-    <message>
         <source>1 &amp;hour</source>
         <translation>1 &amp;tunti</translation>
     </message>
@@ -1217,10 +1232,6 @@
     <message>
         <source>1 &amp;year</source>
         <translation>1 &amp;vuosi</translation>
-    </message>
-    <message>
-        <source>&amp;Unban Node</source>
-        <translation>&amp;Poista solmukohdan esto</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1302,8 +1313,10 @@
         <translation>&amp;Uudelleenkäytä vastaanotto-osoitetta (ei suositella)</translation>
     </message>
     <message>
+
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Creativecoin network.</source>
         <translation>Valinnainen viesti liitetään maksupyyntöön ja näytetään avattaessa. Viestiä ei lähetetä Creativecoin-verkkoon.</translation>
+
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1371,12 +1384,20 @@
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
+
+    <message>
+        <source>Date</source>
+        <translation>Aika</translation>
+    </message>
+
     </context>
 <context>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
+
         <translation>Lähetä Creativecoineja</translation>
+
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1405,10 +1426,6 @@
     <message>
         <source>Amount:</source>
         <translation>Määrä:</translation>
-    </message>
-    <message>
-        <source>Priority:</source>
-        <translation>Prioriteetti:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -1469,10 +1486,6 @@
     <message>
         <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
         <translation>(Älykästä rahansiirtokulua ei ole vielä alustettu. Tähän kuluu yleensä aikaa muutaman lohkon verran...)</translation>
-    </message>
-    <message>
-        <source>Confirmation time:</source>
-        <translation>Vahvistusaika:</translation>
     </message>
     <message>
         <source>normal</source>
@@ -1538,8 +1551,10 @@
         <translation>Tämä on normaali maksu.</translation>
     </message>
     <message>
+
         <source>The Creativecoin address to send the payment to</source>
         <translation>Creativecoin-osoite johon maksu lähetetään</translation>
+
     </message>
     <message>
         <source>Alt+A</source>
@@ -1558,8 +1573,10 @@
         <translation>Poista tämä alkio</translation>
     </message>
     <message>
+
         <source>The fee will be deducted from the amount being sent. The recipient will receive less creativecoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>Kulu vähennetään lähetettävästä määrästä. Saaja vastaanottaa vähemmän creativecoineja kuin merkitset Määrä-kenttään. Jos saajia on monia, kulu jaetaan tasan.</translation>
+
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -1582,8 +1599,10 @@
         <translation>Aseta nimi tälle osoitteelle lisätäksesi sen käytettyjen osoitteiden listalle.</translation>
     </message>
     <message>
+
         <source>A message that was attached to the creativecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Creativecoin network.</source>
         <translation>Viesti joka liitettiin creativecoin: URI:iin tallennetaan rahansiirtoon viitteeksi. Tätä viestiä ei lähetetä Creativecoin-verkkoon.</translation>
+
     </message>
     <message>
         <source>Pay To:</source>
@@ -1619,8 +1638,10 @@
         <translation>&amp;Allekirjoita viesti</translation>
     </message>
     <message>
+
         <source>The Creativecoin address to sign the message with</source>
         <translation>Creativecoin-osoite jolla viesti allekirjoitetaan</translation>
+
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1651,8 +1672,10 @@
         <translation>Kopioi tämänhetkinen allekirjoitus leikepöydälle</translation>
     </message>
     <message>
+
         <source>Sign the message to prove you own this Creativecoin address</source>
         <translation>Allekirjoita viesti todistaaksesi, että omistat tämän Creativecoin-osoitteen</translation>
+
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1671,12 +1694,14 @@
         <translation>&amp;Varmista viesti</translation>
     </message>
     <message>
+
         <source>The Creativecoin address the message was signed with</source>
         <translation>Creativecoin-osoite jolla viesti on allekirjoitettu</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Creativecoin address</source>
         <translation>Tarkista viestin allekirjoitus varmistaaksesi, että se allekirjoitettiin tietyllä Creativecoin-osoitteella</translation>
+
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1703,6 +1728,12 @@
 </context>
 <context>
     <name>TransactionDesc</name>
+
+    <message>
+        <source>Date</source>
+        <translation>Aika</translation>
+    </message>
+
     </context>
 <context>
     <name>TransactionDescDialog</name>
@@ -1713,9 +1744,19 @@
     </context>
 <context>
     <name>TransactionTableModel</name>
+
+    <message>
+        <source>Date</source>
+        <translation>Aika</translation>
+    </message>
     </context>
 <context>
     <name>TransactionView</name>
+    <message>
+        <source>Date</source>
+        <translation>Aika</translation>
+    </message>
+
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -1732,6 +1773,12 @@
     </context>
 <context>
     <name>WalletView</name>
+
+    <message>
+        <source>&amp;Export</source>
+        <translation>&amp;Vie</translation>
+    </message>
+
     </context>
 <context>
     <name>bitcoin-core</name>
@@ -1768,10 +1815,6 @@
         <translation>Karsinta: viime lompakon synkronisointi menee karsitun datan taakse. Sinun tarvitsee ajaa -reindex (lataa koko lohkoketju uudelleen tapauksessa jossa karsiva noodi)</translation>
     </message>
     <message>
-        <source>Reduce storage requirements by pruning (deleting) old blocks. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, &gt;%u = target size in MiB to use for block files)</source>
-        <translation>Vähennä levytilan tarvetta karsimalla (poistamalla) vanhoja lohkoja. Tämä tila ei ole yhteensopiva -txindex ja -rescan -parametrien kanssa. Varoitus: Tämän asetuksen peruutus vaatii koko lohkoketjun uudelleenlataamisen. (oletus: 0 = poista karsinta käytöstä, &gt;%u = kohdekoko muodossa MiB jota käytetään lohkotiedostoille) </translation>
-    </message>
-    <message>
         <source>Rescans are not possible in pruned mode. You will need to use -reindex which will download the whole blockchain again.</source>
         <translation>Uudelleenskannaukset eivät ole mahdollisia karsivassa tilassa. Sinun täytyy käyttää -reindex joka lataa koko lohkoketjun uudelleen.</translation>
     </message>
@@ -1796,20 +1839,14 @@
         <translation>HTTP-palvelinta ei voitu käynnistää. Katso debug-lokista lisätietoja.</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Hyväksy yhteyksiä ulkopuolelta (vakioasetus: 1 jos -proxy tai -connect ei määritelty)</translation>
-    </message>
-    <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoin-ydin</translation>
+
     </message>
     <message>
         <source>The %s developers</source>
         <translation>%s kehittäjät</translation>
-    </message>
-    <message>
-        <source>-fallbackfee is set very high! This is the transaction fee you may pay when fee estimates are not available.</source>
-        <translation>-fallbackfee on asetettu erittäin suureksi! Tämä on rahansiirtokulu jonka voit maksaa kun arvioitu rahansirtokulu ei ole saatavilla.</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
@@ -1820,10 +1857,8 @@
         <translation>Ei voida lukita data-hakemistoa %s. %s on luultavasti jo käynnissä.</translation>
     </message>
     <message>
-        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
-        <translation>Jaettu MIT-ohjelmistolisenssin alla, katso mukana tullut tiedosto COPYING tai &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
-    </message>
-    <message>
+
+
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
         <translation>Suorita käsky kun lompakossa rahansiirto muuttuu (%s cmd on vaihdettu TxID kanssa)</translation>
     </message>
@@ -1842,26 +1877,20 @@
     <message>
         <source>The block database contains a block which appears to be from the future. This may be due to your computer's date and time being set incorrectly. Only rebuild the block database if you are sure that your computer's date and time are correct</source>
         <translation>Lohkotietokanta sisältää lohkon, joka vaikuttaa olevan tulevaisuudesta. Tämä saattaa johtua tietokoneesi virheellisesti asetetuista aika-asetuksista. Rakenna lohkotietokanta uudelleen vain jos olet varma, että tietokoneesi päivämäärä ja aika ovat oikein.</translation>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Tämä on esi-julkaistu testiversio - Käytä omalla riskillä - Ei saa käytää louhimiseen tai kauppasovelluksiin.</translation>
+
+
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 1 when listening and no -proxy)</source>
         <translation>Käytä UPnP:ta kuuntelevan portin kartoitukseen (oletus: 1 kun kuunnellaan ja -proxy ei käytössä)</translation>
     </message>
     <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation>Varoitus: Tietoverkko ei ole sovussa! Luohijat näyttävät kokevan virhetilanteita.</translation>
+        <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
+        <translation>Sinun tulee uudelleenrakentaa tietokanta käyttäen -reindex-chainstate vaihtaaksesi -txindex</translation>
     </message>
     <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation>Varoitus: Olemme vertaisverkon kanssa ristiriidassa! Sinun tulee päivittää tai toisten solmujen tulee päivitää.</translation>
-    </message>
-    <message>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation>Salli vertaisten yhdistää annetusta verkkomaskista tai IP-osoitteesta. Voidaan määrittää useampia kertoja.</translation>
+        <source>%s corrupt, salvage failed</source>
+        <translation>%s korruptoitunut, korjaaminen epäonnistui</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex-chainstate to change -txindex</source>
@@ -1890,10 +1919,8 @@
     <message>
         <source>Cannot resolve -%s address: '%s'</source>
         <translation>-%s -osoitteen '%s' selvittäminen epäonnistui</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Yhidstä ainoastaan määrättyihin noodeihin</translation>
+
+
     </message>
     <message>
         <source>Connection options:</source>
@@ -2088,10 +2115,8 @@
         <translation>Siirtomäärä on liian pieni lähetettäväksi kulun vähentämisen jälkeen.</translation>
     </message>
     <message>
-        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
-        <translation>Tämä tuote sisältää ohjelmistoa, jonka on kehittänyt OpenSSL Project käytettäväksi OpenSSL Toolkit -ohjelmistossa &lt;https://www.openssl.org/&gt;, ja Eric Youngin kirjoittamaa salausohjelmistoa sekä Thomas Bernardin kirjoittamaa UPnP-ohjelmistoa.</translation>
-    </message>
-    <message>
+
+
         <source>(default: %u)</source>
         <translation>(oletus: %u)</translation>
     </message>
@@ -2184,10 +2209,6 @@
         <translation>Siirtosumma liian pieni</translation>
     </message>
     <message>
-        <source>Transaction amounts must be positive</source>
-        <translation>Siirtosumman tulee olla positiivinen</translation>
-    </message>
-    <message>
         <source>Transaction too large for fee policy</source>
         <translation>Rahansiirto on liian suuri maksukulukäytännölle</translation>
     </message>
@@ -2238,10 +2259,6 @@
     <message>
         <source>-maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
         <translation>-maxtxfee on asetettu erittäin suureksi! Tämänkokoisia kuluja saatetaan maksaa yhdessä rahansiirrossa.</translation>
-    </message>
-    <message>
-        <source>-paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation>-paytxfee on asetettu erittäin suureksi! Tämä on rahansiirtokulu, jonka maksat, mikäli lähetät rahansiirron.</translation>
     </message>
     <message>
         <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
@@ -2320,6 +2337,12 @@
         <translation>Aseta avainaltaan kooksi &lt;n&gt; (oletus: %u)</translation>
     </message>
     <message>
+
+        <source>Set maximum BIP141 block weight (default: %d)</source>
+        <translation>Aseta suurin BIP141-lohkopaino (oletus: %d)</translation>
+    </message>
+    <message>
+
         <source>Set the number of threads to service RPC calls (default: %d)</source>
         <translation>Aseta RPC-kutsujen palvelemiseen tarkoitettujen säikeiden lukumäärä (oletus: %d)</translation>
     </message>

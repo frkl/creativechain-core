@@ -13,7 +13,9 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
+
         return @"org.creativecoin.Creativecoin-Qt";
+
     } else {
         return [self __bundleIdentifier];
     }

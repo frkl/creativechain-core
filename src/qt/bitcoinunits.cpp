@@ -1,4 +1,4 @@
-// Copyright (c) 2011-2015 The Bitcoin Core developers
+// Copyright (c) 2011-2016 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -40,9 +40,11 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
+
     case BTC: return QString("CREA");
     case mBTC: return QString("mCREA");
     case uBTC: return QString::fromUtf8("μCREA");
+
     default: return QString("???");
     }
 }
@@ -51,9 +53,11 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("CREA");
-    case mBTC: return QString("MiliCREA (1 / 1" THIN_SP_UTF8 "000)");
-    case uBTC: return QString("MicroCREA (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+
+    case BTC: return QString("Creativecoins");
+    case mBTC: return QString("Milli-Creativecoins (1 / 1" THIN_SP_UTF8 "000)");
+    case uBTC: return QString("Micro-Creativecoins (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+
     default: return QString("???");
     }
 }

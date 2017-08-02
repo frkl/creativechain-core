@@ -11,6 +11,7 @@ Before running the tests, the following must be installed.
 
 Unix
 ----
+
 `python3-zmq` and `creativecoin_scrypt` are required. On Ubuntu or Debian they can be installed via:
 ```
 sudo apt-get install python3-zmq
@@ -21,6 +22,7 @@ OS X
 ------
 ```
 pip3 install pyzmq
+
 pip3 install creativecoin_scrypt
 ```
 

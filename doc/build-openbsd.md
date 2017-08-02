@@ -1,8 +1,9 @@
 OpenBSD build guide
 ======================
-(updated for OpenBSD 5.9)
+(updated for OpenBSD 6.0)
 
 This guide describes how to build creativecoind and command-line utilities on OpenBSD.
+
 
 As OpenBSD is most common as a server OS, we will not bother with the GUI.
 
@@ -17,6 +18,7 @@ pkg_add autoconf # (select highest version, e.g. 2.69)
 pkg_add automake # (select highest version, e.g. 1.15)
 pkg_add python # (select highest version, e.g. 3.5)
 ```
+
 
 The default C++ compiler that comes with OpenBSD 5.9 is g++ 4.2. This version is old (from 2007), and is not able to compile the current version of Creativecoin Core, primarily as it has no C++11 support, but even before there were issues. So here we will be installing a newer compiler.
 
@@ -43,6 +45,7 @@ This makes it necessary to build boost, or at least the parts used by Creativeco
 
 ```
 # Pick some path to install boost to, here we create a directory within the creativecoin directory
+
 LITECOIN_ROOT=$(pwd)
 BOOST_PREFIX="${LITECOIN_ROOT}/boost"
 mkdir -p $BOOST_PREFIX
@@ -74,7 +77,9 @@ See "Berkeley DB" in [build_unix.md](build_unix.md) for instructions on how to b
 You cannot use the BerkeleyDB library from ports, for the same reason as boost above (g++/libstd++ incompatibility).
 
 ```bash
+
 # Pick some path to install BDB to, here we create a directory within the creativecoin directory
+
 LITECOIN_ROOT=$(pwd)
 BDB_PREFIX="${LITECOIN_ROOT}/db4"
 mkdir -p $BDB_PREFIX
@@ -124,7 +129,7 @@ To configure with wallet:
 ```bash
 ./configure --with-gui=no --with-boost=$BOOST_PREFIX \
     CC=egcc CXX=eg++ CPP=ecpp \
-    LDFLAGS="-L${BDB_PREFIX}/lib/" CPPFLAGS="-I${BDB_PREFIX}/include/"
+    BDB_LIBS="-L${BDB_PREFIX}/lib -ldb_cxx-4.8" BDB_CFLAGS="-I${BDB_PREFIX}/include"
 ```
 
 To configure without wallet:
@@ -141,6 +146,8 @@ gmake check
 
 Clang (not currently working)
 ------------------------------
+
+WARNING: This is outdated, needs to be updated for OpenBSD 6.0 and re-tried.
 
 Using a newer g++ results in linking the new code to a new libstdc++.
 Libraries built with the old g++, will still import the old library.

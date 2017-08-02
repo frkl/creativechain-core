@@ -1,17 +1,9 @@
-Wallet Tools
----------------------
-
-### [SpendFrom](/contrib/spendfrom) ###
-
-Use the raw transactions API to send coins received on a particular
-address (or addresses).
-
 Repository Tools
 ---------------------
 
 ### [Developer tools](/contrib/devtools) ###
 Specific tools for developers working on this repository.
-Contains the script `github-merge.py` for merging github pull requests securely and signing them using GPG.
+Contains the script `github-merge.py` for merging GitHub pull requests securely and signing them using GPG.
 
 ### [Verify-Commits](/contrib/verify-commits) ###
 Tool to verify that every merge commit was signed by a developer using the above `github-merge.py` script.
@@ -33,6 +25,7 @@ Build Tools and Keys
 Contains files used to package creativecoind/creativecoin-qt
 for Debian-based Linux systems. If you compile creativecoind/creativecoin-qt yourself, there are some useful files here.
 
+
 ### [Gitian-descriptors](/contrib/gitian-descriptors) ###
 Notes on getting Gitian builds up and running using KVM.
 
@@ -45,10 +38,14 @@ Scripts and notes for Mac builds.
 ### [RPM](/contrib/rpm) ###
 RPM spec file for building creativecoin-core on RPM based distributions
 
+### [Gitian-build](/contrib/gitian-build.sh) ###
+Script for running full Gitian builds.
+
 Test and Verify Tools 
 ---------------------
 
 ### [TestGen](/contrib/testgen) ###
+
 Utilities to generate test vectors for the data-driven Creativecoin tests.
 
 ### [Verify Binaries](/contrib/verifybinaries) ###

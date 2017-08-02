@@ -6,6 +6,7 @@ src/creativecoind
 src/creativecoin-cli
 src/creativecoin-tx
 src/test/test_creativecoin
+src/test/test_creativecoin_fuzzy
 src/qt/test/test_creativecoin-qt
 
 # autoreconf
@@ -55,7 +56,6 @@ src/qt/test/moc*.cpp
 *.o
 *.o-*
 *.patch
-.creativecoin
 *.a
 *.pb.cc
 *.pb.h
@@ -93,7 +93,7 @@ build
 *.gcno
 *.gcda
 /*.info
-test_bitcoin.coverage/
+test_creativecoin.coverage/
 total.coverage/
 coverage_percent.txt
 
@@ -101,13 +101,8 @@ coverage_percent.txt
 linux-coverage-build
 linux-build
 win32-build
-qa/pull-tester/run-bitcoind-for-test.sh
 qa/pull-tester/tests_config.py
-qa/pull-tester/cache/*
-qa/pull-tester/test.*/*
-qa/tmp
-cache/
-share/BitcoindComparisonTool.jar
+qa/cache/*
 
 !src/leveldb*/Makefile
 

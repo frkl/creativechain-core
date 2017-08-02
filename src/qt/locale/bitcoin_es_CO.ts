@@ -126,8 +126,10 @@
         <translation>Abrir &amp;URL...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Enviando monedas a una dirección de Creativecoin</translation>
+
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -146,8 +148,10 @@
         <translation>&amp;Verificar Mensaje...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -210,6 +214,9 @@
     </message>
     </context>
 <context>
+    <name>ModalOverlay</name>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -228,6 +235,11 @@
     <name>QObject</name>
     </context>
 <context>
+
+    <name>QObject::QObject</name>
+    </context>
+<context>
+
     <name>QRImageWidget</name>
     </context>
 <context>
@@ -290,8 +302,10 @@
 <context>
     <name>bitcoin-core</name>
     <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoin Core</translation>
+
     </message>
     <message>
         <source>Insufficient funds</source>

@@ -162,10 +162,8 @@ Social Network
 ---
 Creativechain works like any social network where content is displayed or distributed. You can create distribution channels and specific communities where interact with content from other authors, using, rating and commenting on their creations. The system incorporates an encrypted chat so that you can contact privately with the artists and authors of the content. 
 
-
 License
 -------
-
 Creativecoin Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
@@ -184,9 +182,10 @@ lots of money.
 
 ### Automated Testing
 
-Developers are strongly encouraged to write [unit tests](/doc/unit-tests.md) for new code, and to
+Developers are strongly encouraged to write [unit tests](src/test/README.md) for new code, and to
 submit new unit tests for old code. Unit tests can be compiled and run
-(assuming they weren't disabled in configure) with: `make check`
+(assuming they weren't disabled in configure) with: `make check`. Further details on running
+and extending unit tests can be found in [/src/test/README.md](/src/test/README.md).
 
 There are also [regression and integration tests](/qa) of the RPC interface, written
 in Python, that are run automatically on the build server.

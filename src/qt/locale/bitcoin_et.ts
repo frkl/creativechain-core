@@ -62,12 +62,14 @@
         <translation>Vastuvõtvad aadressid</translation>
     </message>
     <message>
+
         <source>These are your Creativecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Need on sinu Creativecoin aadressid maksete saatmiseks. Ennem müntide saatmist kontrolli alati summat ja makse saaja aadressi.</translation>
     </message>
     <message>
         <source>These are your Creativecoin addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>Need on sinu Creativecoin aadressid sisenevate maksete vastu võtmiseks. Soovitav on iga tehingu tarbeks kasutada uut aadressi.</translation>
+
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -168,8 +170,10 @@
         <translation>Kinnita rahakoti krüpteerimine.</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR CREATIVECOINS&lt;/b&gt;!</source>
-        <translation>Hoiatus:Kui sa krüpteerid oma rahakoti ja kaotad salafraasi, siis sa&lt;b&gt;KAOTAD OMA CREATIVECOINSD&lt;/b&gt;!</translation>
+
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR LITECOINS&lt;/b&gt;!</source>
+        <translation>Hoiatus:Kui sa krüpteerid oma rahakoti ja kaotad salafraasi, siis sa&lt;b&gt;KAOTAD OMA LITECOINID&lt;/b&gt;!</translation>
+
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -214,6 +218,10 @@
 </context>
 <context>
     <name>BanTableModel</name>
+    <message>
+        <source>IP/Netmask</source>
+        <translation>IP/Võrgumask</translation>
+    </message>
     </context>
 <context>
     <name>BitcoinGUI</name>
@@ -286,8 +294,10 @@
         <translation>Kettal olevate blokkide re-indekseerimine...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Saada münte Creativecoini aadressile</translation>
+
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -310,8 +320,10 @@
         <translation>&amp;Kontrolli sõnumit...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -338,12 +350,14 @@
         <translation>Krüpteeri oma rahakoti privaatvõtmed</translation>
     </message>
     <message>
+
         <source>Sign messages with your Creativecoin addresses to prove you own them</source>
         <translation>Omandi tõestamiseks allkirjasta sõnumid oma Creativecoini aadressiga</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
         <translation>Kinnita sõnumid kindlustamaks et need allkirjastati määratud Creativecoini aadressiga</translation>
+
     </message>
     <message>
         <source>&amp;File</source>
@@ -362,20 +376,24 @@
         <translation>Vahelehe tööriistariba</translation>
     </message>
     <message>
+
         <source>Request payments (generates QR codes and creativecoin: URIs)</source>
         <translation>Loo maksepäring (genereerib QR koodid ja creativecoini: URId)</translation>
     </message>
     <message>
         <source>Open a creativecoin: URI or payment request</source>
         <translation>Ava creativecoini: URI või maksepäring</translation>
+
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Käsurea valikud</translation>
     </message>
     <message numerus="yes">
+
         <source>%n active connection(s) to Creativecoin network</source>
         <translation><numerusform>%n aktiivne ühendus Creativecoini võrku</numerusform><numerusform>%n aktiivset ühendust Creativecoini võrku</numerusform></translation>
+
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -385,33 +403,9 @@
         <source>Processing blocks on disk...</source>
         <translation>Kõvakettal olevate plokkide töötlemine...</translation>
     </message>
-    <message>
-        <source>No block source available...</source>
-        <translation>Plokkide allikas pole saadaval...</translation>
-    </message>
     <message numerus="yes">
         <source>Processed %n block(s) of transaction history.</source>
         <translation><numerusform>Töödeldud %n plokk transaktsioonide ajaloost.</numerusform><numerusform>Töödeldud %n plokki transaktsioonide ajaloost.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n tund</numerusform><numerusform>%n tundi</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n päev</numerusform><numerusform>%n päeva</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n nädal</numerusform><numerusform>%n nädalat</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 and %2</source>
-        <translation>%1 ja %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n aasta</numerusform><numerusform>%n aastat</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -495,7 +489,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Rahakott on &lt;b&gt;krüpteeritud&lt;/b&gt; ning hetkel &lt;b&gt;suletud&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -563,10 +557,8 @@
         <translation>Kinnitatud</translation>
     </message>
     <message>
-        <source>Priority</source>
-        <translation>Prioriteet</translation>
-    </message>
-    <message>
+
+
         <source>Copy address</source>
         <translation>Kopeeri aadress</translation>
     </message>
@@ -595,10 +587,8 @@
         <translation>Kopeeri baidid</translation>
     </message>
     <message>
-        <source>Copy priority</source>
-        <translation>Kopeeri prioriteet</translation>
-    </message>
-    <message>
+
+
         <source>Copy dust</source>
         <translation>Kopeeri puru</translation>
     </message>
@@ -607,50 +597,14 @@
         <translation>Kopeeri vahetusraha</translation>
     </message>
     <message>
-        <source>highest</source>
-        <translation>kõrgeim</translation>
-    </message>
-    <message>
-        <source>higher</source>
-        <translation>kõrgem</translation>
-    </message>
-    <message>
-        <source>high</source>
-        <translation>kõrge</translation>
-    </message>
-    <message>
-        <source>medium-high</source>
-        <translation>keskmiselt kõrge</translation>
-    </message>
-    <message>
-        <source>medium</source>
-        <translation>keskmine</translation>
-    </message>
-    <message>
-        <source>low-medium</source>
-        <translation>keskmiselt madal</translation>
-    </message>
-    <message>
-        <source>low</source>
-        <translation>madal</translation>
-    </message>
-    <message>
-        <source>lower</source>
-        <translation>madalam</translation>
-    </message>
-    <message>
-        <source>lowest</source>
-        <translation>madalaim</translation>
-    </message>
-    <message>
+
+
         <source>(%1 locked)</source>
         <translation>(%1 lukustatud)</translation>
     </message>
     <message>
-        <source>none</source>
-        <translation>puudub</translation>
-    </message>
-    <message>
+
+
         <source>yes</source>
         <translation>jah</translation>
     </message>
@@ -659,18 +613,8 @@
         <translation>ei</translation>
     </message>
     <message>
-        <source>This label turns red if the transaction size is greater than 1000 bytes.</source>
-        <translation>Märgis muutub punaseks kui transaktsiooni suurus ületab 1000 baiti.</translation>
-    </message>
-    <message>
-        <source>This means a fee of at least %1 per kB is required.</source>
-        <translation>See tähendab, et vajalik tehingutasu on vähemalt %1 kB kohta</translation>
-    </message>
-    <message>
-        <source>This label turns red if the priority is smaller than "medium".</source>
-        <translation>See märgis muutud punaseks kui prioriteet on madalam kui "keskmine".</translation>
-    </message>
-    <message>
+
+
         <source>(no label)</source>
         <translation>(märgis puudub)</translation>
     </message>
@@ -710,8 +654,10 @@
         <translation>Muuda saatvat aadressi</translation>
     </message>
     <message>
+
         <source>The entered address "%1" is not a valid Creativecoin address.</source>
         <translation>Sisestatud aadress "%1" ei ole korrektne Creativecoin aadress.</translation>
+
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -772,6 +718,21 @@
     </message>
     </context>
 <context>
+    <name>ModalOverlay</name>
+    <message>
+        <source>Form</source>
+        <translation>Vorm</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Viimane ploki aeg</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Peida</translation>
+    </message>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>
@@ -825,8 +786,10 @@
         <translation>Ekspert</translation>
     </message>
     <message>
+
         <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Creativecoini kliendi pordi automaatne avamine ruuteris. Toimib, kui sinu ruuter aktsepteerib UPnP ühendust.</translation>
+
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -845,8 +808,24 @@
         <translation>Proxi port (nt 9050)</translation>
     </message>
     <message>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
+        <source>Tor</source>
+        <translation>Tor</translation>
+    </message>
+    <message>
         <source>&amp;Window</source>
         <translation>&amp;Aken</translation>
+    </message>
+    <message>
+        <source>Hide tray icon</source>
+        <translation>Peida tegumiriba ikoon</translation>
     </message>
     <message>
         <source>Show only a tray icon after minimizing the window.</source>
@@ -908,8 +887,14 @@
         <translation>Vorm</translation>
     </message>
     <message>
+
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Kuvatav info ei pruugi olla ajakohane. Ühenduse loomisel süngitakse sinu rahakott automaatselt Bitconi võrgustikuga, kuid see toiming on hetkel lõpetamata.</translation>
+        <translation>Kuvatav info ei pruugi olla ajakohane. Ühenduse loomisel süngitakse sinu rahakott automaatselt Liteconi võrgustikuga, kuid see toiming on hetkel lõpetamata.</translation>
+    </message>
+    <message>
+        <source>Pending:</source>
+        <translation>Ootel:</translation>
+
     </message>
     <message>
         <source>Pending:</source>
@@ -963,6 +948,40 @@
     <message>
         <source>N/A</source>
         <translation>N/A</translation>
+    </message>
+    <message>
+        <source>%1 ms</source>
+        <translation>%1 ms</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n hour(s)</source>
+        <translation><numerusform>%n tund</numerusform><numerusform>%n tundi</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s)</source>
+        <translation><numerusform>%n päev</numerusform><numerusform>%n päeva</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n week(s)</source>
+        <translation><numerusform>%n nädal</numerusform><numerusform>%n nädalat</numerusform></translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 ja %2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n year(s)</source>
+        <translation><numerusform>%n aasta</numerusform><numerusform>%n aastat</numerusform></translation>
+    </message>
+    </context>
+<context>
+    <name>QObject::QObject</name>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    <message>
+        <source>Save QR Code</source>
+        <translation>Salvesta QR Kood</translation>
     </message>
     </context>
 <context>
@@ -1343,10 +1362,8 @@
         <translation>Kopeeri baidid</translation>
     </message>
     <message>
-        <source>Copy priority</source>
-        <translation>Kopeeri prioriteet</translation>
-    </message>
-    <message>
+
+
         <source>Copy dust</source>
         <translation>Kopeeri puru</translation>
     </message>
@@ -1375,8 +1392,10 @@
         <translation>Maksepäring aegunud.</translation>
     </message>
     <message>
+
         <source>Warning: Invalid Creativecoin address</source>
         <translation>Hoiatus: Ebakorrektne Creativecoin aadress</translation>
+
     </message>
     <message>
         <source>(no label)</source>
@@ -1455,8 +1474,10 @@
         <translation>&amp;Allkirjastamise teade</translation>
     </message>
     <message>
+
         <source>The Creativecoin address to sign the message with</source>
         <translation>Creativecoin aadress millega sõnum allkirjastada</translation>
+
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1487,8 +1508,10 @@
         <translation>Kopeeri praegune signatuur vahemällu</translation>
     </message>
     <message>
+
         <source>Sign the message to prove you own this Creativecoin address</source>
         <translation>Allkirjasta sõnum Creativecoini aadressi sulle kuulumise tõestamiseks</translation>
+
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1507,12 +1530,14 @@
         <translation>&amp;Kinnita Sõnum</translation>
     </message>
     <message>
+
         <source>The Creativecoin address the message was signed with</source>
         <translation>Creativecoin aadress millega sõnum on allkirjastatud</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Creativecoin address</source>
-        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Creativecoin aadressiga.</translation>
+        <translation>Kinnita sõnum tõestamaks selle allkirjastatust määratud Creativecoini aadressiga.</translation>
+
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1796,12 +1821,10 @@
         <translation>Tööta taustal ning aktsepteeri käsklusi</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Luba välisühendusi (vaikeväärtus: 1 kui puudub -proxy või -connect)</translation>
-    </message>
-    <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoini tuumik</translation>
+
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
@@ -1812,16 +1835,8 @@
         <translation>Käivita käsklus, kui rahakoti tehing muutub (%s cmd's muudetakse TxID'ks)</translation>
     </message>
     <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>See on test-versioon - kasutamine omal riisikol - ära kasuta mining'uks ega kaupmeeste programmides</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>Blokeeri loomise valikud:</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Ühendu ainult määratud node'i(de)ga</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

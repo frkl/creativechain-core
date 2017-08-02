@@ -54,8 +54,10 @@
         <translation>&amp;Odaberi</translation>
     </message>
     <message>
+
         <source>These are your Creativecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Ovo su vaše Creativecoin adrese za slanje novca. Uvijek provjerite iznos i adresu primatelja prije slanja novca.</translation>
+
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -174,8 +176,10 @@
         <translation>Re-indeksiranje blokova na disku...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Slanje novca na creativecoin adresu</translation>
+
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -198,8 +202,10 @@
         <translation>&amp;Potvrdite poruku...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -226,12 +232,14 @@
         <translation>Šifriranje privatnih ključeva koji u novčaniku</translation>
     </message>
     <message>
+
         <source>Sign messages with your Creativecoin addresses to prove you own them</source>
         <translation>Poruku potpišemo s creativecoin adresom, kako bi dokazali vlasništvo nad tom adresom</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
         <translation>Provjeravanje poruke, kao dokaz, da je potpisana navedenom creativecoin adresom</translation>
+
     </message>
     <message>
         <source>&amp;File</source>
@@ -250,8 +258,10 @@
         <translation>Traka kartica</translation>
     </message>
     <message>
+
         <source>Request payments (generates QR codes and creativecoin: URIs)</source>
         <translation>Zatraži uplatu (stvara QR kod i creativecoin: URI adresu)</translation>
+
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -262,40 +272,24 @@
         <translation>Prikaži popis korištenih adresa i oznaka za primanje novca</translation>
     </message>
     <message>
+
         <source>Open a creativecoin: URI or payment request</source>
         <translation>Otvori creativecoin: URI adresu ili zahtjev za uplatu</translation>
+
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Opcije &amp;naredbene linije</translation>
     </message>
     <message numerus="yes">
+
         <source>%n active connection(s) to Creativecoin network</source>
         <translation><numerusform>%n aktivna veza na Creativecoin mrežu</numerusform><numerusform>%n aktivnih veza na Creativecoin mrežu</numerusform><numerusform>%n aktivnih veza na Creativecoin mrežu</numerusform></translation>
+
     </message>
     <message numerus="yes">
         <source>Processed %n block(s) of transaction history.</source>
         <translation><numerusform>Obrađen %n blok povijesti transakcije.</numerusform><numerusform>Obrađeno %n bloka povijesti transakcije.</numerusform><numerusform>Obrađeno %n blokova povijesti transakcije.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n sat</numerusform><numerusform>%n sata</numerusform><numerusform>%n sati</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n dan</numerusform><numerusform>%n dana</numerusform><numerusform>%n dana</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n tjedan</numerusform><numerusform>%n tjedna</numerusform><numerusform>%n tjedana</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 and %2</source>
-        <translation>%1 i %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n godina</numerusform><numerusform>%n godine</numerusform><numerusform>%n godina</numerusform></translation>
     </message>
     <message>
         <source>Last received block was generated %1 ago.</source>
@@ -371,7 +365,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Novčanik je &lt;b&gt;šifriran&lt;/b&gt; i trenutno &lt;b&gt;zaključan&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -389,10 +383,6 @@
     <message>
         <source>Amount:</source>
         <translation>Iznos:</translation>
-    </message>
-    <message>
-        <source>Priority:</source>
-        <translation>Prioriteta:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -434,10 +424,8 @@
         <source>Confirmed</source>
         <translation>Potvrđeno</translation>
     </message>
-    <message>
-        <source>Priority</source>
-        <translation>Prioriteta</translation>
-    </message>
+
+
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -451,11 +439,13 @@
     </message>
     <message>
         <source>The label associated with this address list entry</source>
+
         <translation>Oznaka creativecoin adrese</translation>
     </message>
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
         <translation>Creativecoin adresa. Izmjene adrese su moguće samo za adrese za slanje.</translation>
+
     </message>
     <message>
         <source>&amp;Address</source>
@@ -509,6 +499,17 @@
     <message>
         <source>Error</source>
         <translation>Greška</translation>
+    </message>
+    </context>
+<context>
+    <name>ModalOverlay</name>
+    <message>
+        <source>Form</source>
+        <translation>Oblik</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Posljednje vrijeme bloka</translation>
     </message>
     </context>
 <context>
@@ -585,8 +586,10 @@
         <translation>&amp;Trošenje nepotvrđenih vraćenih iznosa</translation>
     </message>
     <message>
+
         <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Automatski otvori port Creativecoin klijenta na ruteru. To radi samo ako ruter podržava UPnP i ako je omogućen.</translation>
+
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -634,7 +637,9 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
+
         <translation>Izaberite željeni najmanji dio creativecoina koji će biti prikazan u sučelju i koji će se koristiti za plaćanje.</translation>
+
     </message>
     <message>
         <source>&amp;OK</source>
@@ -660,8 +665,10 @@
         <translation>Oblik</translation>
     </message>
     <message>
+
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Prikazani podatci mogu biti zastarjeli. Vaš novčanik se automatski sinkronizira s Creativecoin mrežom kada je veza uspostavljena, ali taj proces još nije završen.</translation>
+
     </message>
     <message>
         <source>Total:</source>
@@ -684,6 +691,16 @@
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 i %2</translation>
+    </message>
+    </context>
+<context>
+    <name>QObject::QObject</name>
+    </context>
+<context>
+    <name>QRImageWidget</name>
     </context>
 <context>
     <name>QRImageWidget</name>
@@ -849,10 +866,6 @@
     <message>
         <source>Amount:</source>
         <translation>Iznos:</translation>
-    </message>
-    <message>
-        <source>Priority:</source>
-        <translation>Prioriteta:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -1048,16 +1061,14 @@
         <translation>Izvršavaj u pozadini kao uslužnik i prihvaćaj komande</translation>
     </message>
     <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoin Core</translation>
+
     </message>
     <message>
         <source>Block creation options:</source>
         <translation>Opcije za kreiranje bloka:</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Poveži se samo sa određenim čvorom/čvorovima</translation>
     </message>
     <message>
         <source>Error: Disk space is low!</source>

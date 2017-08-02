@@ -43,7 +43,7 @@ config file):
 
 	HiddenServiceDir /var/lib/tor/creativecoin-service/
 	HiddenServicePort 9333 127.0.0.1:9333
-	HiddenServicePort 19333 127.0.0.1:19333
+	HiddenServicePort 19335 127.0.0.1:19335
 
 The directory can be different of course, but (both) port numbers should be equal to
 your creativecoind's P2P listen port (9333 by default).
@@ -93,16 +93,17 @@ for normal IPv4/IPv6 communication, use:
 
 Starting with Tor version 0.2.7.1 it is possible, through Tor's control socket
 API, to create and destroy 'ephemeral' hidden services programmatically.
+
 Creativecoin Core has been updated to make use of this.
 
 This means that if Tor is running (and proper authentication has been configured),
 Creativecoin Core automatically creates a hidden service to listen on. This will positively 
 affect the number of available .onion nodes.
 
-This new feature is enabled by default if Creativecoin Core is listening, and
-a connection to Tor can be made. It can be configured with the `-listenonion`,
-`-torcontrol` and `-torpassword` settings. To show verbose debugging
-information, pass `-debug=tor`.
+This new feature is enabled by default if Creativecoin Core is listening (`-listen`), and
+requires a Tor connection to work. It can be explicitly disabled with `-listenonion=0`
+and, if not disabled, configured using the `-torcontrol` and `-torpassword` settings.
+To show verbose debugging information, pass `-debug=tor`.
 
 Connecting to Tor's control socket API requires one of two authentication methods to be 
 configured. For cookie authentication the user running creativecoind must have write access 
@@ -114,3 +115,12 @@ Debian-based systems the user running creativecoind can be added to the debian-t
 which has the appropriate permissions. An alternative authentication method is the use 
 of the `-torpassword` flag and a `hash-password` which can be enabled and specified in 
 Tor configuration.
+
+4. Privacy recommendations
+---------------------------
+
+- Do not add anything but creativecoin ports to the hidden service created in section 2.
+  If you run a web service too, create a new hidden service for that.
+  Otherwise it is trivial to link them, which may reduce privacy. Hidden
+  services created automatically (as in section 3) always have only one port
+  open.

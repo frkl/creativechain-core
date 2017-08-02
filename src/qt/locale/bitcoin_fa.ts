@@ -62,6 +62,16 @@
         <translation>آدرس های گیرنده</translation>
     </message>
     <message>
+
+        <source>These are your Creativecoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>اینها آدرس های شما برای فرستادن پرداخت هاست. همیشه قبل از فرستادن سکه ها مقدار و آدرس دریافت کننده را چک کنید.</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Address</source>
+        <translation>کپی کردن آدرس</translation>
+    </message>
+    <message>
+
         <source>Copy &amp;Label</source>
         <translation>کپی و برچسب‌&amp;گذاری</translation>
     </message>
@@ -69,6 +79,16 @@
         <source>&amp;Edit</source>
         <translation>&amp;ویرایش</translation>
     </message>
+
+    <message>
+        <source>Export Address List</source>
+        <translation>صدور لیست آدرس ها</translation>
+    </message>
+    <message>
+        <source>Exporting Failed</source>
+        <translation>صدور موفق نبود</translation>
+    </message>
+
     </context>
 <context>
     <name>AddressTableModel</name>
@@ -108,14 +128,36 @@
         <translation>رمزنگاری کیف پول</translation>
     </message>
     <message>
+
+        <source>This operation needs your wallet passphrase to unlock the wallet.</source>
+        <translation>این عملیات نیاز به عبارت کیف پول شما برای بازگشایی کیف پول دارد</translation>
+    </message>
+    <message>
+
         <source>Unlock wallet</source>
         <translation>باز کردن قفل کیف پول</translation>
     </message>
     <message>
+
+        <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
+        <translation>این عملیات نیاز به عبارت کیف پول شما برای رمزگشایی کیف پول دارد.</translation>
+    </message>
+    <message>
+
         <source>Decrypt wallet</source>
         <translation>رمزگشایی کیف پول</translation>
     </message>
     <message>
+
+        <source>Change passphrase</source>
+        <translation>تغییر گذرواژه</translation>
+    </message>
+    <message>
+        <source>Enter the old passphrase and new passphrase to the wallet.</source>
+        <translation>عبارت کهنه و جدید کیف پول را وارد کنید.</translation>
+    </message>
+    <message>
+
         <source>Confirm wallet encryption</source>
         <translation>تأیید رمزنگاری کیف پول</translation>
     </message>
@@ -250,12 +292,26 @@
         <translation>باز کردن &amp;آدرس</translation>
     </message>
     <message>
+        <source>Click to disable network activity.</source>
+        <translation>برای غیر فعال کردن فعالیت شبکه کلیک کنید.</translation>
+    </message>
+    <message>
+        <source>Network activity disabled.</source>
+        <translation>فعالیت شبکه غیر فعال شد.</translation>
+    </message>
+    <message>
+        <source>Click to enable network activity again.</source>
+        <translation>برای فعال کردن دوباره فعالیت شبکه کلیک کنید.</translation>
+    </message>
+    <message>
         <source>Reindexing blocks on disk...</source>
         <translation>بازنشانی بلوک‌ها روی دیسک...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>ارسال وجه به نشانی Creativecoin</translation>
+
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -278,8 +334,10 @@
         <translation>با&amp;زبینی پیام...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -306,12 +364,14 @@
         <translation>رمزنگاری کلیدهای خصوصی متعلق به کیف پول شما</translation>
     </message>
     <message>
+
         <source>Sign messages with your Creativecoin addresses to prove you own them</source>
         <translation>برای اثبات اینکه پیام‌ها به شما تعلق دارند، آن‌ها را با نشانی Creativecoin خود امضا کنید</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
         <translation>برای حصول اطمینان از اینکه پیام با نشانی Creativecoin مشخص شده امضا است یا خیر، پیام را شناسایی کنید</translation>
+
     </message>
     <message>
         <source>&amp;File</source>
@@ -330,8 +390,10 @@
         <translation>نوارابزار برگه‌ها</translation>
     </message>
     <message>
+
         <source>Request payments (generates QR codes and creativecoin: URIs)</source>
-        <translation>درخواست پرداخت ( تولید کد کیوار و ادرس بیت کوین)</translation>
+        <translation>درخواست پرداخت ( تولید کد کیوار و ادرس creativecoin)</translation>
+
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -342,12 +404,14 @@
         <translation>نمایش لیست آدرس های دریافت و لیبل ها</translation>
     </message>
     <message>
+
         <source>Open a creativecoin: URI or payment request</source>
-        <translation>بازکردن یک بیت کوین: آدرس یا درخواست پرداخت</translation>
+        <translation>بازکردن یک creativecoin: آدرس یا درخواست پرداخت</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>گزینه‌های خط‌فرمان</translation>
+
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Creativecoin network</source>
@@ -357,33 +421,9 @@
         <source>Processing blocks on disk...</source>
         <translation>پردازش بلوک‌ها روی دیسک...</translation>
     </message>
-    <message>
-        <source>No block source available...</source>
-        <translation>منبعی برای دریافت بلاک در دسترس نیست...</translation>
-    </message>
     <message numerus="yes">
         <source>Processed %n block(s) of transaction history.</source>
         <translation><numerusform>پردازش %n  بلاک از تاریخچه ی تراکنش ها </numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n ساعت</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n روز</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n هفته</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 and %2</source>
-        <translation>%1 و %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n سال</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -463,7 +503,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>کیف پول &lt;b&gt;رمزنگاری شده&lt;/b&gt; است و هم‌اکنون &lt;b&gt;قفل&lt;/b&gt; است</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -481,10 +521,6 @@
     <message>
         <source>Amount:</source>
         <translation>مبلغ:</translation>
-    </message>
-    <message>
-        <source>Priority:</source>
-        <translation>اولویت:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -535,8 +571,64 @@
         <translation>تأیید شده</translation>
     </message>
     <message>
-        <source>Priority</source>
-        <translation>اولویت</translation>
+        <source>Copy address</source>
+        <translation>کپی ادرس</translation>
+    </message>
+    <message>
+        <source>Copy label</source>
+        <translation>کپی برچسب</translation>
+    </message>
+    <message>
+        <source>Copy amount</source>
+        <translation>کپی مقدار</translation>
+    </message>
+    <message>
+        <source>Copy transaction ID</source>
+        <translation>کپی شناسهٔ تراکنش</translation>
+    </message>
+    <message>
+        <source>Lock unspent</source>
+        <translation>قفل کردن خرج نشده ها</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>بازکردن قفل خرج نشده ها</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>کپی تعداد</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>رونوشت کارمزد</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>کپی کردن بایت ها</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>کپی کردن تغییر</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 قفل شده)</translation>
+    </message>
+    <message>
+        <source>yes</source>
+        <translation>بله</translation>
+    </message>
+    <message>
+        <source>no</source>
+        <translation>خیر</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(بدون برچسب)</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(تغییر)</translation>
     </message>
     <message>
         <source>Copy label</source>
@@ -662,8 +754,10 @@
         <translation>ویرایش آدرس قرستنده</translation>
     </message>
     <message>
+
         <source>The entered address "%1" is not a valid Creativecoin address.</source>
         <translation>نشانی وارد شده "%1" یک نشانی معتبر Creativecoin نیست.</translation>
+
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -702,6 +796,10 @@
     <message>
         <source>version</source>
         <translation>نسخه</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-بیت)</translation>
     </message>
     <message>
         <source>About %1</source>
@@ -765,6 +863,41 @@
     <message numerus="yes">
         <source>%n GB of free space available</source>
         <translation><numerusform>%n گیگابایت فضا موجود است</numerusform></translation>
+    </message>
+    </context>
+<context>
+    <name>ModalOverlay</name>
+    <message>
+        <source>Form</source>
+        <translation>فرم</translation>
+    </message>
+    <message>
+        <source>Unknown...</source>
+        <translation>مشخص نیست</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>زمان آخرین بلوک</translation>
+    </message>
+    <message>
+        <source>Progress</source>
+        <translation>پیشروی</translation>
+    </message>
+    <message>
+        <source>Progress increase per hour</source>
+        <translation>پیشروی در هر ساعت بیشتر میشود</translation>
+    </message>
+    <message>
+        <source>calculating...</source>
+        <translation>در حال محاسبه...</translation>
+    </message>
+    <message>
+        <source>Estimated time left until synced</source>
+        <translation>زمان تخمینی تا سینک شدن</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>پنهان کردن</translation>
     </message>
     </context>
 <context>
@@ -833,8 +966,10 @@
         <translation>استخراج</translation>
     </message>
     <message>
+
         <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>باز کردن خودکار درگاه شبکهٔ Creativecoin روی روترها. تنها زمانی کار می‌کند که روتر از پروتکل UPnP پشتیبانی کند و این پروتکل فعال باشد.</translation>
+
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -932,8 +1067,10 @@
         <translation>فرم</translation>
     </message>
     <message>
+
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>اطلاعات نمایش‌داده شده ممکن است قدیمی باشند. بعد از این که یک اتصال با شبکه برقرار شد، کیف پول شما به‌صورت خودکار با شبکهٔ Creativecoin همگام‌سازی می‌شود. اما این روند هنوز کامل نشده است.</translation>
+
     </message>
     <message>
         <source>Available:</source>
@@ -982,14 +1119,16 @@
     </context>
 <context>
     <name>PaymentServer</name>
+
+
+    <message>
+        <source>Invalid payment request.</source>
+        <translation>درخواست پرداخت نامعتبر.</translation>
+    </message>
     </context>
 <context>
     <name>PeerTableModel</name>
-    <message>
-        <source>Ping Time</source>
-        <translation>زمان پینگ</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>QObject</name>
     <message>
@@ -997,8 +1136,10 @@
         <translation>مبلغ</translation>
     </message>
     <message>
+
         <source>Enter a Creativecoin address (e.g. %1)</source>
         <translation>یک آدرس Creativecoin وارد کنید (مثلاً %1)</translation>
+
     </message>
     <message>
         <source>%1 d</source>
@@ -1028,7 +1169,17 @@
         <source>%1 ms</source>
         <translation>%1 میلیونم ثانیه</translation>
     </message>
-</context>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 و %2</translation>
+    </message>
+    </context>
+<context>
+    <name>QObject::QObject</name>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    </context>
 <context>
     <name>QRImageWidget</name>
     </context>
@@ -1143,12 +1294,36 @@
         <translation>در:</translation>
     </message>
     <message>
+        <source>Out:</source>
+        <translation>خروجی:</translation>
+    </message>
+    <message>
         <source>Debug log file</source>
         <translation>فایلِ لاگِ اشکال زدایی</translation>
     </message>
     <message>
         <source>Clear console</source>
         <translation>پاکسازی کنسول</translation>
+    </message>
+    <message>
+        <source>1 &amp;hour</source>
+        <translation>1 ساعت</translation>
+    </message>
+    <message>
+        <source>1 &amp;day</source>
+        <translation>1 روز</translation>
+    </message>
+    <message>
+        <source>1 &amp;week</source>
+        <translation>1 هفته</translation>
+    </message>
+    <message>
+        <source>1 &amp;year</source>
+        <translation>1 سال</translation>
+    </message>
+    <message>
+        <source>Ban for</source>
+        <translation>محدود شده برای</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1303,10 +1478,6 @@
         <translation>مبلغ:</translation>
     </message>
     <message>
-        <source>Priority:</source>
-        <translation>اولویت:</translation>
-    </message>
-    <message>
         <source>Fee:</source>
         <translation>هزینه:</translation>
     </message>
@@ -1345,10 +1516,6 @@
     <message>
         <source>Custom:</source>
         <translation>سفارشی:</translation>
-    </message>
-    <message>
-        <source>Confirmation time:</source>
-        <translation>روز تایید:</translation>
     </message>
     <message>
         <source>normal</source>
@@ -1395,6 +1562,20 @@
         <translation>کپی مقدار</translation>
     </message>
     <message>
+
+        <source>Copy fee</source>
+        <translation>رونوشت کارمزد</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>کپی کردن بایت ها</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>کپی کردن تغییر</translation>
+    </message>
+    <message>
+
         <source>(no label)</source>
         <translation>(بدون برچسب)</translation>
     </message>
@@ -1422,8 +1603,10 @@
         <translation>این یک پرداخت عادی است</translation>
     </message>
     <message>
+
         <source>The Creativecoin address to send the payment to</source>
         <translation>نشانی Creativecoin برای ارسال پرداخت به آن</translation>
+
     </message>
     <message>
         <source>Alt+A</source>
@@ -1475,8 +1658,10 @@
         <translation>ا&amp;مضای پیام</translation>
     </message>
     <message>
+
         <source>The Creativecoin address to sign the message with</source>
         <translation>نشانی Creativecoin برای امضاء پیغام با آن</translation>
+
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1507,7 +1692,9 @@
         <translation>امضای فعلی را به حافظهٔ سیستم کپی کن</translation>
     </message>
     <message>
+
         <source>Sign the message to prove you own this Creativecoin address</source>
+
         <translation>برای اثبات تعلق این نشانی به شما، پیام را امضا کنید</translation>
     </message>
     <message>
@@ -1527,12 +1714,14 @@
         <translation>&amp;شناسایی پیام</translation>
     </message>
     <message>
+
         <source>The Creativecoin address the message was signed with</source>
         <translation>نشانی Creativecoin که پیغام با آن امضاء شده</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Creativecoin address</source>
         <translation>برای حصول اطمینان از اینکه پیام با نشانی Creativecoin مشخص شده امضا است یا خیر، پیام را شناسایی کنید</translation>
+
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1581,6 +1770,12 @@
 <context>
     <name>TransactionView</name>
     <message>
+
+        <source>Copy address</source>
+        <translation>کپی ادرس</translation>
+    </message>
+    <message>
+
         <source>Copy label</source>
         <translation>کپی برچسب</translation>
     </message>
@@ -1600,6 +1795,12 @@
         <source>Address</source>
         <translation>آدرس</translation>
     </message>
+
+    <message>
+        <source>Exporting Failed</source>
+        <translation>صدور موفق نبود</translation>
+    </message>
+
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -1640,12 +1841,10 @@
         <translation>اجرا در پشت زمینه به‌صورت یک سرویس و پذیرش دستورات</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>پذیرش اتصالات از بیرون (پیش فرض:1 بدون پراکسی یا اتصال)</translation>
-    </message>
-    <message>
+
         <source>Creativecoin Core</source>
         <translation> هسته Creativecoin </translation>
+
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
@@ -1656,16 +1855,8 @@
         <translation>هنگامی که یک تراکنش در کیف پولی رخ می دهد، دستور را اجرا کن(%s در دستورات بوسیله ی TxID جایگزین می شود)</translation>
     </message>
     <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>این یک نسخه ی آزمایشی است - با مسئولیت خودتان از آن استفاده کنید -  آن را در معدن و بازرگانی بکار نگیرید.</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>بستن گزینه ایجاد</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>تنها در گره (های) مشخص شده متصل شوید</translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -1754,10 +1945,6 @@
     <message>
         <source>Transaction amount too small</source>
         <translation>مقدار تراکنش بسیار کم است</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation>مقادیر تراکنش باید مثبت باشد</translation>
     </message>
     <message>
         <source>Transaction too large</source>

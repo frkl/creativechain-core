@@ -1,5 +1,5 @@
 ---
-name: "creativecoin-linux-0.13"
+name: "creativecoin-linux-0.14"
 enable_cache: true
 suites:
 - "trusty"
@@ -173,7 +173,7 @@ script: |
     find . -name "lib*.la" -delete
     find . -name "lib*.a" -delete
     rm -rf ${DISTNAME}/lib/pkgconfig
- 
+
     # Creativecoin: Delete libbitcoin from binary distribution for now, see #192
     rm -rf ${DISTNAME}/lib/
     rm -rf ${DISTNAME}/include/

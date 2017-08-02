@@ -122,8 +122,10 @@
         <translation>Address king pamag-Tanggap</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Magpadalang barya king Creativecoin address</translation>
+
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -146,8 +148,10 @@
         <translation>&amp;Beripikan ing message...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -225,7 +229,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Maka-&lt;b&gt;encrypt&lt;/b&gt; ya ing wallet at kasalukuyan yang maka-&lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -294,6 +298,17 @@
     </message>
     </context>
 <context>
+    <name>ModalOverlay</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Tatauling oras na ning block</translation>
+    </message>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     </context>
 <context>
@@ -311,8 +326,10 @@
         <translation>&amp;Network</translation>
     </message>
     <message>
+
         <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Ibuklat yang antimanu ing Creativecoin client port king router. Gagana yamu ini istung ing router mu susuporta yang UPnP at magsilbi ya.</translation>
+
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -386,8 +403,10 @@
         <translation>Form</translation>
     </message>
     <message>
+
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Ing makaltong impormasion mapalyaring luma ne. Ing kekang wallet otomatiku yang mag-synchronize keng Creativecoin network istung mekakonekta ne king network, oneng ing prosesung ini ali ya pa kumpletu.</translation>
+
     </message>
     <message>
         <source>Your current spendable balance</source>
@@ -432,6 +451,11 @@
     </message>
     </context>
 <context>
+
+    <name>QObject::QObject</name>
+    </context>
+<context>
+
     <name>QRImageWidget</name>
     </context>
 <context>
@@ -641,8 +665,10 @@
         <translation>Kopyan ing kasalungsungan pirma king system clipboard</translation>
     </message>
     <message>
+
         <source>Sign the message to prove you own this Creativecoin address</source>
         <translation>Pirman ing mensayi ban patune na keka ya ining Creativecoin address</translation>
+
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -661,8 +687,10 @@
         <translation>&amp;Beripikan ing Mensayi</translation>
     </message>
     <message>
+
         <source>Verify the message to ensure it was signed with the specified Creativecoin address</source>
         <translation>Beripikan ing mensayi ban asiguradu a me pirma ya ini gamit ing mepiling Creativecoin address</translation>
+
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -738,20 +766,14 @@
         <translation>Gumana king gulut bilang daemon at tumanggap commands</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Tumanggap koneksion menibat king kilwal (default: 1 if no -proxy or -connect)</translation>
-    </message>
-    <message>
+
         <source>Creativecoin Core</source>
         <translation>Kapilubluban ning Creativecoin</translation>
+
     </message>
     <message>
         <source>Block creation options:</source>
         <translation>Pipamilian king pamag-gawang block:</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Kumunekta mu king mepiling node(s)</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

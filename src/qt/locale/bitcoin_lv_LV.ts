@@ -142,8 +142,10 @@
         <translation>Bloku reindeksēšana no diska...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Nosūtīt bitkoinus uz Creativecoin adresi</translation>
+
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -166,8 +168,10 @@
         <translation>&amp;Pārbaudīt ziņojumu...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -194,12 +198,14 @@
         <translation>Šifrēt privātās atslēgas kuras pieder tavam maciņam</translation>
     </message>
     <message>
+
         <source>Sign messages with your Creativecoin addresses to prove you own them</source>
         <translation>Parakstīt ziņojumus ar savām Creativecoin adresēm lai pierādītu ka tās pieder tev</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
         <translation>Pārbaudīt ziņojumus lai pārliecinātos, ka tie tika parakstīti ar norādītajām Creativecoin adresēm</translation>
+
     </message>
     <message>
         <source>&amp;File</source>
@@ -218,24 +224,18 @@
         <translation>Ciļņu rīkjosla</translation>
     </message>
     <message>
+
         <source>Request payments (generates QR codes and creativecoin: URIs)</source>
         <translation>Pieprasīt maksājumus (izveido QR kodu un creativecoin: URIs)</translation>
     </message>
     <message>
         <source>Open a creativecoin: URI or payment request</source>
         <translation>Atvērt creativecoin URI vai maksājuma pieprasījumu</translation>
+
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Komandrindas iespējas</translation>
-    </message>
-    <message>
-        <source>No block source available...</source>
-        <translation>Nav pieejams neviens bloku avots...</translation>
-    </message>
-    <message>
-        <source>%1 and %2</source>
-        <translation>%1 un %2</translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -281,7 +281,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Maciņš ir &lt;b&gt;šifrēts&lt;/b&gt; un pašlaik &lt;b&gt;slēgts&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -295,10 +295,6 @@
     <message>
         <source>Amount:</source>
         <translation>Daudzums:</translation>
-    </message>
-    <message>
-        <source>Priority:</source>
-        <translation>Prioritāte:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -340,10 +336,8 @@
         <source>Confirmed</source>
         <translation>Apstiprināts</translation>
     </message>
-    <message>
-        <source>Priority</source>
-        <translation>Prioritāte</translation>
-    </message>
+
+
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -419,6 +413,17 @@
     <message>
         <source>Error</source>
         <translation>Kļūda</translation>
+    </message>
+    </context>
+<context>
+    <name>ModalOverlay</name>
+    <message>
+        <source>Form</source>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Pēdējā bloka laiks</translation>
     </message>
     </context>
 <context>
@@ -504,15 +509,19 @@
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
+
         <translation>Ieslēgt creativecoin &amp;kontroles funkcijas</translation>
+
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
         <translation>&amp;Tērēt neapstiprinātu atlikumu</translation>
     </message>
     <message>
+
         <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Uz rūtera automātiski atvērt Creativecoin klienta portu. Tas strādā tikai tad, ja rūteris atbalsta UPnP un tas ir ieslēgts.</translation>
+
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -564,7 +573,9 @@
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
+
         <translation>Vai rādīt Creativecoin kontroles funkcijas vai nē.</translation>
+
     </message>
     <message>
         <source>&amp;OK</source>
@@ -598,8 +609,10 @@
         <translation>Forma</translation>
     </message>
     <message>
+
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Attēlotā informācija var būt novecojusi. Jūsu maciņš pēc savienojuma izveides automātiski sinhronizējas ar Creativecoin tīklu, taču šis process vēl nav beidzies.</translation>
+
     </message>
     <message>
         <source>Available:</source>
@@ -654,6 +667,16 @@
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 un %2</translation>
+    </message>
+    </context>
+<context>
+    <name>QObject::QObject</name>
+    </context>
+<context>
+    <name>QRImageWidget</name>
     </context>
 <context>
     <name>QRImageWidget</name>
@@ -850,7 +873,9 @@
     </message>
     <message>
         <source>Coin Control Features</source>
+
         <translation>Creativecoin Kontroles Funkcijas</translation>
+
     </message>
     <message>
         <source>Inputs...</source>
@@ -875,10 +900,6 @@
     <message>
         <source>Amount:</source>
         <translation>Daudzums:</translation>
-    </message>
-    <message>
-        <source>Priority:</source>
-        <translation>Prioritāte:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -1029,8 +1050,10 @@
         <translation>Kopēt parakstu uz sistēmas starpliktuvi</translation>
     </message>
     <message>
+
         <source>Sign the message to prove you own this Creativecoin address</source>
         <translation>Parakstīt ziņojumu lai pierādītu, ka esi šīs Creativecoin adreses īpašnieks.</translation>
+
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1126,8 +1149,10 @@
         <translation>Darbināt fonā kā servisu un pieņemt komandas</translation>
     </message>
     <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoin Core</translation>
+
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
@@ -1136,10 +1161,6 @@
     <message>
         <source>Block creation options:</source>
         <translation>Bloka izveidošanas iestatījumi:</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Savienoties tikai ar norādītajām nodēm.</translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -1192,10 +1213,6 @@
     <message>
         <source>Transaction amount too small</source>
         <translation>Transakcijas summa ir pārāk maza</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation>Transakcijas summai ir jābūt pozitīvai</translation>
     </message>
     <message>
         <source>Transaction too large</source>

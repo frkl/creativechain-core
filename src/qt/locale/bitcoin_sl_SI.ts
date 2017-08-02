@@ -154,8 +154,10 @@
         <translation>Poustvarjam kazalo blokov na disku ...</translation>
     </message>
     <message>
+
         <source>Send coins to a Creativecoin address</source>
         <translation>Izvedite plačilo na naslov Creativecoin</translation>
+
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -178,8 +180,10 @@
         <translation>&amp;Preveri sporočilo ...</translation>
     </message>
     <message>
+
         <source>Creativecoin</source>
         <translation>Creativecoin</translation>
+
     </message>
     <message>
         <source>Wallet</source>
@@ -206,12 +210,14 @@
         <translation>Šifrirajte zasebne ključe, ki se nahajajo v denarnici</translation>
     </message>
     <message>
+
         <source>Sign messages with your Creativecoin addresses to prove you own them</source>
         <translation>Podpišite poljubno sporočilo z enim svojih naslovov Creativecoin, da prejemniku sporočila dokažete, da je ta naslov v vaši lasti.</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Creativecoin addresses</source>
         <translation>Preverite, če je bilo prejeto sporočilo podpisano z določenim naslovom Creativecoin</translation>
+
     </message>
     <message>
         <source>&amp;File</source>
@@ -230,8 +236,10 @@
         <translation>Orodna vrstica zavihkov</translation>
     </message>
     <message>
+
         <source>Request payments (generates QR codes and creativecoin: URIs)</source>
         <translation>Zahtevajte plačilo (ustvarite zahtevek s kodo QR in URI tipa creativecoin:)</translation>
+
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -242,16 +250,20 @@
         <translation>Preglejte in uredite seznam naslovov, na katere ste kdaj prejeli plačila</translation>
     </message>
     <message>
+
         <source>Open a creativecoin: URI or payment request</source>
         <translation>Izvedite plačilo iz zahtevka v datoteki ali iz URI tipa creativecoin:</translation>
+
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>Opcije &amp;ukazne vrstice</translation>
     </message>
     <message numerus="yes">
+
         <source>%n active connection(s) to Creativecoin network</source>
         <translation><numerusform>%n aktivna povezava v omrežje Creativecoin</numerusform><numerusform>%n aktivni povezavi v omrežje Creativecoin</numerusform><numerusform>%n aktivne povezave v omrežje Creativecoin</numerusform><numerusform>%n aktivnih povezav v omrežje Creativecoin</numerusform></translation>
+
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -261,33 +273,9 @@
         <source>Processing blocks on disk...</source>
         <translation>Obdelava blokov na disku ...</translation>
     </message>
-    <message>
-        <source>No block source available...</source>
-        <translation>Ni virov za prenos blokov ...</translation>
-    </message>
     <message numerus="yes">
         <source>Processed %n block(s) of transaction history.</source>
         <translation><numerusform>%n obdelan blok zgodovine transakcij.</numerusform><numerusform>%n obdelana bloka zgodovine transakcij.</numerusform><numerusform>%n obdelani bloki zgodovine transakcij.</numerusform><numerusform>%n obdelanih blokov zgodovine transakcij.</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n uro</numerusform><numerusform>%n uri</numerusform><numerusform>%n ure</numerusform><numerusform>%n ur</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n dan</numerusform><numerusform>%n dneva</numerusform><numerusform>%n dni</numerusform><numerusform>%n dni</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n teden</numerusform><numerusform>%n tedna</numerusform><numerusform>%n tedne</numerusform><numerusform>%n tednov</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 and %2</source>
-        <translation>%1 in %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n leto</numerusform><numerusform>%n leti</numerusform><numerusform>%n leta</numerusform><numerusform>%n let</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -371,7 +359,7 @@
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Denarnica je &lt;b&gt;šifrirana&lt;/b&gt; in trenutno &lt;b&gt;zaklenjena&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
@@ -389,10 +377,6 @@
     <message>
         <source>Amount:</source>
         <translation>Znesek:</translation>
-    </message>
-    <message>
-        <source>Priority:</source>
-        <translation>Prioriteta:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -446,10 +430,8 @@
         <source>Confirmed</source>
         <translation>Potrjeno</translation>
     </message>
-    <message>
-        <source>Priority</source>
-        <translation>Prioriteta</translation>
-    </message>
+
+
     </context>
 <context>
     <name>EditAddressDialog</name>
@@ -572,6 +554,21 @@
     </message>
 </context>
 <context>
+    <name>ModalOverlay</name>
+    <message>
+        <source>Form</source>
+        <translation>Oblika</translation>
+    </message>
+    <message>
+        <source>Last block time</source>
+        <translation>Čas zadnjega bloka</translation>
+    </message>
+    <message>
+        <source>Hide</source>
+        <translation>Skrij</translation>
+    </message>
+    </context>
+<context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>
@@ -677,7 +674,9 @@
         <translation>Omogoči &amp;trošenje drobiža iz še nepotrjenih plačil</translation>
     </message>
     <message>
+
         <source>Automatically open the Creativecoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+
         <translation>Program samodejno odpre ustrezna vrata na usmerjevalniku. To deluje samo, če vaš usmerjevalnik podpira in ima omogočen UPnP.</translation>
     </message>
     <message>
@@ -685,8 +684,10 @@
         <translation>Preslikaj vrata z uporabo &amp;UPnP</translation>
     </message>
     <message>
+
         <source>Connect to the Creativecoin network through a SOCKS5 proxy.</source>
         <translation>Poveži se v omrežje Creativecoin preko posredniškega strežnika SOCKS5.</translation>
+
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -788,8 +789,10 @@
         <translation>Oblika</translation>
     </message>
     <message>
+
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Creativecoin network after a connection is established, but this process has not completed yet.</source>
         <translation>Prikazani podatki so morda zastareli. Program ob vzpostavitvi povezave samodejno sinhronizira denarnico z omrežjem Creativecoin, a trenutno ta proces še ni zaključen.</translation>
+
     </message>
     <message>
         <source>Watch-only:</source>
@@ -869,11 +872,7 @@
         <source>Node/Service</source>
         <translation>Naslov</translation>
     </message>
-    <message>
-        <source>Ping Time</source>
-        <translation>Odzivni čas</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>QObject</name>
     <message>
@@ -881,8 +880,10 @@
         <translation>Znesek</translation>
     </message>
     <message>
+
         <source>Enter a Creativecoin address (e.g. %1)</source>
         <translation>Vnesite naslov Creativecoin (npr. %1):</translation>
+
     </message>
     <message>
         <source>%1 d</source>
@@ -912,7 +913,17 @@
         <source>%1 ms</source>
         <translation>%1 ms</translation>
     </message>
-</context>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 in %2</translation>
+    </message>
+    </context>
+<context>
+    <name>QObject::QObject</name>
+    </context>
+<context>
+    <name>QRImageWidget</name>
+    </context>
 <context>
     <name>QRImageWidget</name>
     </context>
@@ -1138,8 +1149,10 @@
         <translation>P&amp;onovno uporabite obstoječ naslov za prejemanje. (Ni priporočeno.)</translation>
     </message>
     <message>
+
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Creativecoin network.</source>
         <translation>Neobvezno sporočilo kot priponka zahtevku za plačilo, ki bo prikazano, ko bo zahtevek odprt. Opomba: Opravljeno plačilo.prek omrežja Creativecoin tega sporočila ne bo vsebovalo.</translation>
+
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1243,10 +1256,6 @@
         <translation>Znesek:</translation>
     </message>
     <message>
-        <source>Priority:</source>
-        <translation>Prioriteta:</translation>
-    </message>
-    <message>
         <source>Fee:</source>
         <translation>Provizija:</translation>
     </message>
@@ -1295,7 +1304,9 @@
         <translation>skupno vsaj</translation>
     </message>
     <message>
+
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for creativecoin transactions than the network can process.</source>
+
         <translation>Dokler bo v blokih še dovolj prostora za vse nastajajoče transakcije, zadostuje, če plačate samo minimalno provizijo. Ko pa se bo količina vseh transakcij povečala do meja zmogljivosti omrežja, se lahko zgodi, da vaša transakcija brez večje provizije nikoli ne bo potrjena.</translation>
     </message>
     <message>
@@ -1313,10 +1324,6 @@
     <message>
         <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
         <translation>(Samodejni obračun provizije še ni pripravljen. Po navadi izračun traja nekaj blokov ...)</translation>
-    </message>
-    <message>
-        <source>Confirmation time:</source>
-        <translation>Čas do potrditve:</translation>
     </message>
     <message>
         <source>normal</source>
@@ -1382,8 +1389,10 @@
         <translation>Plačilo je navadne vrste.</translation>
     </message>
     <message>
+
         <source>The Creativecoin address to send the payment to</source>
         <translation>Naslov Creativecoin, na katerega bo plačilo poslano</translation>
+
     </message>
     <message>
         <source>Alt+A</source>
@@ -1402,7 +1411,9 @@
         <translation>Izpraznite vsebino polja</translation>
     </message>
     <message>
+
         <source>The fee will be deducted from the amount being sent. The recipient will receive less creativecoins than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+
         <translation>Znesek plačila bo zmanjšan za znesek provizije. Prejemnik bo prejel manjše število kovancev, kot je bil vnešeni znesek. Če je prejemnikov več, bo provizija med njih enakomerno porazdeljena.</translation>
     </message>
     <message>
@@ -1426,8 +1437,10 @@
         <translation>Če vnesete oznako za zgornji naslov, se bo skupaj z naslovom shranila v imenk že uporabljenih naslovov</translation>
     </message>
     <message>
+
         <source>A message that was attached to the creativecoin: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Creativecoin network.</source>
         <translation>Sporočilo, ki ste ga pripeli na URI tipa creativecoin:. Shranjeno bo skupaj s podatki o transakciji. Opomba: Sporočilo ne bo poslano preko omrežja Creativecoin.</translation>
+
     </message>
     <message>
         <source>Pay To:</source>
@@ -1459,12 +1472,14 @@
         <translation>&amp;Podpiši sporočilo</translation>
     </message>
     <message>
+
         <source>You can sign messages/agreements with your addresses to prove you can receive creativecoins sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>S svojimi naslovi lahko podpisujete sporočila ali pogodbe in s tem dokazujete, da na teh naslovih lahko prejemate kovance. Bodite previdni in ne podpisujte ničesar nejasnega ali naključnega, ker vas zlikovci preko ribarjenja (phishing) lahko prelisičijo, da na njih prepišete svojo identiteto. Podpisujte samo podrobno opisane izjave, s katerimi se strinjate.</translation>
     </message>
     <message>
         <source>The Creativecoin address to sign the message with</source>
         <translation>Naslov Creativecoin, s katerim podpisujete sporočilo</translation>
+
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1495,7 +1510,9 @@
         <translation>Kopiranje trenutnega podpisa na sistemsko odložišče.</translation>
     </message>
     <message>
+
         <source>Sign the message to prove you own this Creativecoin address</source>
+
         <translation>Podpišite sporočilo, da dokažete lastništvo nad zgornjim naslovom.</translation>
     </message>
     <message>
@@ -1519,12 +1536,14 @@
         <translation>Da preverite verodostojnost sporočila, spodaj vnesite: prejemnikov naslov, prejeto sporočilo (pazljivo skopirajte vse prelome vrstic, presledke, tabulatorje ipd.,) in prejeti podpis. Da se izognete napadom tipa man-in-the-middle, vedite, da iz veljavnega podpisa ne sledi nič drugega, kot tisto, kar je navedeno v sporočilu. Podpis samo potrjuje dejstvo, da ima podpisnik v lasti prejemni naslov, ne more pa dokazati vira nobene transakcije!</translation>
     </message>
     <message>
+
         <source>The Creativecoin address the message was signed with</source>
         <translation>Naslov Creativecoin, s katerim je bilo sporočilo podpisano</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Creativecoin address</source>
         <translation>Preverite, ali je bilo sporočilo v resnici podpisano z navedenim naslovom Creativecoin.</translation>
+
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -1580,6 +1599,12 @@
     </context>
 <context>
     <name>WalletView</name>
+
+    <message>
+        <source>Export the data in the current tab to a file</source>
+        <translation>Izvozi podatke v trenutnem zavihku v datoteko</translation>
+    </message>
+
     </context>
 <context>
     <name>bitcoin-core</name>
@@ -1608,20 +1633,14 @@
         <translation>Teci v ozadju in sprejemaj ukaze</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Sprejemaj zunanje povezave (privzeto: 1, razen če ste vklopili opciji -proxy ali -connect)</translation>
-    </message>
-    <message>
+
         <source>Creativecoin Core</source>
         <translation>Creativecoin Core</translation>
+
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
         <translation>Veži dani naslov in tam vedno poslušaj. Za naslove protokola IPv6 uporabite zapis [gostitelj]:vrata.</translation>
-    </message>
-    <message>
-        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
-        <translation>Distribuirano v okviru programske licence MIT. Podrobnosti so navedene v  priloženi datoteki COPYING ali na naslovu &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
@@ -1632,32 +1651,12 @@
         <translation>Nastavi število niti za preverjanje skript (%u do %d, 0 = samodejno, &lt;0 toliko procesorskih jeder naj ostane prostih, privzeto: %d)</translation>
     </message>
     <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>To je preizkusna različica še neizdanega programa. Uporabljate jo na lastno odgovornost. Programa ne uporabljajte je za rudarjenje ali trgovske aplikacije.</translation>
-    </message>
-    <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation>Opozorilo: Trenutno na omrežju ni videti konsenza! Videti je, kot da bi imeli nekateri rudarji težave.</translation>
-    </message>
-    <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation>Opozorilo: Trenutno se s soležniki ne strinjam v popolnosti! Mogoče bi morali vi ali drugi udeleženci posodobiti odjemalce.</translation>
-    </message>
-    <message>
-        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
-        <translation>Sprejemaj povezave samo od soležnikov, ki so na naslovih, ki ustrezajo navedeni omrežni maski ali naslovu. Opcijo lahko navedete večkrat.</translation>
-    </message>
-    <message>
         <source>&lt;category&gt; can be:</source>
         <translation>&lt;category&gt; je lahko:</translation>
     </message>
     <message>
         <source>Block creation options:</source>
         <translation>Možnosti ustvarjanja blokov:</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Poveži se samo z (enim ali več) navedenimi vozlišči</translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -1834,10 +1833,6 @@
     <message>
         <source>Transaction amount too small</source>
         <translation>Znesek je pramajhen</translation>
-    </message>
-    <message>
-        <source>Transaction amounts must be positive</source>
-        <translation>Znesek mora biti pozitiven</translation>
     </message>
     <message>
         <source>Transaction too large</source>

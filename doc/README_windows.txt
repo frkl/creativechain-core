@@ -1,4 +1,5 @@
-Creativecoin Core 0.13.2
+
+Creativecoin Core 0.14.2
 =====================
 
 Intro
