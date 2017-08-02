@@ -11,6 +11,7 @@
 // 2017 Aug 03 00:20:00 UTC
 static const uint32_t KECCAK_TIME = 0x59826C30;
 
+static const uint32_t CONSENSUS_HARD_FORK_TIME = 0x00;
 /** The maximum allowed size for a serialized block, in bytes (only for buffer size limits) */
 static const unsigned int MAX_BLOCK_SERIALIZED_SIZE = 4000000;
 /** The maximum allowed weight for a block, see BIP 141 (network rule) */
