@@ -20,8 +20,11 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
+    int nHeight = pindexLast->nHeight;
+    int64_t difficultyAdjustmentInterval = nHeight >= params.DigiShieldHeight ? params.DifficultyAdjustmentIntervalV2() : params.DifficultyAdjustmentInterval();
+
     // Only change once per difficulty adjustment interval
-    if ((pindexLast->nHeight+1) % params.DifficultyAdjustmentInterval() != 0)
+    if ((pindexLast->nHeight+1) % difficultyAdjustmentInterval != 0)
     {
         if (params.fPowAllowMinDifficultyBlocks)
         {
@@ -34,7 +37,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
             {
                 // Return the last non-special-min-difficulty-rules-block
                 const CBlockIndex* pindex = pindexLast;
-                while (pindex->pprev && pindex->nHeight % params.DifficultyAdjustmentInterval() != 0 && pindex->nBits == nProofOfWorkLimit)
+                while (pindex->pprev && pindex->nHeight % difficultyAdjustmentInterval != 0 && pindex->nBits == nProofOfWorkLimit)
                     pindex = pindex->pprev;
                 return pindex->nBits;
             }
@@ -43,11 +46,11 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     }
 
     // Go back by what we want to be 14 days worth of blocks
-    // creativecoin: This fixes an issue where a 51% attack can change difficulty at will.
+    // Creativecoin: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
-    int blockstogoback = params.DifficultyAdjustmentInterval()-1;
-    if ((pindexLast->nHeight+1) != params.DifficultyAdjustmentInterval())
-        blockstogoback = params.DifficultyAdjustmentInterval();
+    int blockstogoback = difficultyAdjustmentInterval-1;
+    if ((pindexLast->nHeight+1) != difficultyAdjustmentInterval)
+        blockstogoback = difficultyAdjustmentInterval;
 
     // Go back by what we want to be 14 days worth of blocks
     const CBlockIndex* pindexFirst = pindexLast;
@@ -64,32 +67,53 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     if (params.fPowNoRetargeting)
         return pindexLast->nBits;
 
-    // Limit adjustment step
-    int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-    if (nActualTimespan < params.nPowTargetTimespan/4)
-        nActualTimespan = params.nPowTargetTimespan/4;
-    if (nActualTimespan > params.nPowTargetTimespan*4)
-        nActualTimespan = params.nPowTargetTimespan*4;
+    int height = pindexLast->nHeight;
 
     // Retarget
     arith_uint256 bnNew;
     arith_uint256 bnOld;
     bnNew.SetCompact(pindexLast->nBits);
-    bnOld = bnNew;
-    // Creativecoin: intermediate uint256 can overflow by 1 bit
     const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
-    bool fShift = bnNew.bits() > bnPowLimit.bits() - 1;
-    if (fShift)
-        bnNew >>= 1;
-    bnNew *= nActualTimespan;
-    bnNew /= params.nPowTargetTimespan;
-    if (fShift)
-        bnNew <<= 1;
+
+    if (height >= params.DigiShieldHeight) {
+        int nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+        if (nActualTimespan < params.nDigiShieldPowTargetTimespan/16)
+            nActualTimespan = params.nDigiShieldPowTargetTimespan/16;
+        if (nActualTimespan > params.nDigiShieldPowTargetTimespan*16)
+            nActualTimespan = params.nDigiShieldPowTargetTimespan*16;
+
+        bnNew.SetCompact(pindexLast->nBits);
+        bnOld = bnNew;
+        bnNew *= nActualTimespan;
+        bnNew /= params.nDigiShieldPowTargetTimespan;
+
+    } else {
+        // Limit adjustment step
+        int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+        if (nActualTimespan < params.nPowTargetTimespan/4)
+            nActualTimespan = params.nPowTargetTimespan/4;
+        if (nActualTimespan > params.nPowTargetTimespan*4)
+            nActualTimespan = params.nPowTargetTimespan*4;
+
+
+        // creativecoin: intermediate uint256 can overflow by 1 bit
+        bool fShift = bnNew.bits() > 235;
+        if (fShift)
+            bnNew >>= 1;
+
+        bnNew *= nActualTimespan;
+        bnNew /= params.nPowTargetTimespan;
+        if (fShift)
+            bnNew <<= 1;
+    }
 
     if (bnNew > bnPowLimit)
         bnNew = bnPowLimit;
 
     return bnNew.GetCompact();
+
+}
+
 }
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Consensus::Params& params)
