@@ -2905,8 +2905,10 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
     if (fCheckMerkleRoot) {
         bool mutated;
         uint256 hashMerkleRoot2 = BlockMerkleRoot(block, &mutated);
-        if (block.hashMerkleRoot != hashMerkleRoot2)
+        if (block.hashMerkleRoot != hashMerkleRoot2) {
+            error(("%s: MerkleRoot not match: %s / %s", __func__, block.hashMerkleRoot.ToString().c_str(), hashMerkleRoot2.ToString().c_str()));
             return state.DoS(100, false, REJECT_INVALID, "bad-txnmrklroot", true, "hashMerkleRoot mismatch");
+        }
 
         // Check for merkle tree malleability (CVE-2012-2459): repeating sequences
         // of transactions in a block without affecting the merkle root of a block,
