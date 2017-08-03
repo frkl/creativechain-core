@@ -2906,7 +2906,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
         bool mutated;
         uint256 hashMerkleRoot2 = BlockMerkleRoot(block, &mutated);
         if (block.hashMerkleRoot != hashMerkleRoot2) {
-            error(("%s: MerkleRoot not match: %s / %s", __func__, block.hashMerkleRoot.ToString().c_str(), hashMerkleRoot2.ToString().c_str()));
+            error("%s: MerkleRoot not match: %s / %s", __func__, block.hashMerkleRoot.ToString().c_str(), hashMerkleRoot2.ToString().c_str());
             return state.DoS(100, false, REJECT_INVALID, "bad-txnmrklroot", true, "hashMerkleRoot mismatch");
         }
 
