@@ -79,8 +79,8 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         int nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
         if (nActualTimespan < params.nDigiShieldPowTargetTimespan/16)
             nActualTimespan = params.nDigiShieldPowTargetTimespan/16;
-        if (nActualTimespan > params.nDigiShieldPowTargetTimespan*16)
-            nActualTimespan = params.nDigiShieldPowTargetTimespan*16;
+        if (nActualTimespan > params.nDigiShieldPowTargetTimespan*8)
+            nActualTimespan = params.nDigiShieldPowTargetTimespan*8;
 
         bnNew.SetCompact(pindexLast->nBits);
         bnOld = bnNew;
