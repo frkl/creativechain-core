@@ -75,37 +75,25 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     bnNew.SetCompact(pindexLast->nBits);
     const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
 
-    if (height >= params.DigiShieldHeight) {
-        int nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-        if (nActualTimespan < params.nDigiShieldPowTargetTimespan/16)
-            nActualTimespan = params.nDigiShieldPowTargetTimespan/16;
-        if (nActualTimespan > params.nDigiShieldPowTargetTimespan*8)
-            nActualTimespan = params.nDigiShieldPowTargetTimespan*8;
+    int64_t powTargetTimespan = height >= params.DigiShieldHeight ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
 
-        bnNew.SetCompact(pindexLast->nBits);
-        bnOld = bnNew;
-        bnNew *= nActualTimespan;
-        bnNew /= params.nDigiShieldPowTargetTimespan;
-
-    } else {
-        // Limit adjustment step
-        int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-        if (nActualTimespan < params.nPowTargetTimespan/4)
-            nActualTimespan = params.nPowTargetTimespan/4;
-        if (nActualTimespan > params.nPowTargetTimespan*4)
-            nActualTimespan = params.nPowTargetTimespan*4;
+    // Limit adjustment step
+    int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+    if (nActualTimespan < powTargetTimespan/4)
+        nActualTimespan = powTargetTimespan/4;
+    if (nActualTimespan > powTargetTimespan*4)
+        nActualTimespan = powTargetTimespan*4;
 
 
-        // creativecoin: intermediate uint256 can overflow by 1 bit
-        bool fShift = bnNew.bits() > 235;
-        if (fShift)
-            bnNew >>= 1;
+    // creativecoin: intermediate uint256 can overflow by 1 bit
+    bool fShift = bnNew.bits() > 235;
+    if (fShift)
+        bnNew >>= 1;
 
-        bnNew *= nActualTimespan;
-        bnNew /= params.nPowTargetTimespan;
-        if (fShift)
-            bnNew <<= 1;
-    }
+    bnNew *= nActualTimespan;
+    bnNew /= params.nPowTargetTimespan;
+    if (fShift)
+        bnNew <<= 1;
 
     if (bnNew > bnPowLimit)
         bnNew = bnPowLimit;
