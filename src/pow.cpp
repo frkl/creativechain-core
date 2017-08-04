@@ -45,21 +45,30 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         return pindexLast->nBits;
     }
 
-    // Go back by what we want to be 14 days worth of blocks
-    // Creativecoin: This fixes an issue where a 51% attack can change difficulty at will.
-    // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
-    int blockstogoback = difficultyAdjustmentInterval-1;
-    if ((pindexLast->nHeight+1) != difficultyAdjustmentInterval)
-        blockstogoback = difficultyAdjustmentInterval;
+    if (nHeight >= params.DigiShieldHeight) {
+        int nHeightFirst = pindexLast->nHeight - (difficultyAdjustmentInterval-1);
+        assert(nHeightFirst >= 0);
+        const CBlockIndex *pindexFirst = pindexLast->GetAncestor(nHeightFirst);
+        assert(pindexFirst);
+        return CalculateNextWorkRequired(pindexLast, pindexFirst->GetBlockTime(), params);
+    } else {
+        // Go back by what we want to be 14 days worth of blocks
+        // Creativecoin: This fixes an issue where a 51% attack can change difficulty at will.
+        // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
+        int blockstogoback = params.DifficultyAdjustmentInterval()-1;
+        if ((pindexLast->nHeight+1) != params.DifficultyAdjustmentInterval())
+            blockstogoback = params.DifficultyAdjustmentInterval();
 
-    // Go back by what we want to be 14 days worth of blocks
-    const CBlockIndex* pindexFirst = pindexLast;
-    for (int i = 0; pindexFirst && i < blockstogoback; i++)
-        pindexFirst = pindexFirst->pprev;
+        // Go back by what we want to be 14 days worth of blocks
+        const CBlockIndex* pindexFirst = pindexLast;
+        for (int i = 0; pindexFirst && i < blockstogoback; i++)
+            pindexFirst = pindexFirst->pprev;
 
-    assert(pindexFirst);
+        assert(pindexFirst);
 
-    return CalculateNextWorkRequired(pindexLast, pindexFirst->GetBlockTime(), params);
+        return CalculateNextWorkRequired(pindexLast, pindexFirst->GetBlockTime(), params);
+    }
+
 }
 
 unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nFirstBlockTime, const Consensus::Params& params)
@@ -69,36 +78,54 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
 
     int height = pindexLast->nHeight;
 
-    // Retarget
-    arith_uint256 bnNew;
-    arith_uint256 bnOld;
-    bnNew.SetCompact(pindexLast->nBits);
-    const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
+    if (height >= params.DigiShieldHeight) {
+        // Limit adjustment step
+        int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+        if (nActualTimespan < params.nDigiShieldPowTargetTimespan/4)
+            nActualTimespan = params.nDigiShieldPowTargetTimespan/4;
+        if (nActualTimespan > params.nDigiShieldPowTargetTimespan*4)
+            nActualTimespan = params.nDigiShieldPowTargetTimespan*4;
 
-    int64_t powTargetTimespan = height >= params.DigiShieldHeight ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
+        // Retarget
+        const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
+        arith_uint256 bnNew;
+        bnNew.SetCompact(pindexLast->nBits);
+        bnNew *= nActualTimespan;
+        bnNew /= params.nPowTargetTimespan;
 
-    // Limit adjustment step
-    int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-    if (nActualTimespan < powTargetTimespan/4)
-        nActualTimespan = powTargetTimespan/4;
-    if (nActualTimespan > powTargetTimespan*4)
-        nActualTimespan = powTargetTimespan*4;
+        if (bnNew > bnPowLimit)
+            bnNew = bnPowLimit;
 
+        return bnNew.GetCompact();
+    } else {
+        // Limit adjustment step
+        int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+        if (nActualTimespan < params.nPowTargetTimespan/4)
+            nActualTimespan = params.nPowTargetTimespan/4;
+        if (nActualTimespan > params.nPowTargetTimespan*4)
+            nActualTimespan = params.nPowTargetTimespan*4;
 
-    // creativecoin: intermediate uint256 can overflow by 1 bit
-    bool fShift = bnNew.bits() > 235;
-    if (fShift)
-        bnNew >>= 1;
+        // Retarget
+        arith_uint256 bnNew;
+        arith_uint256 bnOld;
+        bnNew.SetCompact(pindexLast->nBits);
+        bnOld = bnNew;
+        // Creativecoin: intermediate uint256 can overflow by 1 bit
+        const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
+        bool fShift = bnNew.bits() > bnPowLimit.bits() - 1;
+        if (fShift)
+            bnNew >>= 1;
+        bnNew *= nActualTimespan;
+        bnNew /= params.nPowTargetTimespan;
+        if (fShift)
+            bnNew <<= 1;
 
-    bnNew *= nActualTimespan;
-    bnNew /= params.nPowTargetTimespan;
-    if (fShift)
-        bnNew <<= 1;
+        if (bnNew > bnPowLimit)
+            bnNew = bnPowLimit;
 
-    if (bnNew > bnPowLimit)
-        bnNew = bnPowLimit;
+        return bnNew.GetCompact();
+    }
 
-    return bnNew.GetCompact();
 
 }
 
