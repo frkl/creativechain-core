@@ -156,7 +156,7 @@ public:
         consensus.nKeccakPowLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; // 1 day
         consensus.nPowTargetSpacing = 2 * 60;
-        consensus.nDigiShieldHeight = 1;
+        consensus.nDigiShieldHeight = 720;
         consensus.nDigiShieldPowTargetTimespan = 2 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;

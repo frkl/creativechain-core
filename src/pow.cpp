@@ -120,15 +120,17 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         bnNew.SetCompact(pindexLast->nBits);
         bnOld = bnNew;
         // creativecoin: intermediate uint256 can overflow by 1 bit
-        bool fShift = bnNew.bits() > 235;
-        if (fShift)
+        const arith_uint256 bnPowLimit = UintToArith256(powLimit);
+        bool fShift = bnNew.bits() > bnPowLimit.bits() - 1;
+        if (fShift) {
             bnNew >>= 1;
+        }
         bnNew *= nActualTimespan;
         bnNew /= powTargetTimespan;
-        if (fShift)
+        if (fShift) {
             bnNew <<= 1;
+        }
 
-        const arith_uint256 bnPowLimit = UintToArith256(powLimit);
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
