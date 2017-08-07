@@ -14,14 +14,18 @@
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
+
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
 
     // Genesis block
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
+    uint256 powLimit = pindexLast->nTime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
+    nProofOfWorkLimit = UintToArith256(powLimit).GetCompact();
+
     int nHeight = pindexLast->nHeight;
-    int64_t difficultyAdjustmentInterval = nHeight >= params.DigiShieldHeight ? params.DifficultyAdjustmentIntervalV2() : params.DifficultyAdjustmentInterval();
+    int64_t difficultyAdjustmentInterval = nHeight >= params.nDigiShieldHeight ? params.DifficultyAdjustmentIntervalV2() : params.DifficultyAdjustmentInterval();
 
     // Only change once per difficulty adjustment interval
     if ((pindexLast->nHeight+1) % difficultyAdjustmentInterval != 0)
@@ -70,7 +74,9 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
 
     int height = pindexLast->nHeight;
 
-    if (height >= params.DigiShieldHeight) {
+    uint256 powLimit = pindexLast->nTime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
+
+    if (height >= params.nDigiShieldHeight) {
         // Limit adjustment step
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
         if (nActualTimespan < params.nDigiShieldPowTargetTimespan/4)
@@ -79,7 +85,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
             nActualTimespan = params.nDigiShieldPowTargetTimespan*4;
 
         // Retarget
-        const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
+        const arith_uint256 bnPowLimit = UintToArith256(powLimit);
         arith_uint256 bnNew;
         bnNew.SetCompact(pindexLast->nBits);
         bnNew *= nActualTimespan;
@@ -111,7 +117,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         if (fShift)
             bnNew <<= 1;
 
-        const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
+        const arith_uint256 bnPowLimit = UintToArith256(powLimit);
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
@@ -128,14 +134,10 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Co
     arith_uint256 bnTarget;
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
-
-    if (nTime >= KECCAK_TIME) {
-        // Adjusting the difficulty is not necessary with Keccak
-        //bnTarget >>= 0x100;
-    }
+    uint256 powLimit = nTime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
 
     // Check range
-    if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
+    if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(powLimit))
         return false;
 
     // Check proof of work matches claimed amount

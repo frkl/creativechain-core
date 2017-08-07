@@ -48,9 +48,9 @@ struct Params {
     int BIP66Height;
 
     /** Block height at which DigiShield becomes active */
-    int DigiShieldHeight;
+    int nDigiShieldHeight;
     int64_t nDigiShieldPowTargetTimespan;
-
+    uint256 nKeccakPowLimit;
     /**
      * Minimum blocks including miner confirmation of the total of 2016 blocks in a retargeting period,
      * (nPowTargetTimespan / nPowTargetSpacing) which is also used for BIP9 deployments.
