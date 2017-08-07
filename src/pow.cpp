@@ -104,7 +104,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
-        error("Next Diff with DS: %x", bnNew.GetCompact());
+        printf("Next Diff with DS: %x", bnNew.GetCompact());
         return bnNew.GetCompact();
     } else {
         // Limit adjustment step
@@ -134,7 +134,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
-        error("Next Diff with SC: %x", bnNew.GetCompact());
+        printf("Next Diff with SC: %x", bnNew.GetCompact());
         return bnNew.GetCompact();
     }
 
