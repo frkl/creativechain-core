@@ -22,7 +22,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
-    uint256 powLimit = params.powLimit;
+    uint256 powLimit = pindexLast->nTime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
     nProofOfWorkLimit = UintToArith256(powLimit).GetCompact();
 
     int nHeight = pindexLast->nHeight+1;
@@ -82,7 +82,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     int height = pindexLast->nHeight+1;
     int64_t powTargetTimespan = height >= params.nDigiShieldHeight ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
     unsigned int currtime = GetEpochSeconds();
-    bool isKeccakTime = false;//currtime >= KECCAK_TIME;
+    bool isKeccakTime = currtime >= KECCAK_TIME;
 
     uint256 powLimit = isKeccakTime ? params.nKeccakPowLimit : params.powLimit;
 
@@ -101,7 +101,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
 
         if (pindexLast->GetBlockTime() < KECCAK_TIME) {
             //Adjust diff in pow change
-            bnNew >>= 4;
+            bnNew <<= 8;
         }
 
         bnNew *= nActualTimespan;
@@ -154,7 +154,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Co
     arith_uint256 bnTarget;
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
-    uint256 powLimit = params.powLimit;
+    uint256 powLimit = nTime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
 
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(powLimit)) {
