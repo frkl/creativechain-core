@@ -98,6 +98,12 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         const arith_uint256 bnPowLimit = UintToArith256(powLimit);
         arith_uint256 bnNew;
         bnNew.SetCompact(pindexLast->nBits);
+
+        if (pindexLast->GetBlockTime() < KECCAK_TIME) {
+            //Adjust diff in pow change
+            bnNew >>= 4;
+        }
+
         bnNew *= nActualTimespan;
         bnNew /= powTargetTimespan;
 
