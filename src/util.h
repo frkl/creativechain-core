@@ -235,4 +235,9 @@ template <typename Callable> void TraceThread(const char* name,  Callable func)
 
 std::string CopyrightHolders(const std::string& strPrefix);
 
+unsigned int GetCurrentTime() {
+    time_t seconds;
+    seconds = time(NULL);
+    return (unsigned int) seconds;
+}
 #endif // BITCOIN_UTIL_H

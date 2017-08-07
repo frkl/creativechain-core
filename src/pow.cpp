@@ -3,6 +3,7 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include <chrono>
 #include "pow.h"
 
 #include "arith_uint256.h"
@@ -24,7 +25,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     uint256 powLimit = pindexLast->nTime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
     nProofOfWorkLimit = UintToArith256(powLimit).GetCompact();
 
-    int nHeight = pindexLast->nHeight;
+    int nHeight = pindexLast->nHeight+1;
     int64_t difficultyAdjustmentInterval = nHeight >= params.nDigiShieldHeight ? params.DifficultyAdjustmentIntervalV2() : params.DifficultyAdjustmentInterval();
 
     // Only change once per difficulty adjustment interval
@@ -72,9 +73,10 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     if (params.fPowNoRetargeting)
         return pindexLast->nBits;
 
-    int height = pindexLast->nHeight;
+    int height = pindexLast->nHeight+1;
+    unsigned int currtime = GetCurrentTime();
 
-    uint256 powLimit = pindexLast->nTime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
+    uint256 powLimit = currtime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
 
     if (height >= params.nDigiShieldHeight) {
         // Limit adjustment step
