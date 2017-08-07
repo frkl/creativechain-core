@@ -68,6 +68,12 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
 }
 
+unsigned int GetEpochSeconds() {
+    time_t seconds;
+    seconds = time(NULL);
+    return (unsigned int) seconds;
+}
+
 unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nFirstBlockTime, const Consensus::Params& params)
 {
     if (params.fPowNoRetargeting)
