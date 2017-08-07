@@ -102,6 +102,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
+        error("Next Diff with DS: %x", bnNew.GetCompact());
         return bnNew.GetCompact();
     } else {
         // Limit adjustment step
@@ -129,6 +130,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
+        error("Next Diff with SC: %x", bnNew.GetCompact());
         return bnNew.GetCompact();
     }
 
@@ -145,12 +147,13 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Co
     uint256 powLimit = nTime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
 
     // Check range
-    if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(powLimit))
-        return false;
+    if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(powLimit)) {
+        return error("fNegative: %d, bnTarget == 0: %d, fOverflow: %d, bnTarget > UintToArith256(powLimit): %d", fNegative, bnTarget == 0, fOverflow, bnTarget > UintToArith256(powLimit));
+    }
 
     // Check proof of work matches claimed amount
     if (UintToArith256(hash) > bnTarget)
-        return false;
+        return error("UintToArith256(hash) > bnTarget: %d", UintToArith256(hash) > bnTarget);
 
     return true;
 }
