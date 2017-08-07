@@ -74,7 +74,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         return pindexLast->nBits;
 
     int height = pindexLast->nHeight+1;
-    unsigned int currtime = GetCurrentTime();
+    unsigned int currtime = GetEpochSeconds();
 
     uint256 powLimit = currtime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
 
