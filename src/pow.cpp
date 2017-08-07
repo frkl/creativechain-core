@@ -80,24 +80,26 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         return pindexLast->nBits;
 
     int height = pindexLast->nHeight+1;
+    int64_t powTargetTimespan = height >= params.nDigiShieldHeight ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
     unsigned int currtime = GetEpochSeconds();
+    bool isKeccakTime = currtime >= KECCAK_TIME;
 
-    uint256 powLimit = currtime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
+    uint256 powLimit = isKeccakTime ? params.nKeccakPowLimit : params.powLimit;
 
-    if (height >= params.nDigiShieldHeight) {
+    if (isKeccakTime) {
         // Limit adjustment step
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-        if (nActualTimespan < params.nDigiShieldPowTargetTimespan/4)
-            nActualTimespan = params.nDigiShieldPowTargetTimespan/4;
-        if (nActualTimespan > params.nDigiShieldPowTargetTimespan*4)
-            nActualTimespan = params.nDigiShieldPowTargetTimespan*4;
+        if (nActualTimespan < powTargetTimespan/4)
+            nActualTimespan = powTargetTimespan/4;
+        if (nActualTimespan > powTargetTimespan*4)
+            nActualTimespan = powTargetTimespan*4;
 
         // Retarget
         const arith_uint256 bnPowLimit = UintToArith256(powLimit);
         arith_uint256 bnNew;
         bnNew.SetCompact(pindexLast->nBits);
         bnNew *= nActualTimespan;
-        bnNew /= params.nPowTargetTimespan;
+        bnNew /= powTargetTimespan;
 
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
@@ -107,10 +109,10 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     } else {
         // Limit adjustment step
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-        if (nActualTimespan < params.nPowTargetTimespan/4)
-            nActualTimespan = params.nPowTargetTimespan/4;
-        if (nActualTimespan > params.nPowTargetTimespan*4)
-            nActualTimespan = params.nPowTargetTimespan*4;
+        if (nActualTimespan < powTargetTimespan/4)
+            nActualTimespan = powTargetTimespan/4;
+        if (nActualTimespan > powTargetTimespan*4)
+            nActualTimespan = powTargetTimespan*4;
 
         // Retarget
         arith_uint256 bnNew;
@@ -122,7 +124,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         if (fShift)
             bnNew >>= 1;
         bnNew *= nActualTimespan;
-        bnNew /= params.nPowTargetTimespan;
+        bnNew /= powTargetTimespan;
         if (fShift)
             bnNew <<= 1;
 
