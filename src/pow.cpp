@@ -28,6 +28,14 @@ uint256 GetPowLimit(const Consensus::Params& params) {
     return IsKeccakTime() ? params.nKeccakPowLimit : params.powLimit;
 }
 
+bool IsDigiShieldActive(const CBlockIndex* pindexLast, const Consensus::Params& params) {
+    return pindexLast->nHeight >= params.nDigiShieldHeight;
+}
+
+int64_t DifficultyAdjustmentInterval(const CBlockIndex* pindexLast, const Consensus::Params& params) {
+    return IsDigiShieldActive(pindexLast, params) ? params.DifficultyAdjustmentIntervalV2() : params.DifficultyAdjustmentInterval();
+}
+
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
 
@@ -37,8 +45,10 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
+    int64_t difficultyAdjustmentInterval = DifficultyAdjustmentInterval(pindexLast, params);
+
     // Only change once per difficulty adjustment interval
-    if ((pindexLast->nHeight+1) % params.DifficultyAdjustmentInterval() != 0)
+    if ((pindexLast->nHeight+1) % difficultyAdjustmentInterval != 0)
     {
         if (params.fPowAllowMinDifficultyBlocks)
         {
@@ -51,7 +61,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
             {
                 // Return the last non-special-min-difficulty-rules-block
                 const CBlockIndex* pindex = pindexLast;
-                while (pindex->pprev && pindex->nHeight % params.DifficultyAdjustmentInterval() != 0 && pindex->nBits == nProofOfWorkLimit)
+                while (pindex->pprev && pindex->nHeight % difficultyAdjustmentInterval != 0 && pindex->nBits == nProofOfWorkLimit)
                     pindex = pindex->pprev;
                 return pindex->nBits;
             }
@@ -62,9 +72,9 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     // Go back by what we want to be 14 days worth of blocks
     // creativecoin: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
-    int blockstogoback = params.DifficultyAdjustmentInterval()-1;
-    if ((pindexLast->nHeight+1) != params.DifficultyAdjustmentInterval())
-        blockstogoback = params.DifficultyAdjustmentInterval();
+    int blockstogoback = difficultyAdjustmentInterval-1;
+    if ((pindexLast->nHeight+1) != difficultyAdjustmentInterval)
+        blockstogoback = difficultyAdjustmentInterval;
 
     // Go back by what we want to be 14 days worth of blocks
     const CBlockIndex* pindexFirst = pindexLast;
@@ -82,54 +92,29 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     if (params.fPowNoRetargeting)
         return pindexLast->nBits;
 
-    int height = pindexLast->nHeight;
-
     // Retarget
     arith_uint256 bnNew;
-    arith_uint256 bnOld;
     bnNew.SetCompact(pindexLast->nBits);
     const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
+    int64_t powTargetTimespan = IsDigiShieldActive(pindexLast, params) ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
 
-    if (height >= params.nDigiShieldHeight) {
-        const int64_t retargetTimespan = params.nPowTargetTimespan;
-        const int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-        int64_t nModulatedTimespan = nActualTimespan;
-        int64_t nMaxTimespan;
-        int64_t nMinTimespan;
-
-        nModulatedTimespan = retargetTimespan + (nModulatedTimespan - retargetTimespan) / 8;
-
-        nMinTimespan = retargetTimespan - (retargetTimespan / 4);
-        nMaxTimespan = retargetTimespan + (retargetTimespan / 2);
-
-        if (nModulatedTimespan < nMaxTimespan)
-            nModulatedTimespan = nMinTimespan;
-        else if (nModulatedTimespan > nMaxTimespan)
-            nModulatedTimespan = nMaxTimespan;
-
-        bnOld = bnNew;
-        bnNew *= nModulatedTimespan;
-        bnNew /= retargetTimespan;
-
-    } else {
-        // Limit adjustment step
-        int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-        if (nActualTimespan < params.nPowTargetTimespan/4)
-            nActualTimespan = params.nPowTargetTimespan/4;
-        if (nActualTimespan > params.nPowTargetTimespan*4)
-            nActualTimespan = params.nPowTargetTimespan*4;
+    // Limit adjustment step
+    int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+    if (nActualTimespan < powTargetTimespan/4)
+        nActualTimespan = powTargetTimespan/4;
+    if (nActualTimespan > powTargetTimespan*4)
+        nActualTimespan = powTargetTimespan*4;
 
 
-        // creativecoin: intermediate uint256 can overflow by 1 bit
-        bool fShift = bnNew.bits() > 235;
-        if (fShift)
-            bnNew >>= 1;
+    // creativecoin: intermediate uint256 can overflow by 1 bit
+    bool fShift = bnNew.bits() > 235;
+    if (fShift)
+        bnNew >>= 1;
 
-        bnNew *= nActualTimespan;
-        bnNew /= params.nPowTargetTimespan;
-        if (fShift)
-            bnNew <<= 1;
-    }
+    bnNew *= nActualTimespan;
+    bnNew /= powTargetTimespan;
+    if (fShift)
+        bnNew <<= 1;
 
     if (bnNew > bnPowLimit)
         bnNew = bnPowLimit;
