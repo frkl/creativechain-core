@@ -88,6 +88,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
 
     if (isKeccakTime) {
         // Limit adjustment step
+        bool lastIsSCrypt = pindexLast->GetBlockTime() < KECCAK_TIME;
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
         if (nActualTimespan < powTargetTimespan/4)
             nActualTimespan = powTargetTimespan/4;
@@ -97,12 +98,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         // Retarget
         const arith_uint256 bnPowLimit = UintToArith256(powLimit);
         arith_uint256 bnNew;
-        bnNew.SetCompact(pindexLast->nBits);
-
-        if (pindexLast->GetBlockTime() < KECCAK_TIME) {
-            //Adjust diff in pow change
-            bnNew <<= 8;
-        }
+        bnNew.SetCompact(lastIsSCrypt? 0x1e00ffff : pindexLast->nBits);
 
         bnNew *= nActualTimespan;
         bnNew /= powTargetTimespan;
