@@ -13,21 +13,34 @@
 #include "util.h"
 #include "consensus/consensus.h"
 
+unsigned int GetEpochSeconds() {
+    time_t seconds;
+    seconds = time(NULL);
+    return (unsigned int) seconds;
+}
+
+bool IsKeccakTime() {
+    unsigned int currtime = GetEpochSeconds();
+    return currtime >= KECCAK_TIME;
+}
+
+uint256 GetPowLimit(const Consensus::Params& params) {
+    return IsKeccakTime() ? params.nKeccakPowLimit : params.powLimit;
+}
+
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
 
-    unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
+    unsigned int nProofOfWorkLimit = UintToArith256(GetPowLimit(params)).GetCompact();
 
     // Genesis block
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
-    uint256 powLimit = pindexLast->nTime >= KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
-    nProofOfWorkLimit = UintToArith256(powLimit).GetCompact();
-
-    int nHeight = pindexLast->nHeight+1;
+    int nHeight = pindexLast->nHeight;
     int64_t difficultyAdjustmentInterval = nHeight >= params.nDigiShieldHeight ? params.DifficultyAdjustmentIntervalV2() : params.DifficultyAdjustmentInterval();
 
+    //This is necessary with digishield?
     // Only change once per difficulty adjustment interval
     if ((pindexLast->nHeight+1) % difficultyAdjustmentInterval != 0)
     {
@@ -68,37 +81,28 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
 }
 
-unsigned int GetEpochSeconds() {
-    time_t seconds;
-    seconds = time(NULL);
-    return (unsigned int) seconds;
-}
-
 unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nFirstBlockTime, const Consensus::Params& params)
 {
     if (params.fPowNoRetargeting)
         return pindexLast->nBits;
 
-    int height = pindexLast->nHeight+1;
+    int height = pindexLast->nHeight;
     int64_t powTargetTimespan = height >= params.nDigiShieldHeight ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
-    unsigned int currtime = GetEpochSeconds();
-    bool isKeccakTime = currtime >= KECCAK_TIME;
 
-    uint256 powLimit = isKeccakTime ? params.nKeccakPowLimit : params.powLimit;
+    uint256 powLimit = GetPowLimit(params);
 
-    if (isKeccakTime) {
+    if (IsKeccakTime()) {
         // Limit adjustment step
-        bool lastIsSCrypt = pindexLast->GetBlockTime() < KECCAK_TIME;
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
         if (nActualTimespan < powTargetTimespan/4)
             nActualTimespan = powTargetTimespan/4;
-        if (nActualTimespan > powTargetTimespan*4)
-            nActualTimespan = powTargetTimespan*4;
+        if (nActualTimespan > powTargetTimespan*16)
+            nActualTimespan = powTargetTimespan*16;
 
         // Retarget
         const arith_uint256 bnPowLimit = UintToArith256(powLimit);
         arith_uint256 bnNew;
-        bnNew.SetCompact(lastIsSCrypt? 0x1e00ffff : pindexLast->nBits);
+        bnNew.SetCompact(pindexLast->nBits);
 
         bnNew *= nActualTimespan;
         bnNew /= powTargetTimespan;
