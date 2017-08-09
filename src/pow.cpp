@@ -29,7 +29,7 @@ uint256 GetPowLimit(const Consensus::Params& params) {
 }
 
 bool IsDigiShieldActive(const CBlockIndex* pindexLast, const Consensus::Params& params) {
-    return pindexLast->nHeight >= params.nDigiShieldHeight;
+    return pindexLast->nHeight+1 >= params.nDigiShieldHeight;
 }
 
 int64_t DifficultyAdjustmentInterval(const CBlockIndex* pindexLast, const Consensus::Params& params) {
