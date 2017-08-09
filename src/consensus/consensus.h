@@ -9,7 +9,7 @@
 #include <stdint.h>
 
 // 2017 Aug 07 15:10:00 UTC
-static const uint32_t CHANGE_POW_TIME = 1502285400;
+static const uint32_t CHANGE_POW_TIME = 1502292600;
 
 /** The maximum allowed size for a serialized block, in bytes (only for buffer size limits) */
 static const unsigned int MAX_BLOCK_SERIALIZED_SIZE = 4000000;

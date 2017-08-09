@@ -84,40 +84,49 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     if (params.fPowNoRetargeting)
         return pindexLast->nBits;
 
-    int64_t powTargetTimespan = IsChangePowTime() ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
-
     if (IsChangePowTime()) {
         //Adjustment diff for Keccak Algorithm
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
         arith_uint256 bnPowLimit = UintToArith256(params.nKeccakPowLimit);
 
-        if (nActualTimespan < powTargetTimespan/4)
-            nActualTimespan = powTargetTimespan/4;
-        if (nActualTimespan > powTargetTimespan*4)
-            nActualTimespan = powTargetTimespan*4;
+        if (nActualTimespan < params.nDigiShieldPowTargetTimespan/4)
+            nActualTimespan = params.nDigiShieldPowTargetTimespan/4;
+        if (nActualTimespan > params.nDigiShieldPowTargetTimespan*4)
+            nActualTimespan = params.nDigiShieldPowTargetTimespan*4;
 
         arith_uint256 bnNew;
-        bnNew.SetCompact(pindexLast->nBits);
+
+        //Restarting the difficulty with the new PoW as if it were the genesis block
+        if (pindexLast->nTime >= CHANGE_POW_TIME) {
+            bnNew.SetCompact(pindexLast->nBits);
+        } else {
+            bnNew.SetCompact(bnPowLimit.GetCompact());
+        }
+
+        arith_uint256 bnOld = bnNew;
+
         bnNew *= nActualTimespan;
         bnNew /= nActualTimespan;
 
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
+        LogPrintf("%s: Calculating new diff: old = %x, new = %x", "New PoW", bnOld.GetCompact(), bnNew.GetCompact());
         return bnNew.GetCompact();
     } else {
         // Retarget
         arith_uint256 bnNew;
+        arith_uint256 bnOld;
         bnNew.SetCompact(pindexLast->nBits);
+        bnOld = bnNew;
         const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
-
 
         // Limit adjustment step
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-        if (nActualTimespan < powTargetTimespan/4)
-            nActualTimespan = powTargetTimespan/4;
-        if (nActualTimespan > powTargetTimespan*4)
-            nActualTimespan = powTargetTimespan*4;
+        if (nActualTimespan < params.nPowTargetTimespan/4)
+            nActualTimespan = params.nPowTargetTimespan/4;
+        if (nActualTimespan > params.nPowTargetTimespan*4)
+            nActualTimespan = params.nPowTargetTimespan*4;
 
 
         // creativecoin: intermediate uint256 can overflow by 1 bit
@@ -126,13 +135,14 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
             bnNew >>= 1;
 
         bnNew *= nActualTimespan;
-        bnNew /= powTargetTimespan;
+        bnNew /= params.nPowTargetTimespan;
         if (fShift)
             bnNew <<= 1;
 
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
+        LogPrintf("%s: Calculating new diff: old = %x, new = %x", "SCrypt", bnOld.GetCompact(), bnNew.GetCompact());
         return bnNew.GetCompact();
     }
 }
