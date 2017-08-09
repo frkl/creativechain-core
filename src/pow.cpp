@@ -19,8 +19,11 @@ unsigned int GetEpochSeconds() {
     return (unsigned int) seconds;
 }
 
-bool IsChangePowTime() {
-    unsigned int currtime = GetEpochSeconds();
+bool IsChangePowTime(unsigned int currtime = 0) {
+    if (currtime == 0) {
+        currtime = GetEpochSeconds();
+    }
+
     return currtime >= CHANGE_POW_TIME;
 }
 
@@ -97,7 +100,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         arith_uint256 bnNew;
 
         //Restarting the difficulty with the new PoW as if it were the genesis block
-        if (pindexLast->nTime >= CHANGE_POW_TIME) {
+        if (IsChangePowTime(pindexLast->nTime)) {
             bnNew.SetCompact(pindexLast->nBits);
         } else {
             bnNew.SetCompact(bnPowLimit.GetCompact());
@@ -106,7 +109,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         arith_uint256 bnOld = bnNew;
 
         bnNew *= nActualTimespan;
-        bnNew /= nActualTimespan;
+        bnNew /= params.nDigiShieldPowTargetTimespan;
 
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
