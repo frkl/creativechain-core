@@ -32,7 +32,7 @@ uint256 SerializeKeccakHash(const CBlockHeader& obj)
 
 uint256 CBlockHeader::GetHash() const
 {
-    if (nTime < KECCAK_TIME)
+    if (nTime < CHANGE_POW_TIME)
         return SerializeHash(*this);
     return SerializeKeccakHash(*this);
 }
@@ -40,7 +40,7 @@ uint256 CBlockHeader::GetHash() const
 uint256 CBlockHeader::GetPoWHash() const
 {
     uint256 thash;
-    if (nTime < KECCAK_TIME) {
+    if (nTime < CHANGE_POW_TIME) {
         scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
     } else {
         thash = SerializeKeccakHash(*this);

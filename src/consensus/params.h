@@ -47,8 +47,6 @@ struct Params {
     /** Block height at which BIP66 becomes active */
     int BIP66Height;
 
-    /** Block height at which DigiShield becomes active */
-    int nDigiShieldHeight;
     int64_t nDigiShieldPowTargetTimespan;
     uint256 nKeccakPowLimit;
     /**

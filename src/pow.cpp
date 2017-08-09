@@ -19,21 +19,13 @@ unsigned int GetEpochSeconds() {
     return (unsigned int) seconds;
 }
 
-bool IsKeccakTime() {
+bool IsChangePowTime() {
     unsigned int currtime = GetEpochSeconds();
-    return currtime >= KECCAK_TIME;
+    return currtime >= CHANGE_POW_TIME;
 }
 
-uint256 GetPowLimit(const Consensus::Params& params) {
-    return IsKeccakTime() ? params.nKeccakPowLimit : params.powLimit;
-}
-
-bool IsDigiShieldActive(const CBlockIndex* pindexLast, const Consensus::Params& params) {
-    return pindexLast->nHeight+1 >= params.nDigiShieldHeight;
-}
-
-int64_t DifficultyAdjustmentInterval(const CBlockIndex* pindexLast, const Consensus::Params& params) {
-    return IsDigiShieldActive(pindexLast, params) ? params.DifficultyAdjustmentIntervalV2() : params.DifficultyAdjustmentInterval();
+int64_t DifficultyAdjustmentInterval(const Consensus::Params& params) {
+    return IsChangePowTime() ? params.DifficultyAdjustmentIntervalV2() : params.DifficultyAdjustmentInterval();
 }
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
@@ -45,7 +37,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
-    int64_t difficultyAdjustmentInterval = DifficultyAdjustmentInterval(pindexLast, params);
+    int64_t difficultyAdjustmentInterval = DifficultyAdjustmentInterval(params);
 
     // Only change once per difficulty adjustment interval
     if ((pindexLast->nHeight+1) % difficultyAdjustmentInterval != 0)
@@ -92,9 +84,9 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     if (params.fPowNoRetargeting)
         return pindexLast->nBits;
 
-    int64_t powTargetTimespan = IsDigiShieldActive(pindexLast, params) ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
+    int64_t powTargetTimespan = IsChangePowTime() ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
 
-    if (IsKeccakTime()) {
+    if (IsChangePowTime()) {
         //Adjustment diff for Keccak Algorithm
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
         arith_uint256 bnPowLimit = UintToArith256(params.nKeccakPowLimit);
@@ -152,7 +144,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Co
     arith_uint256 bnTarget;
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
-    uint256 powLimit = nTime > KECCAK_TIME ? params.nKeccakPowLimit : params.powLimit;
+    uint256 powLimit = nTime >= CHANGE_POW_TIME ? params.nKeccakPowLimit : params.powLimit;
 
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(powLimit)) {
