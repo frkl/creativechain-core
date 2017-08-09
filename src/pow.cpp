@@ -111,7 +111,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
-        LogPrintf("%s: Calculating new diff: old = %x, new = %x", "New PoW", bnOld.GetCompact(), bnNew.GetCompact());
+        LogPrintf("%s: Calculating new diff: old = %x, new = %x", "New PoW\n", bnOld.GetCompact(), bnNew.GetCompact());
         return bnNew.GetCompact();
     } else {
         // Retarget
@@ -142,7 +142,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
-        LogPrintf("%s: Calculating new diff: old = %x, new = %x", "SCrypt", bnOld.GetCompact(), bnNew.GetCompact());
+        LogPrintf("%s: Calculating new diff: old = %x, new = %x", "SCrypt\n", bnOld.GetCompact(), bnNew.GetCompact());
         return bnNew.GetCompact();
     }
 }
