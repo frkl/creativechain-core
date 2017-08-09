@@ -92,35 +92,57 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     if (params.fPowNoRetargeting)
         return pindexLast->nBits;
 
-    // Retarget
-    arith_uint256 bnNew;
-    bnNew.SetCompact(pindexLast->nBits);
-    const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
     int64_t powTargetTimespan = IsDigiShieldActive(pindexLast, params) ? params.nDigiShieldPowTargetTimespan : params.nPowTargetTimespan;
 
-    // Limit adjustment step
-    int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
-    if (nActualTimespan < powTargetTimespan/4)
-        nActualTimespan = powTargetTimespan/4;
-    if (nActualTimespan > powTargetTimespan*4)
-        nActualTimespan = powTargetTimespan*4;
+    if (IsKeccakTime()) {
+        //Adjustment diff for Keccak Algorithm
+        int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+        arith_uint256 bnPowLimit = UintToArith256(params.nKeccakPowLimit);
+
+        if (nActualTimespan < powTargetTimespan/4)
+            nActualTimespan = powTargetTimespan/4;
+        if (nActualTimespan > powTargetTimespan*4)
+            nActualTimespan = powTargetTimespan*4;
+
+        arith_uint256 bnNew;
+        bnNew.SetCompact(pindexLast->nBits);
+        bnNew *= nActualTimespan;
+        bnNew /= nActualTimespan;
+
+        if (bnNew > bnPowLimit)
+            bnNew = bnPowLimit;
+
+        return bnNew.GetCompact();
+    } else {
+        // Retarget
+        arith_uint256 bnNew;
+        bnNew.SetCompact(pindexLast->nBits);
+        const arith_uint256 bnPowLimit = UintToArith256(params.powLimit);
 
 
-    // creativecoin: intermediate uint256 can overflow by 1 bit
-    bool fShift = bnNew.bits() > 235;
-    if (fShift)
-        bnNew >>= 1;
+        // Limit adjustment step
+        int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
+        if (nActualTimespan < powTargetTimespan/4)
+            nActualTimespan = powTargetTimespan/4;
+        if (nActualTimespan > powTargetTimespan*4)
+            nActualTimespan = powTargetTimespan*4;
 
-    bnNew *= nActualTimespan;
-    bnNew /= powTargetTimespan;
-    if (fShift)
-        bnNew <<= 1;
 
-    if (bnNew > bnPowLimit)
-        bnNew = bnPowLimit;
+        // creativecoin: intermediate uint256 can overflow by 1 bit
+        bool fShift = bnNew.bits() > 235;
+        if (fShift)
+            bnNew >>= 1;
 
-    return bnNew.GetCompact();
+        bnNew *= nActualTimespan;
+        bnNew /= powTargetTimespan;
+        if (fShift)
+            bnNew <<= 1;
 
+        if (bnNew > bnPowLimit)
+            bnNew = bnPowLimit;
+
+        return bnNew.GetCompact();
+    }
 }
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Consensus::Params& params)
