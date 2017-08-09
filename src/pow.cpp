@@ -152,7 +152,7 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Co
     arith_uint256 bnTarget;
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
-    uint256 powLimit = params.powLimit;
+    uint256 powLimit = IsKeccakTime() ? params.nKeccakPowLimit : params.powLimit;
 
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(powLimit)) {
