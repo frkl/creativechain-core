@@ -25,7 +25,7 @@ uint256 CBlockHeader::GetPoWHash(const Consensus::Params& params, int height) co
 {
 
     uint256 thash;
-    if (params.IsChangePowActive(height)) {
+    if (!params.IsChangePowActive(height)) {
         scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
     } else {
         thash = SerializeKeccakHash(*this);
