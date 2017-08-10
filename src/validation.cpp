@@ -1137,6 +1137,19 @@ bool WriteBlockToDisk(const CBlock& block, CDiskBlockPos& pos, const CMessageHea
     return true;
 }
 
+CBlockIndex* GetPrevBlockIndex(const CBlockHeader& block) {
+    // Get prev block index
+    CBlockIndex* pindexPrev = NULL;
+    BlockMap::iterator mi = mapBlockIndex.find(block.hashPrevBlock);
+    if (mi == mapBlockIndex.end())
+        return NULL;
+    pindexPrev = (*mi).second;
+    if (pindexPrev->nStatus & BLOCK_FAILED_MASK)
+        return NULL;
+
+    return pindexPrev;
+}
+
 bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus::Params& consensusParams)
 {
     block.SetNull();
@@ -1154,8 +1167,9 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
         return error("%s: Deserialize or I/O error - %s at %s", __func__, e.what(), pos.ToString());
     }
 
+    CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
     // Check the header
-    if (!CheckProofOfWork(block.GetPoWHash(), block.nBits, block.nTime, consensusParams))
+    if (!CheckProofOfWork(block.GetPoWHash(consensusParams, pindexPrev->nHeight+1), block.nBits, pindexPrev->nHeight+1, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
 
     return true;
@@ -2880,9 +2894,10 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW)
 {
+    CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
     // Check proof of work matches claimed amount
-    if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(), block.nBits, block.nTime, consensusParams)) {
-        error("%s: Invalid hash %s, proof of work failed", __func__, block.GetPoWHash().ToString().c_str());
+    if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(consensusParams, pindexPrev->nHeight+1), block.nBits, pindexPrev->nHeight+1, consensusParams)) {
+        error("%s: Invalid hash %s, proof of work failed", __func__, block.GetPoWHash(consensusParams, pindexPrev->nHeight+1).ToString().c_str());
         return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
     }
 
@@ -3169,7 +3184,7 @@ static bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state
             return true;
         }
 
-        if (!CheckBlockHeader(block, state, chainparams.GetConsensus()))
+        if (!CheckBlockHeader(block, state, chainparams.GetConsensus(), pindexPrev->nHeight+1))
             return error("%s: Consensus::CheckBlockHeader: %s, %s", __func__, hash.ToString(), FormatStateMessage(state));
 
         // Get prev block index

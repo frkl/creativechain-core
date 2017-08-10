@@ -47,6 +47,7 @@ struct Params {
     /** Block height at which BIP66 becomes active */
     int BIP66Height;
 
+    int nChangePowHeight;
     int64_t nDigiShieldPowTargetTimespan;
     uint256 nKeccakPowLimit;
     /**
@@ -63,11 +64,27 @@ struct Params {
     bool fPowNoRetargeting;
     int64_t nPowTargetSpacing;
     int64_t nPowTargetTimespan;
-    int64_t DifficultyAdjustmentInterval() const { return nPowTargetTimespan / nPowTargetSpacing; }
-    int64_t DifficultyAdjustmentIntervalV2() const { return nDigiShieldPowTargetTimespan / nPowTargetSpacing; }
     uint256 nMinimumChainWork;
     uint256 defaultAssumeValid;
+
+    int64_t DifficultyAdjustmentInterval() const { return nPowTargetTimespan / nPowTargetSpacing; }
+    int64_t DifficultyAdjustmentIntervalV2() const { return nDigiShieldPowTargetTimespan / nPowTargetSpacing; }
+
+    bool IsChangePowActive(int height) const {
+        return height >= nChangePowHeight;
+    }
+
+    int64_t GetDifficultyAdjustmentInterval(int height) const {
+        return IsChangePowActive(height) ? DifficultyAdjustmentIntervalV2() : DifficultyAdjustmentInterval();
+    }
+
+    uint256 GetPowLimit(int height) const {
+        return IsChangePowActive(height) ? nKeccakPowLimit : powLimit;
+    }
+
 };
+
+
 } // namespace Consensus
 
 #endif // BITCOIN_CONSENSUS_PARAMS_H

@@ -12,6 +12,10 @@
 #include "serialize.h"
 #include "uint256.h"
 #include "version.h"
+#include "streams.h"
+#include "sph_keccak.h"
+#include "crypto/scrypt.h"
+#include "utilstrencodings.h"
 
 #include <vector>
 
@@ -39,6 +43,10 @@ public:
         sha.Reset();
         return *this;
     }
+};
+
+class CHashScrypt {
+    private
 };
 
 /** A hasher class for Bitcoin's 160-bit hash (SHA-256 + RIPEMD-160). */
@@ -167,6 +175,33 @@ uint256 SerializeHash(const T& obj, int nType=SER_GETHASH, int nVersion=PROTOCOL
     CHashWriter ss(nType, nVersion);
     ss << obj;
     return ss.GetHash();
+}
+
+template<typename T>
+uint256 SerializeScryptHash(const T& obj, int nType=SER_GETHASH, int nVersion=PROTOCOL_VERSION) {
+    CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
+    ss << obj;
+
+    uint256 thash;
+
+    scrypt_1024_1_1_256(BEGIN(obj), BEGIN(thash));
+
+    return thash;
+}
+
+template<typename T>
+uint256 SerializeKeccakHash(const T& obj) {
+    CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
+    ss << obj;
+
+    sph_keccak256_context ctx_keccak;
+    uint256 hash;
+
+    sph_keccak256_init(&ctx_keccak);
+    sph_keccak256(&ctx_keccak, (void*)&*ss.begin(), ss.size());
+    sph_keccak256_close(&ctx_keccak, static_cast<void*>(&hash));
+
+    return hash;
 }
 
 unsigned int MurmurHash3(unsigned int nHashSeed, const std::vector<unsigned char>& vDataToHash);

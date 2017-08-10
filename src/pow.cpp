@@ -13,23 +13,7 @@
 #include "util.h"
 #include "consensus/consensus.h"
 
-unsigned int GetEpochSeconds() {
-    time_t seconds;
-    seconds = time(NULL);
-    return (unsigned int) seconds;
-}
 
-bool IsChangePowTime(unsigned int currtime = 0) {
-    if (currtime == 0) {
-        currtime = GetEpochSeconds();
-    }
-
-    return currtime >= CHANGE_POW_TIME;
-}
-
-int64_t DifficultyAdjustmentInterval(const Consensus::Params& params) {
-    return IsChangePowTime() ? params.DifficultyAdjustmentIntervalV2() : params.DifficultyAdjustmentInterval();
-}
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {
@@ -40,7 +24,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
-    int64_t difficultyAdjustmentInterval = DifficultyAdjustmentInterval(params);
+    int64_t difficultyAdjustmentInterval = params.GetDifficultyAdjustmentInterval(pindexLast->nHeight+1);
 
     // Only change once per difficulty adjustment interval
     if ((pindexLast->nHeight+1) % difficultyAdjustmentInterval != 0)
@@ -87,7 +71,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     if (params.fPowNoRetargeting)
         return pindexLast->nBits;
 
-    if (IsChangePowTime()) {
+    if (params.IsChangePowActive(pindexLast->nHeight+1)) {
         //Adjustment diff for Keccak Algorithm
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
         arith_uint256 bnPowLimit = UintToArith256(params.nKeccakPowLimit);
@@ -100,7 +84,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         arith_uint256 bnNew;
 
         //Restarting the difficulty with the new PoW as if it were the genesis block
-        if (IsChangePowTime(pindexLast->nTime)) {
+        if (params.IsChangePowActive(pindexLast->nHeight)) {
             bnNew.SetCompact(pindexLast->nBits);
         } else {
             bnNew.SetCompact(bnPowLimit.GetCompact());
@@ -150,14 +134,14 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     }
 }
 
-bool CheckProofOfWork(uint256 hash, unsigned int nBits, uint32_t nTime, const Consensus::Params& params)
+bool CheckProofOfWork(uint256 hash, unsigned int nBits, int height, const Consensus::Params& params)
 {
     bool fNegative;
     bool fOverflow;
     arith_uint256 bnTarget;
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
-    uint256 powLimit = nTime >= CHANGE_POW_TIME ? params.nKeccakPowLimit : params.powLimit;
+    uint256 powLimit = params.GetPowLimit(height);
 
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(powLimit)) {

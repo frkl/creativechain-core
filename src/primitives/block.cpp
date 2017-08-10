@@ -12,35 +12,20 @@
 #include "crypto/common.h"
 #include "sph_keccak.h"
 #include "streams.h"
-
 #include "consensus/consensus.h"
+#include "consensus/params.h"
 
-uint256 SerializeKeccakHash(const CBlockHeader& obj)
-{
-    CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
-    ss << obj;
-
-    sph_keccak256_context ctx_keccak;
-    uint256 hash;
-
-    sph_keccak256_init(&ctx_keccak);
-    sph_keccak256(&ctx_keccak, (void*)&*ss.begin(), ss.size());
-    sph_keccak256_close(&ctx_keccak, static_cast<void*>(&hash));
-
-    return hash;
-}
 
 uint256 CBlockHeader::GetHash() const
 {
-    if (nTime < CHANGE_POW_TIME)
-        return SerializeHash(*this);
-    return SerializeKeccakHash(*this);
+    return SerializeHash(*this);
 }
 
-uint256 CBlockHeader::GetPoWHash() const
+uint256 CBlockHeader::GetPoWHash(const Consensus::Params& params, int height) const
 {
+
     uint256 thash;
-    if (nTime < CHANGE_POW_TIME) {
+    if (params.IsChangePowActive(height)) {
         scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
     } else {
         thash = SerializeKeccakHash(*this);
