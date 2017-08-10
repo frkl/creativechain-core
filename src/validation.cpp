@@ -3942,6 +3942,8 @@ bool InitBlockIndex(const CChainParams& chainparams)
             return FlushStateToDisk(state, FLUSH_STATE_ALWAYS);
         } catch (const std::runtime_error& e) {
             return error("LoadBlockIndex(): failed to initialize block database: %s", e.what());
+        } catch (...) {
+            return error("LoadBlockIndex(): failed to initialize block database");
         }
     }
 
