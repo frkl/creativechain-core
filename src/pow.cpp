@@ -72,14 +72,18 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         return pindexLast->nBits;
 
     if (params.IsChangePowActive(pindexLast->nHeight+1)) {
-        //Adjustment diff for Keccak Algorithm
+        //DigiShield implementation
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
         arith_uint256 bnPowLimit = UintToArith256(params.nKeccakPowLimit);
+        int64_t retargetTimespan = params.newPowTargetTimespan;
 
-        if (nActualTimespan < params.newPowTargetTimespan/4)
-            nActualTimespan = params.newPowTargetTimespan/4;
-        if (nActualTimespan > params.newPowTargetTimespan*4)
-            nActualTimespan = params.newPowTargetTimespan*4;
+        if (nActualTimespan < (retargetTimespan - (retargetTimespan / 4))) {
+            nActualTimespan = (retargetTimespan - (retargetTimespan / 4));
+        }
+
+        if (nActualTimespan > (retargetTimespan + (retargetTimespan / 2))) {
+            nActualTimespan = (retargetTimespan + (retargetTimespan / 2));
+        }
 
         arith_uint256 bnNew;
 
