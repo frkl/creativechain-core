@@ -1635,6 +1635,7 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
     {
         boost::unique_lock<boost::mutex> lock(cs_GenesisWait);
         while (!fHaveGenesis) {
+            LogPrintf("%s: %s", __func__, "fHaveGenesis = false");
             condvar_GenesisWait.wait(lock);
         }
         uiInterface.NotifyBlockTip.disconnect(BlockNotifyGenesisWait);
