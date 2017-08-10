@@ -1139,23 +1139,18 @@ bool WriteBlockToDisk(const CBlock& block, CDiskBlockPos& pos, const CMessageHea
 
 CBlockIndex* GetPrevBlockIndex(const CBlockHeader& block) {
     // Get prev block index
-    LogPrintf("%s: %d\n", __func__, 1);
+
     CBlockIndex* pindexPrev = NULL;
-    LogPrintf("%s: %d\n", __func__, 2);
     BlockMap::iterator mi = mapBlockIndex.find(block.hashPrevBlock);
-    LogPrintf("%s: %d\n", __func__, 3);
     if (mi == mapBlockIndex.end()) {
-        LogPrintf("%s: %d\n", __func__, 4);
         return NULL;
     }
-    LogPrintf("%s: %d\n", __func__, 5);
+
     pindexPrev = (*mi).second;
-    LogPrintf("%s: %d\n", __func__, 6);
     if (pindexPrev->nStatus & BLOCK_FAILED_MASK) {
-        LogPrintf("%s: %d\n", __func__, 7);
         return NULL;
     }
-    LogPrintf("%s: %d\n", __func__, 8);
+
     return pindexPrev;
 }
 
@@ -1177,10 +1172,14 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
     }
 
     LogPrintf("%s: %s\n", __func__, "Getting prevBlock");
-    CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
-    assert(pindexPrev);
+    int height = 0;
+    if (block.GetHash() != consensusParams.hashGenesisBlock) {
+        CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
+        height = pindexPrev->nHeight+1;
+    }
+
     // Check the header
-    if (!CheckProofOfWork(block.GetPoWHash(consensusParams, pindexPrev->nHeight+1), block.nBits, pindexPrev->nHeight+1, consensusParams))
+    if (!CheckProofOfWork(block.GetPoWHash(consensusParams, height), block.nBits, height, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
 
     return true;
@@ -2906,11 +2905,15 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW)
 {
     LogPrintf("%s: %s\n", __func__, "Getting prevBlock");
-    CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
-    assert(pindexPrev);
+    int height = 0;
+    if (block.GetHash() != consensusParams.hashGenesisBlock) {
+        CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
+        height = pindexPrev->nHeight+1;
+    }
+
     // Check proof of work matches claimed amount
-    if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(consensusParams, pindexPrev->nHeight+1), block.nBits, pindexPrev->nHeight+1, consensusParams)) {
-        error("%s: Invalid hash %s, proof of work failed", __func__, block.GetPoWHash(consensusParams, pindexPrev->nHeight+1).ToString().c_str());
+    if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(consensusParams, height), block.nBits, height, consensusParams)) {
+        error("%s: Invalid hash %s, proof of work failed", __func__, block.GetPoWHash(consensusParams, height).ToString().c_str());
         return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
     }
 
