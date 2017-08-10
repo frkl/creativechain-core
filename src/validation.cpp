@@ -1171,7 +1171,6 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
         return error("%s: Deserialize or I/O error - %s at %s", __func__, e.what(), pos.ToString());
     }
 
-    LogPrintf("%s: %s\n", __func__, "Getting prevBlock");
     int height = 0;
     if (block.GetHash() != consensusParams.hashGenesisBlock) {
         CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
@@ -2904,7 +2903,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW)
 {
-    LogPrintf("%s: %s\n", __func__, "Getting prevBlock");
+
     int height = 0;
     if (block.GetHash() != consensusParams.hashGenesisBlock) {
         CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
