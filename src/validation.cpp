@@ -1176,7 +1176,9 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
         return error("%s: Deserialize or I/O error - %s at %s", __func__, e.what(), pos.ToString());
     }
 
+    LogPrintf("%s: %s\n", __func__, "Getting prevBlock");
     CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
+    assert(pindexPrev);
     // Check the header
     if (!CheckProofOfWork(block.GetPoWHash(consensusParams, pindexPrev->nHeight+1), block.nBits, pindexPrev->nHeight+1, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
@@ -2903,7 +2905,9 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW)
 {
+    LogPrintf("%s: %s\n", __func__, "Getting prevBlock");
     CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
+    assert(pindexPrev);
     // Check proof of work matches claimed amount
     if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(consensusParams, pindexPrev->nHeight+1), block.nBits, pindexPrev->nHeight+1, consensusParams)) {
         error("%s: Invalid hash %s, proof of work failed", __func__, block.GetPoWHash(consensusParams, pindexPrev->nHeight+1).ToString().c_str());
