@@ -1139,14 +1139,23 @@ bool WriteBlockToDisk(const CBlock& block, CDiskBlockPos& pos, const CMessageHea
 
 CBlockIndex* GetPrevBlockIndex(const CBlockHeader& block) {
     // Get prev block index
+    LogPrintf("%s: %d\n", __func__, 1);
     CBlockIndex* pindexPrev = NULL;
+    LogPrintf("%s: %d\n", __func__, 2);
     BlockMap::iterator mi = mapBlockIndex.find(block.hashPrevBlock);
-    if (mi == mapBlockIndex.end())
+    LogPrintf("%s: %d\n", __func__, 3);
+    if (mi == mapBlockIndex.end()) {
+        LogPrintf("%s: %d\n", __func__, 4);
         return NULL;
+    }
+    LogPrintf("%s: %d\n", __func__, 5);
     pindexPrev = (*mi).second;
-    if (pindexPrev->nStatus & BLOCK_FAILED_MASK)
+    LogPrintf("%s: %d\n", __func__, 6);
+    if (pindexPrev->nStatus & BLOCK_FAILED_MASK) {
+        LogPrintf("%s: %d\n", __func__, 7);
         return NULL;
-
+    }
+    LogPrintf("%s: %d\n", __func__, 8);
     return pindexPrev;
 }
 
