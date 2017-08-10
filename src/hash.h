@@ -45,10 +45,6 @@ public:
     }
 };
 
-class CHashScrypt {
-    private
-};
-
 /** A hasher class for Bitcoin's 160-bit hash (SHA-256 + RIPEMD-160). */
 class CHash160 {
 private:
