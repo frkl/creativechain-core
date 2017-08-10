@@ -3669,8 +3669,10 @@ bool static LoadBlockIndexDB(const CChainParams& chainparams)
 
     // Load pointer to end of best chain
     BlockMap::iterator it = mapBlockIndex.find(pcoinsTip->GetBestBlock());
-    if (it == mapBlockIndex.end())
+    if (it == mapBlockIndex.end()) {
+        LogPrintf("%s: %s", __func__, "it == mapBlockIndex.end()");
         return true;
+    }
     chainActive.SetTip(it->second);
 
     PruneBlockIndexCandidates();

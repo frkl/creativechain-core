@@ -1605,7 +1605,6 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
     // ********************************************************* Step 10: import blocks
 
     if (!CheckDiskSpace()) {
-        LogPrintf("%s: %s", __func__, "CheckDiskSpace() = false");
         return false;
     }
 
@@ -1638,6 +1637,8 @@ bool AppInitMain(boost::thread_group& threadGroup, CScheduler& scheduler)
             LogPrintf("%s: %s", __func__, "fHaveGenesis = false");
             condvar_GenesisWait.wait(lock);
         }
+        CBlockIndex* genesis = chainActive.Tip();
+        LogPrintf("%s: %s %s", __func__, "GenesisFound =", genesis->ToString());
         uiInterface.NotifyBlockTip.disconnect(BlockNotifyGenesisWait);
     }
 
