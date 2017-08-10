@@ -48,7 +48,7 @@ struct Params {
     int BIP66Height;
 
     int nChangePowHeight;
-    int64_t nDigiShieldPowTargetTimespan;
+    int64_t newPowTargetTimespan;
     uint256 nKeccakPowLimit;
     /**
      * Minimum blocks including miner confirmation of the total of 2016 blocks in a retargeting period,
@@ -68,7 +68,7 @@ struct Params {
     uint256 defaultAssumeValid;
 
     int64_t DifficultyAdjustmentInterval() const { return nPowTargetTimespan / nPowTargetSpacing; }
-    int64_t DifficultyAdjustmentIntervalV2() const { return nDigiShieldPowTargetTimespan / nPowTargetSpacing; }
+    int64_t DifficultyAdjustmentIntervalV2() const { return newPowTargetTimespan / nPowTargetSpacing; }
 
     bool IsChangePowActive(int height) const {
         return height >= nChangePowHeight;

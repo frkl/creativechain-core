@@ -157,7 +157,7 @@ public:
         consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; // 1 day
         consensus.nPowTargetSpacing = 1 * 60;
         consensus.nChangePowHeight = 150;
-        consensus.nDigiShieldPowTargetTimespan = 1 * 60;
+        consensus.newPowTargetTimespan = 1 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains

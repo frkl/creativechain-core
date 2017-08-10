@@ -76,10 +76,10 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         int64_t nActualTimespan = pindexLast->GetBlockTime() - nFirstBlockTime;
         arith_uint256 bnPowLimit = UintToArith256(params.nKeccakPowLimit);
 
-        if (nActualTimespan < params.nDigiShieldPowTargetTimespan/4)
-            nActualTimespan = params.nDigiShieldPowTargetTimespan/4;
-        if (nActualTimespan > params.nDigiShieldPowTargetTimespan*4)
-            nActualTimespan = params.nDigiShieldPowTargetTimespan*4;
+        if (nActualTimespan < params.newPowTargetTimespan/4)
+            nActualTimespan = params.newPowTargetTimespan/4;
+        if (nActualTimespan > params.newPowTargetTimespan*4)
+            nActualTimespan = params.newPowTargetTimespan*4;
 
         arith_uint256 bnNew;
 
@@ -93,7 +93,7 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         arith_uint256 bnOld = bnNew;
 
         bnNew *= nActualTimespan;
-        bnNew /= params.nDigiShieldPowTargetTimespan;
+        bnNew /= params.newPowTargetTimespan;
 
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
