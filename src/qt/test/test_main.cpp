@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
         fInvalid = true;
 #ifdef ENABLE_WALLET
     PaymentServerTests test2;
-    if (QTest::qExec(&test3) != 0)
+    if (QTest::qExec(&test2) != 0)
         fInvalid = true;
 #endif
     RPCNestedTests test3;
