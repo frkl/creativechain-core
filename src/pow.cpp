@@ -138,14 +138,15 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
     }
 }
 
-bool CheckProofOfWork(uint256 hash, unsigned int nBits, int height, const Consensus::Params& params)
+bool CheckProofOfWork(const CBlockHeader& block, unsigned int nBits, const Consensus::Params& params)
 {
     bool fNegative;
     bool fOverflow;
+    uint256 hash = block.GetPoWHash();
     arith_uint256 bnTarget;
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
-    uint256 powLimit = params.GetPowLimit(height);
+    uint256 powLimit = block.HasNewPowVersion() ? params.nKeccakPowLimit : params.powLimit;
 
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(powLimit)) {

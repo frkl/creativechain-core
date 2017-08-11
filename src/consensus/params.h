@@ -78,10 +78,6 @@ struct Params {
         return IsChangePowActive(height) ? DifficultyAdjustmentIntervalV2() : DifficultyAdjustmentInterval();
     }
 
-    uint256 GetPowLimit(int height) const {
-        return IsChangePowActive(height) ? nKeccakPowLimit : powLimit;
-    }
-
 };
 
 

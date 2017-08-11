@@ -1135,24 +1135,7 @@ bool WriteBlockToDisk(const CBlock& block, CDiskBlockPos& pos, const CMessageHea
     fileout << block;
 
     return true;
-}
 
-CBlockIndex* GetPrevBlockIndex(const CBlockHeader& block) {
-    // Get prev block index
-
-    CBlockIndex* pindexPrev = NULL;
-    BlockMap::iterator mi = mapBlockIndex.find(block.hashPrevBlock);
-    if (mi == mapBlockIndex.end()) {
-        return NULL;
-    }
-
-    pindexPrev = (*mi).second;
-    if (pindexPrev->nStatus & BLOCK_FAILED_MASK) {
-        return NULL;
-    }
-
-    return pindexPrev;
-}
 
 bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus::Params& consensusParams)
 {
@@ -1171,14 +1154,8 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
         return error("%s: Deserialize or I/O error - %s at %s", __func__, e.what(), pos.ToString());
     }
 
-    int height = 0;
-    if (block.GetHash() != consensusParams.hashGenesisBlock) {
-        CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
-        height = pindexPrev->nHeight+1;
-    }
-
     // Check the header
-    if (!CheckProofOfWork(block.GetPoWHash(), block.nBits, height, consensusParams))
+    if (!CheckProofOfWork(block, block.nBits, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
 
     return true;
@@ -2908,14 +2885,8 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const Consensus::Params& consensusParams, bool fCheckPOW)
 {
 
-    int height = 0;
-    if (block.GetHash() != consensusParams.hashGenesisBlock) {
-        CBlockIndex* pindexPrev = GetPrevBlockIndex(block);
-        height = pindexPrev->nHeight+1;
-    }
-
     // Check proof of work matches claimed amount
-    if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(), block.nBits, height, consensusParams)) {
+    if (fCheckPOW && !CheckProofOfWork(block, block.nBits, consensusParams)) {
         error("%s: Invalid hash %s, proof of work failed", __func__, block.GetPoWHash().ToString().c_str());
         return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
     }
