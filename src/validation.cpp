@@ -3016,7 +3016,8 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
                              strprintf("rejected nVersion=0x%08x block", block.nVersion));
 
     if (consensusParams.IsChangePowActive(nHeight) && !block.HasNewPowVersion()) {
-        return state.DoS(100, false, REJECT_INVALID, strprintf("bad-version(0x%08x)", block.nVersion), false, strprintf("rejected nVersion=0x%08x block", block.nVersion));
+        return state.DoS(100, false, REJECT_OBSOLETE, strprintf("bad-version(0x%08x) from height %d", block.nVersion, nHeight),
+                         false, strprintf("rejected block %d with nVersion=0x%08x block", nHeight, block.nVersion));
     }
 
     return true;
