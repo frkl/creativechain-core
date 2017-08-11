@@ -115,3 +115,8 @@ contrib/devtools/split-debug.sh
 .idea
 cmake-build-debug
 CMakeLists.txt
+creativechain-core.creator.user
+creativechain-core.creator
+creativechain-core.includes
+creativechain-core.files
+creativechain-core.config
