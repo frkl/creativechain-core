@@ -78,6 +78,8 @@ public:
         consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; // 3.5 days
         consensus.nPowTargetSpacing = 2 * 60;
         consensus.nChangePowHeight = 46368;
+        consensus.BIP65Height = 46368;
+        consensus.BIP66Height = 46368;
         consensus.newPowTargetTimespan = 2 * 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -160,6 +162,8 @@ public:
         consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; // 1 day
         consensus.nPowTargetSpacing = 1 * 60;
         consensus.nChangePowHeight = 720;
+        consensus.BIP65Height = 720;
+        consensus.BIP66Height = 720;
         consensus.newPowTargetTimespan = 1 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
