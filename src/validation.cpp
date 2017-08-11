@@ -1165,14 +1165,50 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
-    int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
-    // Force block reward to zero when right shift is undefined.
-    if (halvings >= 64)
-        return 0;
+    CAmount nSubsidy = 0 * COIN;
 
-    CAmount nSubsidy = 50 * COIN;
-    // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
-    nSubsidy >>= halvings;
+    //Creativechain reward design with fibonachi progress the firt year
+    if(nHeight < 2) // The first block pre-mine, for the manteniance of the plattform and incentive the content publication
+        nSubsidy = 12226641 * COIN;
+    if(nHeight <= 6765 && nHeight > 1)
+        nSubsidy = 1 * COIN;
+    if(nHeight <= 10946 && nHeight > 6765)
+        nSubsidy = 1 * COIN;
+    if(nHeight <= 17711 && nHeight > 10946)
+        nSubsidy = 2 * COIN;
+    if(nHeight <= 28657 && nHeight > 17711)
+        nSubsidy = 3 * COIN;
+    if(nHeight <= 46368 && nHeight > 28657)
+        nSubsidy = 5 * COIN;
+    if(nHeight <= 75025 && nHeight > 46368)
+        nSubsidy = 8 * COIN;
+    if(nHeight <= 121393 && nHeight > 75025)
+        nSubsidy = 13 * COIN;
+    if(nHeight <= 196418 && nHeight > 121393)
+        nSubsidy = 21 * COIN;
+    if(nHeight <= 317811 && nHeight > 196148)
+        nSubsidy = 34 * COIN;
+    if(nHeight <= 514229 && nHeight > 317811)
+        nSubsidy = 55 * COIN;
+    if(nHeight <= 832040 && nHeight > 514229)
+        nSubsidy = 34 * COIN;
+    if(nHeight <= 1346269 && nHeight > 832040)
+        nSubsidy = 21 * COIN;
+    if(nHeight <= 2178309 && nHeight > 1346269)
+        nSubsidy = 13 * COIN;
+    if(nHeight <= 3524578 && nHeight > 2178309)
+        nSubsidy = 8 * COIN;
+    if(nHeight <= 5702887 && nHeight > 3524578)
+        nSubsidy = 5 * COIN;
+    if(nHeight <= 9227465 && nHeight > 5702887)
+        nSubsidy = 3 * COIN;
+    if(nHeight <= 14930352 && nHeight > 9227465)
+        nSubsidy = 2 * COIN;
+    if(nHeight <= 24157817 && nHeight > 14930352)
+        nSubsidy = 1 * COIN;
+
+
+
     return nSubsidy;
 }
 
