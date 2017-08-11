@@ -1116,8 +1116,7 @@ bool GetTransaction(const uint256 &hash, CTransactionRef &txOut, const Consensus
 // CBlock and CBlockIndex
 //
 
-bool WriteBlockToDisk(const CBlock& block, CDiskBlockPos& pos, const CMessageHeader::MessageStartChars& messageStart)
-{
+bool WriteBlockToDisk(const CBlock& block, CDiskBlockPos& pos, const CMessageHeader::MessageStartChars& messageStart) {
     // Open history file to append
     CAutoFile fileout(OpenBlockFile(pos), SER_DISK, CLIENT_VERSION);
     if (fileout.IsNull())
@@ -1131,11 +1130,11 @@ bool WriteBlockToDisk(const CBlock& block, CDiskBlockPos& pos, const CMessageHea
     long fileOutPos = ftell(fileout.Get());
     if (fileOutPos < 0)
         return error("WriteBlockToDisk: ftell failed");
-    pos.nPos = (unsigned int)fileOutPos;
+    pos.nPos = (unsigned int) fileOutPos;
     fileout << block;
 
     return true;
-
+}
 
 bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus::Params& consensusParams)
 {
