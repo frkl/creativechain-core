@@ -53,7 +53,7 @@ std::string GetWarnings(const std::string& strFor)
     LOCK(cs_warnings);
 
     if (!CLIENT_VERSION_IS_RELEASE) {
-        LogPrintf("%s: %s = %d" __func__, "CLIENT_VERSION_IS_RELEASE", CLIENT_VERSION_IS_RELEASE);
+        LogPrintf("%s: %s = %d", __func__, "CLIENT_VERSION_IS_RELEASE", CLIENT_VERSION_IS_RELEASE);
         strStatusBar = "This is a pre-release test build - use at your own risk - do not use for mining or merchant applications";
         strGUI = _("This is a pre-release test build - use at your own risk - do not use for mining or merchant applications");
     }
