@@ -65,7 +65,7 @@ public:
     }
 
     bool HasNewPowVersion() const {
-        return (nVersion & BLOCK_VERSION_DEFAULT) == BLOCK_VERSION_DEFAULT;
+        return (nVersion & BLOCK_VERSION_KECCAK) == BLOCK_VERSION_KECCAK;
     }
 
     uint256 GetHash() const;
