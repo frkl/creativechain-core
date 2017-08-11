@@ -94,15 +94,12 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
             bnNew.SetCompact(bnPowLimit.GetCompact());
         }
 
-        arith_uint256 bnOld = bnNew;
-
         bnNew *= nActualTimespan;
         bnNew /= params.newPowTargetTimespan;
 
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
-        LogPrintf("%s: Calculating new diff: old = %x, new = %x\n", "New PoW", bnOld.GetCompact(), bnNew.GetCompact());
         return bnNew.GetCompact();
     } else {
         // Retarget
