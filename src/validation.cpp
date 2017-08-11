@@ -1178,7 +1178,7 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
     }
 
     // Check the header
-    if (!CheckProofOfWork(block.GetPoWHash(consensusParams, height), block.nBits, height, consensusParams))
+    if (!CheckProofOfWork(block.GetPoWHash(), block.nBits, height, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
 
     return true;
@@ -1768,6 +1768,10 @@ int32_t ComputeBlockVersion(const CBlockIndex* pindexPrev, const Consensus::Para
         if (state == THRESHOLD_LOCKED_IN || state == THRESHOLD_STARTED) {
             nVersion |= VersionBitsMask(params, (Consensus::DeploymentPos)i);
         }
+    }
+
+    if (params.IsChangePowActive(pindexPrev->nHeight+1)) {
+        nVersion |= BLOCK_VERSION_KECCAK;
     }
 
     return nVersion;
@@ -2911,8 +2915,8 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, const 
     }
 
     // Check proof of work matches claimed amount
-    if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(consensusParams, height), block.nBits, height, consensusParams)) {
-        error("%s: Invalid hash %s, proof of work failed", __func__, block.GetPoWHash(consensusParams, height).ToString().c_str());
+    if (fCheckPOW && !CheckProofOfWork(block.GetPoWHash(), block.nBits, height, consensusParams)) {
+        error("%s: Invalid hash %s, proof of work failed", __func__, block.GetPoWHash().ToString().c_str());
         return state.DoS(50, false, REJECT_INVALID, "high-hash", false, "proof of work failed");
     }
 
@@ -3094,6 +3098,11 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if (block.nVersion < VERSIONBITS_TOP_BITS && IsWitnessEnabled(pindexPrev, consensusParams))
         return state.Invalid(false, REJECT_OBSOLETE, strprintf("bad-version(0x%08x)", block.nVersion),
                              strprintf("rejected nVersion=0x%08x block", block.nVersion));
+
+    //If the new pow is activate reject new blocks with old algo
+    if (consensusParams.IsChangePowActive(nHeight) && !block.HasNewPowVersion()) {
+        return state.DoS(100, false, REJECT_INVALID, strprintf("bad-version(0x%08x)", block.nVersion), false, strprintf("rejected nVersion=0x%08x block", block.nVersion));
+    }
 
     return true;
 }

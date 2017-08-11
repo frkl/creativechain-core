@@ -13,19 +13,23 @@
 #include "sph_keccak.h"
 #include "streams.h"
 #include "consensus/consensus.h"
-#include "consensus/params.h"
+#include "block.h"
 
 
 uint256 CBlockHeader::GetHash() const
 {
-    return SerializeHash(*this);
+    if (!HasNewPowVersion()) {
+        return SerializeHash(*this);
+    } else {
+        return SerializeKeccakHash(*this);
+    }
 }
 
-uint256 CBlockHeader::GetPoWHash(const Consensus::Params& params, int height) const
+uint256 CBlockHeader::GetPoWHash() const
 {
 
     uint256 thash;
-    if (!params.IsChangePowActive(height)) {
+    if (!HasNewPowVersion()) {
         scrypt_1024_1_1_256(BEGIN(nVersion), BEGIN(thash));
     } else {
         thash = SerializeKeccakHash(*this);
