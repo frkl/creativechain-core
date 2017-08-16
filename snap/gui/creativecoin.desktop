@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=creativecoin
+Exec=creativecoin -qwindowtitle "%c"
+Type=Application
