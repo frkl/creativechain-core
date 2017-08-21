@@ -191,10 +191,8 @@ uint256 SerializeKeccakHash(const T& obj) {
     sph_keccak256_context ctx_keccak;
     uint256 hash;
 
-    printf("DEBUG::sizeof(T) = %d\n", sizeof(T));
-
     sph_keccak256_init(&ctx_keccak);
-    sph_keccak256(&ctx_keccak, (void*)&*BEGIN(obj), sizeof(T));
+    sph_keccak256(&ctx_keccak, (void*)&*BEGIN(obj), 80); // sizeof(CBlockHeader) = 80 bytes
     sph_keccak256_close(&ctx_keccak, static_cast<void*>(&hash));
 
     return hash;
