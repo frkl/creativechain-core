@@ -187,14 +187,14 @@ uint256 SerializeScryptHash(const T& obj, int nType=SER_GETHASH, int nVersion=PR
 
 template<typename T>
 uint256 SerializeKeccakHash(const T& obj) {
-    CDataStream ss(SER_GETHASH, PROTOCOL_VERSION);
-    ss << obj;
 
     sph_keccak256_context ctx_keccak;
     uint256 hash;
 
+    printf("DEBUG::sizeof(T) = %d\n", sizeof(T));
+
     sph_keccak256_init(&ctx_keccak);
-    sph_keccak256(&ctx_keccak, (void*)&*ss.begin(), ss.size());
+    sph_keccak256(&ctx_keccak, (void*)&*BEGIN(obj), sizeof(T));
     sph_keccak256_close(&ctx_keccak, static_cast<void*>(&hash));
 
     return hash;
