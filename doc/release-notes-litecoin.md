@@ -8,7 +8,7 @@ and performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/creativecoin-project/creativecoin/issues>
+  <https://github.com/creativechain/creativechain-core/issues>
 
 To receive security and update notifications, please subscribe to:
 
@@ -57,7 +57,7 @@ Testnet faucets can be located at:
 - http://testnet.creativecointools.com
 - http://testnet.thrasher.io
 
-Developers who require the new testnet blockchain paramaters can find them [here](https://github.com/creativecoin-project/creativecoin/blob/master/src/chainparams.cpp#L220).
+Developers who require the new testnet blockchain paramaters can find them [here](https://github.com/creativechain/creativechain-core/blob/master/src/chainparams.cpp#L220).
 
 Performance Improvements
 --------------
@@ -125,7 +125,7 @@ ZMQ On Windows
 
 Previously the ZeroMQ notification system was unavailable on Windows
 due to various issues with ZMQ. These have been fixed upstream and
-now ZMQ can be used on Windows. Please see [this document](https://github.com/creativecoin-project/creativecoin/blob/master/doc/zmq.md) for
+now ZMQ can be used on Windows. Please see [this document](https://github.com/creativechain/creativechain-core/blob/master/doc/zmq.md) for
 help with using ZMQ in general.
 
 Nested RPC Commands in Debug Console

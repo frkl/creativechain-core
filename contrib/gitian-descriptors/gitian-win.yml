@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/creativecoin-project/creativecoin.git"
+- "url": "https://github.com/creativechain/creativechain-core.git"
   "dir": "creativecoin"
 files: []
 script: |

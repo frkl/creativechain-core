@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/creativecoin-project/creativecoin-detached-sigs.git"
+- "url": "https://github.com/creativechain/creativechain-core-detached-sigs.git"
   "dir": "signature"
 files:
 - "creativecoin-osx-unsigned.tar.gz"

@@ -30,7 +30,7 @@ Build Creativecoin Core
 
 1. Clone the creativecoin source code and cd into `creativecoin`
 
-        git clone https://github.com/creativecoin-project/creativecoin
+        git clone https://github.com/creativechain/creativechain-core
         cd creativecoin
 
 2.  Build creativecoin-core:
