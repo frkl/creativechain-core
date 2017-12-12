@@ -130,7 +130,6 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
         if (bnNew > bnPowLimit)
             bnNew = bnPowLimit;
 
-        LogPrintf("%s: Calculating new diff: old = %x, new = %x", "SCrypt\n", bnOld.GetCompact(), bnNew.GetCompact());
         return bnNew.GetCompact();
     }
 }
