@@ -141,10 +141,27 @@ public:
         fMineBlocksOnDemand = false;
 
         checkpointData = (CCheckpointData) {
-            boost::assign::map_list_of
-            ( 30000, uint256S("0x70fd7c86f1fc1d63148eb459c97d4d1515b1ad98c0142f24146dc3c05c7d60b4"))
-            
+            {
+                {  10000, uint256S("0x2a6b7fc3dff0b81e7c71f81a98d8643f1d1cf39d0c8bf002e0b5926319afa3e8")},
+                {  20000, uint256S("0x016d985026c4e672fe42e918169641327432a594c6f104312dd4482718b5dcb0")},
+                {  30000, uint256S("0x70fd7c86f1fc1d63148eb459c97d4d1515b1ad98c0142f24146dc3c05c7d60b4")},
+                {  40000, uint256S("0xd93554ed905b9d25cddb47f5148499411fb3a92e6715f9f70a785d54af4b4d6d")},
+                {  50000, uint256S("0x0000000001bb93f0d708f0333ce71311210d738a8ec80038d76f7a2a0c37b923")},
+                {  60000, uint256S("0x000000000004e9d5f9bdc73495d1402cc23af4a4750fa5f61ae8c22d08c1d23e")},
+                {  70000, uint256S("0x0000000000031c51e63536f43a6c87d45ca93c358c657b52d540c6f750fa6776")},
+                {  80000, uint256S("0x000000000000d0b79d1cc6a65b632de34a94011c6e6e83eb14ea07aafd386ba8")},
+                {  90000, uint256S("0x000000000002b7d600c07c5e0dc74e01611b12df88bb72622dd85d1bc76536e6")},
+            }
         };
+        
+        chainTxData = ChainTxData{
+            // Data as of block 000000000000982e7127de07a8f6e3aa8d9198612fb80bf9e14c6c8dfe98f991 (height 99458).
+            1513084748, // * UNIX timestamp of last known number of transactions
+            181521,  // * total number of transactions between genesis and that timestamp
+                    //   (the tx=... number in the SetBestChain debug.log lines)
+            0.009316965     // * estimated number of transactions per second after that timestamp
+        };
+
 
     }
 };
@@ -225,10 +242,26 @@ public:
 
 
         checkpointData = (CCheckpointData) {
-            boost::assign::map_list_of
-            ( 0, uint256S("0xae48f41a796dfffad00bfdb10c6597cb380f5a49681ced87777084cd75076c6f"))
+            {
+                {  10000, uint256S("0x0000000056b647612ebb86a3801355434bfd35b154470216c99349e46fce9f04")},
+                {  20000, uint256S("0x0000000165fa56efc3881784bfba4862ed99eb67d5a1d2c01c770f670b2c340f")},
+                {  30000, uint256S("0x0000000216eb631a46b256f2773a94e27dfa9bd50b669f2f190fe659a9f5f8c0")},
+                {  40000, uint256S("0x00000000bd532da342fe8e1dfe6fc9f1acd190591618005f282aac9801235189")},
+                {  50000, uint256S("0x000000068f4e6c136a6f07921b118602ad5eabe85b384e26a6663a2de49a5631")},
+                {  60000, uint256S("0x000000029f3dfcd5cadceeba63cd2a4b6982f92116e2f09ac25816a2a2942fdb")},
+                {  70000, uint256S("0x00000002feb295c4a4b641452b8a71b8bad0502a14d98a85bd34ebc433b3446f")},
+                {  80000, uint256S("0x00000039d129486dc1d08267103ad93b2d984bfa53dc7975afbe01f6ab0a6784")},
+                {  90000, uint256S("0x0000006d394f7e082f639fa1a679a8d5b0f971b2738fbeaf860df3a0c833c341")},
+            }
         };
-
+        
+        chainTxData = ChainTxData{
+            // Data as of block 000000258f125f49ec0ef3d24b043e597941c9decd53b43c44d36b613ab331e1 (height 91140).
+            1513085882, // * UNIX timestamp of last known number of transactions
+            101463,  // * total number of transactions between genesis and that timestamp
+                    //   (the tx=... number in the SetBestChain debug.log lines)
+            0.005206146     // * estimated number of transactions per second after that timestamp
+        };
     }
 };
 static CTestNetParams testNetParams;
