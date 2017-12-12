@@ -204,7 +204,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1517356801; // January 31st, 2018
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000006fce5d67766e");
+        //consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000006fce5d67766e");
 
         pchMessageStart[0] = 0xca;
         pchMessageStart[1] = 0xca;
@@ -222,8 +222,8 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("owldevelopers.site", "testnet-seed.owldevelopers.site"));
-        vSeeds.push_back(CDNSSeedData("creativechain.net", "testnet-seed.creativechain.net", true));
+        vSeeds.push_back(CDNSSeedData("testnet-seed.owldevelopers.site", true));
+        vSeeds.push_back(CDNSSeedData("testnet-seed.creativechain.net", true));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,87);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);

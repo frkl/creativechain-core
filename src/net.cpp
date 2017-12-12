@@ -1608,7 +1608,7 @@ void CConnman::ThreadDNSAddressSeed()
             // resolve is not required at all.
             if (!vIPs.empty()) {
                 CService seedSource;
-                Lookup(seed.name.c_str(), seedSource, 0, true);
+                Lookup(seed.host.c_str(), seedSource, 0, true);
                 addrman.Add(vAdd, seedSource);
             }
         }
