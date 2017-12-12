@@ -119,3 +119,6 @@ creativechain-core.creator
 creativechain-core.includes
 creativechain-core.files
 creativechain-core.config
+
+#For NetBeans
+nbproject
