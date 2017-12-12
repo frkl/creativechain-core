@@ -1223,21 +1223,26 @@ bool IsInitialBlockDownload()
         return false;
 
     LOCK(cs_main);
-    if (latchToFalse.load(std::memory_order_relaxed))
+    if (latchToFalse.load(std::memory_order_relaxed)) {
         error("IsInitialBlockDownload: latchToFalse, false");
         return false;
-    if (fImporting || fReindex)
+    }
+    if (fImporting || fReindex) {
         error("IsInitialBlockDownload: fImporting || fReindex, true");
         return true;
-    if (chainActive.Tip() == NULL)
+    }
+    if (chainActive.Tip() == NULL) {
         error("IsInitialBlockDownload: chainActive.Tip() == NULL, true");
         return true;
-    if (chainActive.Tip()->nChainWork < UintToArith256(chainParams.GetConsensus().nMinimumChainWork))
+    }
+    if (chainActive.Tip()->nChainWork < UintToArith256(chainParams.GetConsensus().nMinimumChainWork)) {
         error("IsInitialBlockDownload: nChainWork < nMinimumChainWork, true");
         return true;
-    if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge))
+    }
+    if (chainActive.Tip()->GetBlockTime() < (GetTime() - nMaxTipAge)) {
         error("IsInitialBlockDownload: GetBlockTime() < (GetTime() - nMaxTipAge), true");
         return true;
+    }
     latchToFalse.store(true, std::memory_order_relaxed);
     return false;
 }
