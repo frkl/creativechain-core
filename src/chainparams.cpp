@@ -223,7 +223,7 @@ public:
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
         vSeeds.push_back(CDNSSeedData("testnet-seed.creativecoin.net", true));
-        vSeeds.push_back(CDNSSeedData("testnet-seed.owldevelopers.site", true));
+        vSeeds.push_back(CDNSSeedData("tcreaseed.owldevelopers.site", true));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,87);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
