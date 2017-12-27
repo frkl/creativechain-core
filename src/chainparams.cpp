@@ -175,8 +175,8 @@ public:
     CTestNetParams() {
         strNetworkID = "test";
         consensus.nSubsidyHalvingInterval = 840000;
-        consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("0xae48f41a796dfffad00bfdb10c6597cb380f5a49681ced87777084cd75076c6f");
+        consensus.BIP34Height = -1;
+        consensus.BIP34Hash = uint256();
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nKeccakPowLimit = uint256S("000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 1 * 24 * 60 * 60; // 1 day
@@ -213,10 +213,10 @@ public:
         nDefaultPort = 11946;
         nPruneAfterHeight = 1000;
 
-        genesis = CreateGenesisBlock(1493596800, 560278, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1514393320, 201857, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
         //printf("%s\n", genesis.GetHash().ToString().c_str());
-        assert(consensus.hashGenesisBlock == uint256S("0xae48f41a796dfffad00bfdb10c6597cb380f5a49681ced87777084cd75076c6f"));
+        assert(consensus.hashGenesisBlock == uint256S("0x6b8df01948eb6a90f947f99afd4d593b65f9feb7b98a9ba4e372da7d33142c2e"));
         assert(genesis.hashMerkleRoot == uint256S("0x21f22d67cd6e1ab2c122f16e50dd885450ff06f86885d2770dbc2447916cec11"));
 
         vFixedSeeds.clear();
@@ -241,7 +241,11 @@ public:
         fMineBlocksOnDemand = false;
 
 
-        checkpointData = (CCheckpointData) {
+	checkpointData = (CCheckpointData){
+                boost::assign::map_list_of
+                        ( 0, uint256S("0xae48f41a796dfffad00bfdb10c6597cb380f5a49681ced87777084cd75076c6f"))
+};
+        /*checkpointData = (CCheckpointData) {
             {
                 {  10000, uint256S("0x0000000056b647612ebb86a3801355434bfd35b154470216c99349e46fce9f04")},
                 {  20000, uint256S("0x0000000165fa56efc3881784bfba4862ed99eb67d5a1d2c01c770f670b2c340f")},
@@ -253,14 +257,14 @@ public:
                 {  80000, uint256S("0x00000039d129486dc1d08267103ad93b2d984bfa53dc7975afbe01f6ab0a6784")},
                 {  90000, uint256S("0x0000006d394f7e082f639fa1a679a8d5b0f971b2738fbeaf860df3a0c833c341")},
             }
-        };
+        };*/
         
         chainTxData = ChainTxData{
             // Data as of block 000000258f125f49ec0ef3d24b043e597941c9decd53b43c44d36b613ab331e1 (height 91140).
             1513085882, // * UNIX timestamp of last known number of transactions
-            101463,  // * total number of transactions between genesis and that timestamp
+            0,  // * total number of transactions between genesis and that timestamp
                     //   (the tx=... number in the SetBestChain debug.log lines)
-            0.005206146     // * estimated number of transactions per second after that timestamp
+            0     // * estimated number of transactions per second after that timestamp
         };
     }
 };
